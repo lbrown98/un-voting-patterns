@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
@@ -772,12 +771,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 /* <DEPRECATED> */ .p-TabBar[data-orientation='horizontal'], /* </DEPRECATED> */
 .lm-TabBar[data-orientation='horizontal'] {
   flex-direction: row;
+  align-items: flex-end;
 }
 
 
 /* <DEPRECATED> */ .p-TabBar[data-orientation='vertical'], /* </DEPRECATED> */
 .lm-TabBar[data-orientation='vertical'] {
   flex-direction: column;
+  align-items: flex-end;
 }
 
 
@@ -847,6 +848,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 }
 
 
+.lm-TabBar-addButton.lm-mod-hidden {
+  display: none !important;
+}
+
+
 /* <DEPRECATED> */ .p-TabBar.p-mod-dragging .p-TabBar-tab, /* </DEPRECATED> */
 .lm-TabBar.lm-mod-dragging .lm-TabBar-tab {
   position: relative;
@@ -876,6 +882,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 /* </DEPRECATED> */
 .lm-TabBar.lm-mod-dragging .lm-TabBar-tab.lm-mod-dragging {
   transition: none;
+}
+
+.lm-TabBar-tabLabel .lm-TabBar-tabInput {
+  user-select: all;
+  width: 100%;
+  box-sizing : border-box;
+  background: inherit;
 }
 
 /*-----------------------------------------------------------------------------
@@ -2571,7 +2584,8 @@ a.bp3-button{
           flex:0 0 auto;
   min-height:40px;
   padding-left:20px;
-  padding-right:5px; }
+  padding-right:5px;
+  z-index:30; }
   .bp3-dialog-header .bp3-icon-large,
   .bp3-dialog-header .bp3-icon{
     color:#5c7080;
@@ -2621,6 +2635,117 @@ a.bp3-button{
           justify-content:flex-end; }
   .bp3-dialog-footer-actions .bp3-button{
     margin-left:10px; }
+.bp3-multistep-dialog-panels{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex; }
+
+.bp3-multistep-dialog-left-panel{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+          flex-direction:column; }
+  .bp3-dark .bp3-multistep-dialog-left-panel{
+    background:#202b33; }
+
+.bp3-multistep-dialog-right-panel{
+  background-color:#f5f8fa;
+  border-left:1px solid rgba(16, 22, 26, 0.15);
+  border-radius:0 0 6px 0;
+  -webkit-box-flex:3;
+      -ms-flex:3;
+          flex:3;
+  min-width:0; }
+  .bp3-dark .bp3-multistep-dialog-right-panel{
+    background-color:#293742;
+    border-left:1px solid rgba(16, 22, 26, 0.4); }
+
+.bp3-multistep-dialog-footer{
+  background-color:#ffffff;
+  border-radius:0 0 6px 0;
+  border-top:1px solid rgba(16, 22, 26, 0.15);
+  padding:10px; }
+  .bp3-dark .bp3-multistep-dialog-footer{
+    background:#30404d;
+    border-top:1px solid rgba(16, 22, 26, 0.4); }
+
+.bp3-dialog-step-container{
+  background-color:#f5f8fa;
+  border-bottom:1px solid rgba(16, 22, 26, 0.15); }
+  .bp3-dark .bp3-dialog-step-container{
+    background:#293742;
+    border-bottom:1px solid rgba(16, 22, 26, 0.4); }
+  .bp3-dialog-step-container.bp3-dialog-step-viewed{
+    background-color:#ffffff; }
+    .bp3-dark .bp3-dialog-step-container.bp3-dialog-step-viewed{
+      background:#30404d; }
+
+.bp3-dialog-step{
+  -webkit-box-align:center;
+      -ms-flex-align:center;
+          align-items:center;
+  background-color:#f5f8fa;
+  border-radius:6px;
+  cursor:not-allowed;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  margin:4px;
+  padding:6px 14px; }
+  .bp3-dark .bp3-dialog-step{
+    background:#293742; }
+  .bp3-dialog-step-viewed .bp3-dialog-step{
+    background-color:#ffffff;
+    cursor:pointer; }
+    .bp3-dark .bp3-dialog-step-viewed .bp3-dialog-step{
+      background:#30404d; }
+  .bp3-dialog-step:hover{
+    background-color:#f5f8fa; }
+    .bp3-dark .bp3-dialog-step:hover{
+      background:#293742; }
+
+.bp3-dialog-step-icon{
+  -webkit-box-align:center;
+      -ms-flex-align:center;
+          align-items:center;
+  background-color:rgba(92, 112, 128, 0.6);
+  border-radius:50%;
+  color:#ffffff;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  height:25px;
+  -webkit-box-pack:center;
+      -ms-flex-pack:center;
+          justify-content:center;
+  width:25px; }
+  .bp3-dark .bp3-dialog-step-icon{
+    background-color:rgba(167, 182, 194, 0.6); }
+  .bp3-active.bp3-dialog-step-viewed .bp3-dialog-step-icon{
+    background-color:#2b95d6; }
+  .bp3-dialog-step-viewed .bp3-dialog-step-icon{
+    background-color:#8a9ba8; }
+
+.bp3-dialog-step-title{
+  color:rgba(92, 112, 128, 0.6);
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1;
+  padding-left:10px; }
+  .bp3-dark .bp3-dialog-step-title{
+    color:rgba(167, 182, 194, 0.6); }
+  .bp3-active.bp3-dialog-step-viewed .bp3-dialog-step-title{
+    color:#2b95d6; }
+  .bp3-dialog-step-viewed:not(.bp3-active) .bp3-dialog-step-title{
+    color:#182026; }
+    .bp3-dark .bp3-dialog-step-viewed:not(.bp3-active) .bp3-dialog-step-title{
+      color:#f5f8fa; }
 .bp3-drawer{
   background:#ffffff;
   -webkit-box-shadow:0 0 0 1px rgba(16, 22, 26, 0.1), 0 4px 8px rgba(16, 22, 26, 0.2), 0 18px 46px 6px rgba(16, 22, 26, 0.2);
@@ -3214,6 +3339,7 @@ a.bp3-button{
         z-index:8; }
   .bp3-control-group .bp3-input-group > .bp3-icon,
   .bp3-control-group .bp3-input-group > .bp3-button,
+  .bp3-control-group .bp3-input-group > .bp3-input-left-container,
   .bp3-control-group .bp3-input-group > .bp3-input-action{
     z-index:16; }
   .bp3-control-group .bp3-select::after,
@@ -4860,7 +4986,11 @@ form{
     color:#182026; }
   .bp3-running-text table tbody tr:first-child th, table.bp3-html-table tbody tr:first-child th,
   .bp3-running-text table tbody tr:first-child td,
-  table.bp3-html-table tbody tr:first-child td{
+  table.bp3-html-table tbody tr:first-child td,
+  .bp3-running-text table tfoot tr:first-child th,
+  table.bp3-html-table tfoot tr:first-child th,
+  .bp3-running-text table tfoot tr:first-child td,
+  table.bp3-html-table tfoot tr:first-child td{
     -webkit-box-shadow:inset 0 1px 0 0 rgba(16, 22, 26, 0.15);
             box-shadow:inset 0 1px 0 0 rgba(16, 22, 26, 0.15); }
   .bp3-dark .bp3-running-text table th, .bp3-running-text .bp3-dark table th, .bp3-dark table.bp3-html-table th{
@@ -4870,7 +5000,13 @@ form{
   .bp3-dark .bp3-running-text table tbody tr:first-child th, .bp3-running-text .bp3-dark table tbody tr:first-child th, .bp3-dark table.bp3-html-table tbody tr:first-child th,
   .bp3-dark .bp3-running-text table tbody tr:first-child td,
   .bp3-running-text .bp3-dark table tbody tr:first-child td,
-  .bp3-dark table.bp3-html-table tbody tr:first-child td{
+  .bp3-dark table.bp3-html-table tbody tr:first-child td,
+  .bp3-dark .bp3-running-text table tfoot tr:first-child th,
+  .bp3-running-text .bp3-dark table tfoot tr:first-child th,
+  .bp3-dark table.bp3-html-table tfoot tr:first-child th,
+  .bp3-dark .bp3-running-text table tfoot tr:first-child td,
+  .bp3-running-text .bp3-dark table tfoot tr:first-child td,
+  .bp3-dark table.bp3-html-table tfoot tr:first-child td{
     -webkit-box-shadow:inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
             box-shadow:inset 0 1px 0 0 rgba(255, 255, 255, 0.15); }
 
@@ -4887,10 +5023,12 @@ table.bp3-html-table.bp3-html-table-bordered th:not(:first-child){
   -webkit-box-shadow:inset 1px 0 0 0 rgba(16, 22, 26, 0.15);
           box-shadow:inset 1px 0 0 0 rgba(16, 22, 26, 0.15); }
 
-table.bp3-html-table.bp3-html-table-bordered tbody tr td{
+table.bp3-html-table.bp3-html-table-bordered tbody tr td,
+table.bp3-html-table.bp3-html-table-bordered tfoot tr td{
   -webkit-box-shadow:inset 0 1px 0 0 rgba(16, 22, 26, 0.15);
           box-shadow:inset 0 1px 0 0 rgba(16, 22, 26, 0.15); }
-  table.bp3-html-table.bp3-html-table-bordered tbody tr td:not(:first-child){
+  table.bp3-html-table.bp3-html-table-bordered tbody tr td:not(:first-child),
+  table.bp3-html-table.bp3-html-table-bordered tfoot tr td:not(:first-child){
     -webkit-box-shadow:inset 1px 1px 0 0 rgba(16, 22, 26, 0.15);
             box-shadow:inset 1px 1px 0 0 rgba(16, 22, 26, 0.15); }
 
@@ -4914,10 +5052,12 @@ table.bp3-html-table.bp3-interactive tbody tr:active td{
   .bp3-dark table.bp3-html-table.bp3-html-table-bordered th:not(:first-child){
     -webkit-box-shadow:inset 1px 0 0 0 rgba(255, 255, 255, 0.15);
             box-shadow:inset 1px 0 0 0 rgba(255, 255, 255, 0.15); }
-  .bp3-dark table.bp3-html-table.bp3-html-table-bordered tbody tr td{
+  .bp3-dark table.bp3-html-table.bp3-html-table-bordered tbody tr td,
+  .bp3-dark table.bp3-html-table.bp3-html-table-bordered tfoot tr td{
     -webkit-box-shadow:inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
             box-shadow:inset 0 1px 0 0 rgba(255, 255, 255, 0.15); }
-    .bp3-dark table.bp3-html-table.bp3-html-table-bordered tbody tr td:not(:first-child){
+    .bp3-dark table.bp3-html-table.bp3-html-table-bordered tbody tr td:not(:first-child),
+    .bp3-dark table.bp3-html-table.bp3-html-table-bordered tfoot tr td:not(:first-child){
       -webkit-box-shadow:inset 1px 1px 0 0 rgba(255, 255, 255, 0.15);
               box-shadow:inset 1px 1px 0 0 rgba(255, 255, 255, 0.15); }
   .bp3-dark table.bp3-html-table.bp3-html-table-bordered.bp3-html-table-striped tbody tr:not(:first-child) td{
@@ -7181,6 +7321,148 @@ body.bp3-overlay-open{
   transition-property:transform, opacity, -webkit-transform;
   -webkit-transition-timing-function:ease;
           transition-timing-function:ease; }
+.bp3-panel-stack2{
+  overflow:hidden;
+  position:relative; }
+
+.bp3-panel-stack2-header{
+  -webkit-box-align:center;
+      -ms-flex-align:center;
+          align-items:center;
+  -webkit-box-shadow:0 1px rgba(16, 22, 26, 0.15);
+          box-shadow:0 1px rgba(16, 22, 26, 0.15);
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -ms-flex-negative:0;
+      flex-shrink:0;
+  height:30px;
+  z-index:1; }
+  .bp3-dark .bp3-panel-stack2-header{
+    -webkit-box-shadow:0 1px rgba(255, 255, 255, 0.15);
+            box-shadow:0 1px rgba(255, 255, 255, 0.15); }
+  .bp3-panel-stack2-header > span{
+    -webkit-box-align:stretch;
+        -ms-flex-align:stretch;
+            align-items:stretch;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-flex:1;
+        -ms-flex:1;
+            flex:1; }
+  .bp3-panel-stack2-header .bp3-heading{
+    margin:0 5px; }
+
+.bp3-button.bp3-panel-stack2-header-back{
+  margin-left:5px;
+  padding-left:0;
+  white-space:nowrap; }
+  .bp3-button.bp3-panel-stack2-header-back .bp3-icon{
+    margin:0 2px; }
+
+.bp3-panel-stack2-view{
+  bottom:0;
+  left:0;
+  position:absolute;
+  right:0;
+  top:0;
+  background-color:#ffffff;
+  border-right:1px solid rgba(16, 22, 26, 0.15);
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:column;
+          flex-direction:column;
+  margin-right:-1px;
+  overflow-y:auto;
+  z-index:1; }
+  .bp3-dark .bp3-panel-stack2-view{
+    background-color:#30404d; }
+  .bp3-panel-stack2-view:nth-last-child(n + 4){
+    display:none; }
+
+.bp3-panel-stack2-push .bp3-panel-stack2-enter, .bp3-panel-stack2-push .bp3-panel-stack2-appear{
+  -webkit-transform:translateX(100%);
+          transform:translateX(100%);
+  opacity:0; }
+
+.bp3-panel-stack2-push .bp3-panel-stack2-enter-active, .bp3-panel-stack2-push .bp3-panel-stack2-appear-active{
+  -webkit-transform:translate(0%);
+          transform:translate(0%);
+  opacity:1;
+  -webkit-transition-delay:0;
+          transition-delay:0;
+  -webkit-transition-duration:400ms;
+          transition-duration:400ms;
+  -webkit-transition-property:opacity, -webkit-transform;
+  transition-property:opacity, -webkit-transform;
+  transition-property:transform, opacity;
+  transition-property:transform, opacity, -webkit-transform;
+  -webkit-transition-timing-function:ease;
+          transition-timing-function:ease; }
+
+.bp3-panel-stack2-push .bp3-panel-stack2-exit{
+  -webkit-transform:translate(0%);
+          transform:translate(0%);
+  opacity:1; }
+
+.bp3-panel-stack2-push .bp3-panel-stack2-exit-active{
+  -webkit-transform:translateX(-50%);
+          transform:translateX(-50%);
+  opacity:0;
+  -webkit-transition-delay:0;
+          transition-delay:0;
+  -webkit-transition-duration:400ms;
+          transition-duration:400ms;
+  -webkit-transition-property:opacity, -webkit-transform;
+  transition-property:opacity, -webkit-transform;
+  transition-property:transform, opacity;
+  transition-property:transform, opacity, -webkit-transform;
+  -webkit-transition-timing-function:ease;
+          transition-timing-function:ease; }
+
+.bp3-panel-stack2-pop .bp3-panel-stack2-enter, .bp3-panel-stack2-pop .bp3-panel-stack2-appear{
+  -webkit-transform:translateX(-50%);
+          transform:translateX(-50%);
+  opacity:0; }
+
+.bp3-panel-stack2-pop .bp3-panel-stack2-enter-active, .bp3-panel-stack2-pop .bp3-panel-stack2-appear-active{
+  -webkit-transform:translate(0%);
+          transform:translate(0%);
+  opacity:1;
+  -webkit-transition-delay:0;
+          transition-delay:0;
+  -webkit-transition-duration:400ms;
+          transition-duration:400ms;
+  -webkit-transition-property:opacity, -webkit-transform;
+  transition-property:opacity, -webkit-transform;
+  transition-property:transform, opacity;
+  transition-property:transform, opacity, -webkit-transform;
+  -webkit-transition-timing-function:ease;
+          transition-timing-function:ease; }
+
+.bp3-panel-stack2-pop .bp3-panel-stack2-exit{
+  -webkit-transform:translate(0%);
+          transform:translate(0%);
+  opacity:1; }
+
+.bp3-panel-stack2-pop .bp3-panel-stack2-exit-active{
+  -webkit-transform:translateX(100%);
+          transform:translateX(100%);
+  opacity:0;
+  -webkit-transition-delay:0;
+          transition-delay:0;
+  -webkit-transition-duration:400ms;
+          transition-duration:400ms;
+  -webkit-transition-property:opacity, -webkit-transform;
+  transition-property:opacity, -webkit-transform;
+  transition-property:transform, opacity;
+  transition-property:transform, opacity, -webkit-transform;
+  -webkit-transition-timing-function:ease;
+          transition-timing-function:ease; }
 .bp3-popover{
   -webkit-box-shadow:0 0 0 1px rgba(16, 22, 26, 0.1), 0 2px 4px rgba(16, 22, 26, 0.2), 0 8px 24px rgba(16, 22, 26, 0.2);
           box-shadow:0 0 0 1px rgba(16, 22, 26, 0.1), 0 2px 4px rgba(16, 22, 26, 0.2), 0 8px 24px rgba(16, 22, 26, 0.2);
@@ -8562,9 +8844,12 @@ span.bp3-popover-target{
   overflow:hidden;
   padding:0 20px 20px;
   pointer-events:none;
-  position:fixed;
   right:0;
   z-index:40; }
+  .bp3-toast-container.bp3-toast-container-in-portal{
+    position:fixed; }
+  .bp3-toast-container.bp3-toast-container-inline{
+    position:absolute; }
   .bp3-toast-container.bp3-toast-container-top{
     top:0; }
   .bp3-toast-container.bp3-toast-container-bottom{
@@ -9080,7 +9365,7 @@ span.bp3-popover-target{
 
 :root {
   --jp-icon-add: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTE5IDEzaC02djZoLTJ2LTZINXYtMmg2VjVoMnY2aDZ2MnoiLz4KICA8L2c+Cjwvc3ZnPgo=);
-  --jp-icon-bug: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTIwIDhoLTIuODFjLS40NS0uNzgtMS4wNy0xLjQ1LTEuODItMS45NkwxNyA0LjQxIDE1LjU5IDNsLTIuMTcgMi4xN0MxMi45NiA1LjA2IDEyLjQ5IDUgMTIgNWMtLjQ5IDAtLjk2LjA2LTEuNDEuMTdMOC40MSAzIDcgNC40MWwxLjYyIDEuNjNDNy44OCA2LjU1IDcuMjYgNy4yMiA2LjgxIDhINHYyaDIuMDljLS4wNS4zMy0uMDkuNjYtLjA5IDF2MUg0djJoMnYxYzAgLjM0LjA0LjY3LjA5IDFINHYyaDIuODFjMS4wNCAxLjc5IDIuOTcgMyA1LjE5IDNzNC4xNS0xLjIxIDUuMTktM0gyMHYtMmgtMi4wOWMuMDUtLjMzLjA5LS42Ni4wOS0xdi0xaDJ2LTJoLTJ2LTFjMC0uMzQtLjA0LS42Ny0uMDktMUgyMFY4em0tNiA4aC00di0yaDR2MnptMC00aC00di0yaDR2MnoiLz4KICA8L2c+Cjwvc3ZnPgo=);
+  --jp-icon-bug: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMganAtaWNvbi1zZWxlY3RhYmxlIiBmaWxsPSIjNjE2MTYxIj4KICAgIDxwYXRoIGQ9Ik0yMCA4aC0yLjgxYy0uNDUtLjc4LTEuMDctMS40NS0xLjgyLTEuOTZMMTcgNC40MSAxNS41OSAzbC0yLjE3IDIuMTdDMTIuOTYgNS4wNiAxMi40OSA1IDEyIDVjLS40OSAwLS45Ni4wNi0xLjQxLjE3TDguNDEgMyA3IDQuNDFsMS42MiAxLjYzQzcuODggNi41NSA3LjI2IDcuMjIgNi44MSA4SDR2MmgyLjA5Yy0uMDUuMzMtLjA5LjY2LS4wOSAxdjFINHYyaDJ2MWMwIC4zNC4wNC42Ny4wOSAxSDR2MmgyLjgxYzEuMDQgMS43OSAyLjk3IDMgNS4xOSAzczQuMTUtMS4yMSA1LjE5LTNIMjB2LTJoLTIuMDljLjA1LS4zMy4wOS0uNjYuMDktMXYtMWgydi0yaC0ydi0xYzAtLjM0LS4wNC0uNjctLjA5LTFIMjBWOHptLTYgOGgtNHYtMmg0djJ6bTAtNGgtNHYtMmg0djJ6Ii8+CiAgPC9nPgo8L3N2Zz4K);
   --jp-icon-build: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTE0LjkgMTcuNDVDMTYuMjUgMTcuNDUgMTcuMzUgMTYuMzUgMTcuMzUgMTVDMTcuMzUgMTMuNjUgMTYuMjUgMTIuNTUgMTQuOSAxMi41NUMxMy41NCAxMi41NSAxMi40NSAxMy42NSAxMi40NSAxNUMxMi40NSAxNi4zNSAxMy41NCAxNy40NSAxNC45IDE3LjQ1Wk0yMC4xIDE1LjY4TDIxLjU4IDE2Ljg0QzIxLjcxIDE2Ljk1IDIxLjc1IDE3LjEzIDIxLjY2IDE3LjI5TDIwLjI2IDE5LjcxQzIwLjE3IDE5Ljg2IDIwIDE5LjkyIDE5LjgzIDE5Ljg2TDE4LjA5IDE5LjE2QzE3LjczIDE5LjQ0IDE3LjMzIDE5LjY3IDE2LjkxIDE5Ljg1TDE2LjY0IDIxLjdDMTYuNjIgMjEuODcgMTYuNDcgMjIgMTYuMyAyMkgxMy41QzEzLjMyIDIyIDEzLjE4IDIxLjg3IDEzLjE1IDIxLjdMMTIuODkgMTkuODVDMTIuNDYgMTkuNjcgMTIuMDcgMTkuNDQgMTEuNzEgMTkuMTZMOS45NjAwMiAxOS44NkM5LjgxMDAyIDE5LjkyIDkuNjIwMDIgMTkuODYgOS41NDAwMiAxOS43MUw4LjE0MDAyIDE3LjI5QzguMDUwMDIgMTcuMTMgOC4wOTAwMiAxNi45NSA4LjIyMDAyIDE2Ljg0TDkuNzAwMDIgMTUuNjhMOS42NTAwMSAxNUw5LjcwMDAyIDE0LjMxTDguMjIwMDIgMTMuMTZDOC4wOTAwMiAxMy4wNSA4LjA1MDAyIDEyLjg2IDguMTQwMDIgMTIuNzFMOS41NDAwMiAxMC4yOUM5LjYyMDAyIDEwLjEzIDkuODEwMDIgMTAuMDcgOS45NjAwMiAxMC4xM0wxMS43MSAxMC44NEMxMi4wNyAxMC41NiAxMi40NiAxMC4zMiAxMi44OSAxMC4xNUwxMy4xNSA4LjI4OTk4QzEzLjE4IDguMTI5OTggMTMuMzIgNy45OTk5OCAxMy41IDcuOTk5OThIMTYuM0MxNi40NyA3Ljk5OTk4IDE2LjYyIDguMTI5OTggMTYuNjQgOC4yODk5OEwxNi45MSAxMC4xNUMxNy4zMyAxMC4zMiAxNy43MyAxMC41NiAxOC4wOSAxMC44NEwxOS44MyAxMC4xM0MyMCAxMC4wNyAyMC4xNyAxMC4xMyAyMC4yNiAxMC4yOUwyMS42NiAxMi43MUMyMS43NSAxMi44NiAyMS43MSAxMy4wNSAyMS41OCAxMy4xNkwyMC4xIDE0LjMxTDIwLjE1IDE1TDIwLjEgMTUuNjhaIi8+CiAgICA8cGF0aCBkPSJNNy4zMjk2NiA3LjQ0NDU0QzguMDgzMSA3LjAwOTU0IDguMzM5MzIgNi4wNTMzMiA3LjkwNDMyIDUuMjk5ODhDNy40NjkzMiA0LjU0NjQzIDYuNTA4MSA0LjI4MTU2IDUuNzU0NjYgNC43MTY1NkM1LjM5MTc2IDQuOTI2MDggNS4xMjY5NSA1LjI3MTE4IDUuMDE4NDkgNS42NzU5NEM0LjkxMDA0IDYuMDgwNzEgNC45NjY4MiA2LjUxMTk4IDUuMTc2MzQgNi44NzQ4OEM1LjYxMTM0IDcuNjI4MzIgNi41NzYyMiA3Ljg3OTU0IDcuMzI5NjYgNy40NDQ1NFpNOS42NTcxOCA0Ljc5NTkzTDEwLjg2NzIgNC45NTE3OUMxMC45NjI4IDQuOTc3NDEgMTEuMDQwMiA1LjA3MTMzIDExLjAzODIgNS4xODc5M0wxMS4wMzg4IDYuOTg4OTNDMTEuMDQ1NSA3LjEwMDU0IDEwLjk2MTYgNy4xOTUxOCAxMC44NTUgNy4yMTA1NEw5LjY2MDAxIDcuMzgwODNMOS4yMzkxNSA4LjEzMTg4TDkuNjY5NjEgOS4yNTc0NUM5LjcwNzI5IDkuMzYyNzEgOS42NjkzNCA5LjQ3Njk5IDkuNTc0MDggOS41MzE5OUw4LjAxNTIzIDEwLjQzMkM3LjkxMTMxIDEwLjQ5MiA3Ljc5MzM3IDEwLjQ2NzcgNy43MjEwNSAxMC4zODI0TDYuOTg3NDggOS40MzE4OEw2LjEwOTMxIDkuNDMwODNMNS4zNDcwNCAxMC4zOTA1QzUuMjg5MDkgMTAuNDcwMiA1LjE3MzgzIDEwLjQ5MDUgNS4wNzE4NyAxMC40MzM5TDMuNTEyNDUgOS41MzI5M0MzLjQxMDQ5IDkuNDc2MzMgMy4zNzY0NyA5LjM1NzQxIDMuNDEwNzUgOS4yNTY3OUwzLjg2MzQ3IDguMTQwOTNMMy42MTc0OSA3Ljc3NDg4TDMuNDIzNDcgNy4zNzg4M0wyLjIzMDc1IDcuMjEyOTdDMi4xMjY0NyA3LjE5MjM1IDIuMDQwNDkgNy4xMDM0MiAyLjA0MjQ1IDYuOTg2ODJMMi4wNDE4NyA1LjE4NTgyQzIuMDQzODMgNS4wNjkyMiAyLjExOTA5IDQuOTc5NTggMi4yMTcwNCA0Ljk2OTIyTDMuNDIwNjUgNC43OTM5M0wzLjg2NzQ5IDQuMDI3ODhMMy40MTEwNSAyLjkxNzMxQzMuMzczMzcgMi44MTIwNCAzLjQxMTMxIDIuNjk3NzYgMy41MTUyMyAyLjYzNzc2TDUuMDc0MDggMS43Mzc3NkM1LjE2OTM0IDEuNjgyNzYgNS4yODcyOSAxLjcwNzA0IDUuMzU5NjEgMS43OTIzMUw2LjExOTE1IDIuNzI3ODhMNi45ODAwMSAyLjczODkzTDcuNzI0OTYgMS43ODkyMkM3Ljc5MTU2IDEuNzA0NTggNy45MTU0OCAxLjY3OTIyIDguMDA4NzkgMS43NDA4Mkw5LjU2ODIxIDIuNjQxODJDOS42NzAxNyAyLjY5ODQyIDkuNzEyODUgMi44MTIzNCA5LjY4NzIzIDIuOTA3OTdMOS4yMTcxOCA0LjAzMzgzTDkuNDYzMTYgNC4zOTk4OEw5LjY1NzE4IDQuNzk1OTNaIi8+CiAgPC9nPgo8L3N2Zz4K);
   --jp-icon-caret-down-empty-thin: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDIwIDIwIj4KCTxnIGNsYXNzPSJqcC1pY29uMyIgZmlsbD0iIzYxNjE2MSIgc2hhcGUtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iPgoJCTxwb2x5Z29uIGNsYXNzPSJzdDEiIHBvaW50cz0iOS45LDEzLjYgMy42LDcuNCA0LjQsNi42IDkuOSwxMi4yIDE1LjQsNi43IDE2LjEsNy40ICIvPgoJPC9nPgo8L3N2Zz4K);
   --jp-icon-caret-down-empty: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIj4KICAgIDxwYXRoIGQ9Ik01LjIsNS45TDksOS43bDMuOC0zLjhsMS4yLDEuMmwtNC45LDVsLTQuOS01TDUuMiw1Ljl6Ii8+CiAgPC9nPgo8L3N2Zz4K);
@@ -9090,7 +9375,7 @@ span.bp3-popover-target{
   --jp-icon-caret-up-empty-thin: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDIwIDIwIj4KCTxnIGNsYXNzPSJqcC1pY29uMyIgZmlsbD0iIzYxNjE2MSIgc2hhcGUtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iPgoJCTxwb2x5Z29uIGNsYXNzPSJzdDEiIHBvaW50cz0iMTUuNCwxMy4zIDkuOSw3LjcgNC40LDEzLjIgMy42LDEyLjUgOS45LDYuMyAxNi4xLDEyLjYgIi8+Cgk8L2c+Cjwvc3ZnPgo=);
   --jp-icon-caret-up: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDE4IDE4Ij4KCTxnIGNsYXNzPSJqcC1pY29uMyIgZmlsbD0iIzYxNjE2MSIgc2hhcGUtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iPgoJCTxwYXRoIGQ9Ik01LjIsMTAuNUw5LDYuOGwzLjgsMy44SDUuMnoiLz4KICA8L2c+Cjwvc3ZnPgo=);
   --jp-icon-case-sensitive: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDIwIDIwIj4KICA8ZyBjbGFzcz0ianAtaWNvbjIiIGZpbGw9IiM0MTQxNDEiPgogICAgPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ii8+CiAgPC9nPgogIDxnIGNsYXNzPSJqcC1pY29uLWFjY2VudDIiIGZpbGw9IiNGRkYiPgogICAgPHBhdGggZD0iTTcuNiw4aDAuOWwzLjUsOGgtMS4xTDEwLDE0SDZsLTAuOSwySDRMNy42LDh6IE04LDkuMUw2LjQsMTNoMy4yTDgsOS4xeiIvPgogICAgPHBhdGggZD0iTTE2LjYsOS44Yy0wLjIsMC4xLTAuNCwwLjEtMC43LDAuMWMtMC4yLDAtMC40LTAuMS0wLjYtMC4yYy0wLjEtMC4xLTAuMi0wLjQtMC4yLTAuNyBjLTAuMywwLjMtMC42LDAuNS0wLjksMC43Yy0wLjMsMC4xLTAuNywwLjItMS4xLDAuMmMtMC4zLDAtMC41LDAtMC43LTAuMWMtMC4yLTAuMS0wLjQtMC4yLTAuNi0wLjNjLTAuMi0wLjEtMC4zLTAuMy0wLjQtMC41IGMtMC4xLTAuMi0wLjEtMC40LTAuMS0wLjdjMC0wLjMsMC4xLTAuNiwwLjItMC44YzAuMS0wLjIsMC4zLTAuNCwwLjQtMC41QzEyLDcsMTIuMiw2LjksMTIuNSw2LjhjMC4yLTAuMSwwLjUtMC4xLDAuNy0wLjIgYzAuMy0wLjEsMC41LTAuMSwwLjctMC4xYzAuMiwwLDAuNC0wLjEsMC42LTAuMWMwLjIsMCwwLjMtMC4xLDAuNC0wLjJjMC4xLTAuMSwwLjItMC4yLDAuMi0wLjRjMC0xLTEuMS0xLTEuMy0xIGMtMC40LDAtMS40LDAtMS40LDEuMmgtMC45YzAtMC40LDAuMS0wLjcsMC4yLTFjMC4xLTAuMiwwLjMtMC40LDAuNS0wLjZjMC4yLTAuMiwwLjUtMC4zLDAuOC0wLjNDMTMuMyw0LDEzLjYsNCwxMy45LDQgYzAuMywwLDAuNSwwLDAuOCwwLjFjMC4zLDAsMC41LDAuMSwwLjcsMC4yYzAuMiwwLjEsMC40LDAuMywwLjUsMC41QzE2LDUsMTYsNS4yLDE2LDUuNnYyLjljMCwwLjIsMCwwLjQsMCwwLjUgYzAsMC4xLDAuMSwwLjIsMC4zLDAuMmMwLjEsMCwwLjIsMCwwLjMsMFY5Ljh6IE0xNS4yLDYuOWMtMS4yLDAuNi0zLjEsMC4yLTMuMSwxLjRjMCwxLjQsMy4xLDEsMy4xLTAuNVY2Ljl6Ii8+CiAgPC9nPgo8L3N2Zz4K);
-  --jp-icon-check: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTkgMTYuMTdMNC44MyAxMmwtMS40MiAxLjQxTDkgMTkgMjEgN2wtMS40MS0xLjQxeiIvPgogIDwvZz4KPC9zdmc+Cg==);
+  --jp-icon-check: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8ZyBjbGFzcz0ianAtaWNvbjMganAtaWNvbi1zZWxlY3RhYmxlIiBmaWxsPSIjNjE2MTYxIj4KICAgIDxwYXRoIGQ9Ik05IDE2LjE3TDQuODMgMTJsLTEuNDIgMS40MUw5IDE5IDIxIDdsLTEuNDEtMS40MXoiLz4KICA8L2c+Cjwvc3ZnPgo=);
   --jp-icon-circle-empty: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTEyIDJDNi40NyAyIDIgNi40NyAyIDEyczQuNDcgMTAgMTAgMTAgMTAtNC40NyAxMC0xMFMxNy41MyAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4eiIvPgogIDwvZz4KPC9zdmc+Cg==);
   --jp-icon-circle: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTggMTgiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPGNpcmNsZSBjeD0iOSIgY3k9IjkiIHI9IjgiLz4KICA8L2c+Cjwvc3ZnPgo=);
   --jp-icon-clear: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8bWFzayBpZD0iZG9udXRIb2xlIj4KICAgIDxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiIC8+CiAgICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI4IiBmaWxsPSJibGFjayIvPgogIDwvbWFzaz4KCiAgPGcgY2xhc3M9ImpwLWljb24zIiBmaWxsPSIjNjE2MTYxIj4KICAgIDxyZWN0IGhlaWdodD0iMTgiIHdpZHRoPSIyIiB4PSIxMSIgeT0iMyIgdHJhbnNmb3JtPSJyb3RhdGUoMzE1LCAxMiwgMTIpIi8+CiAgICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIgbWFzaz0idXJsKCNkb251dEhvbGUpIi8+CiAgPC9nPgo8L3N2Zz4K);
@@ -9098,6 +9383,7 @@ span.bp3-popover-target{
   --jp-icon-code: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyOCAyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnIGNsYXNzPSJqcC1pY29uMyIgZmlsbD0iIzYxNjE2MSI+CgkJPHBhdGggZD0iTTExLjQgMTguNkw2LjggMTRMMTEuNCA5LjRMMTAgOEw0IDE0TDEwIDIwTDExLjQgMTguNlpNMTYuNiAxOC42TDIxLjIgMTRMMTYuNiA5LjRMMTggOEwyNCAxNEwxOCAyMEwxNi42IDE4LjZWMTguNloiLz4KCTwvZz4KPC9zdmc+Cg==);
   --jp-icon-console: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDIwMCAyMDAiPgogIDxnIGNsYXNzPSJqcC1pY29uLWJyYW5kMSBqcC1pY29uLXNlbGVjdGFibGUiIGZpbGw9IiMwMjg4RDEiPgogICAgPHBhdGggZD0iTTIwIDE5LjhoMTYwdjE1OS45SDIweiIvPgogIDwvZz4KICA8ZyBjbGFzcz0ianAtaWNvbi1zZWxlY3RhYmxlLWludmVyc2UiIGZpbGw9IiNmZmYiPgogICAgPHBhdGggZD0iTTEwNSAxMjcuM2g0MHYxMi44aC00MHpNNTEuMSA3N0w3NCA5OS45bC0yMy4zIDIzLjMgMTAuNSAxMC41IDIzLjMtMjMuM0w5NSA5OS45IDg0LjUgODkuNCA2MS42IDY2LjV6Ii8+CiAgPC9nPgo8L3N2Zz4K);
   --jp-icon-copy: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTggMTgiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTExLjksMUgzLjJDMi40LDEsMS43LDEuNywxLjcsMi41djEwLjJoMS41VjIuNWg4LjdWMXogTTE0LjEsMy45aC04Yy0wLjgsMC0xLjUsMC43LTEuNSwxLjV2MTAuMmMwLDAuOCwwLjcsMS41LDEuNSwxLjVoOCBjMC44LDAsMS41LTAuNywxLjUtMS41VjUuNEMxNS41LDQuNiwxNC45LDMuOSwxNC4xLDMuOXogTTE0LjEsMTUuNWgtOFY1LjRoOFYxNS41eiIvPgogIDwvZz4KPC9zdmc+Cg==);
+  --jp-icon-copyright: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCI+CiAgPGcgY2xhc3M9ImpwLWljb24zIiBmaWxsPSIjNjE2MTYxIj4KICAgIDxwYXRoIGQ9Ik0xMS44OCw5LjE0YzEuMjgsMC4wNiwxLjYxLDEuMTUsMS42MywxLjY2aDEuNzljLTAuMDgtMS45OC0xLjQ5LTMuMTktMy40NS0zLjE5QzkuNjQsNy42MSw4LDksOCwxMi4xNCBjMCwxLjk0LDAuOTMsNC4yNCwzLjg0LDQuMjRjMi4yMiwwLDMuNDEtMS42NSwzLjQ0LTIuOTVoLTEuNzljLTAuMDMsMC41OS0wLjQ1LDEuMzgtMS42MywxLjQ0QzEwLjU1LDE0LjgzLDEwLDEzLjgxLDEwLDEyLjE0IEMxMCw5LjI1LDExLjI4LDkuMTYsMTEuODgsOS4xNHogTTEyLDJDNi40OCwyLDIsNi40OCwyLDEyczQuNDgsMTAsMTAsMTBzMTAtNC40OCwxMC0xMFMxNy41MiwyLDEyLDJ6IE0xMiwyMGMtNC40MSwwLTgtMy41OS04LTggczMuNTktOCw4LThzOCwzLjU5LDgsOFMxNi40MSwyMCwxMiwyMHoiLz4KICA8L2c+Cjwvc3ZnPgo=);
   --jp-icon-cut: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTkuNjQgNy42NGMuMjMtLjUuMzYtMS4wNS4zNi0xLjY0IDAtMi4yMS0xLjc5LTQtNC00UzIgMy43OSAyIDZzMS43OSA0IDQgNGMuNTkgMCAxLjE0LS4xMyAxLjY0LS4zNkwxMCAxMmwtMi4zNiAyLjM2QzcuMTQgMTQuMTMgNi41OSAxNCA2IDE0Yy0yLjIxIDAtNCAxLjc5LTQgNHMxLjc5IDQgNCA0IDQtMS43OSA0LTRjMC0uNTktLjEzLTEuMTQtLjM2LTEuNjRMMTIgMTRsNyA3aDN2LTFMOS42NCA3LjY0ek02IDhjLTEuMSAwLTItLjg5LTItMnMuOS0yIDItMiAyIC44OSAyIDItLjkgMi0yIDJ6bTAgMTJjLTEuMSAwLTItLjg5LTItMnMuOS0yIDItMiAyIC44OSAyIDItLjkgMi0yIDJ6bTYtNy41Yy0uMjggMC0uNS0uMjItLjUtLjVzLjIyLS41LjUtLjUuNS4yMi41LjUtLjIyLjUtLjUuNXpNMTkgM2wtNiA2IDIgMiA3LTdWM3oiLz4KICA8L2c+Cjwvc3ZnPgo=);
   --jp-icon-download: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTE5IDloLTRWM0g5djZINWw3IDcgNy03ek01IDE4djJoMTR2LTJINXoiLz4KICA8L2c+Cjwvc3ZnPgo=);
   --jp-icon-edit: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTMgMTcuMjVWMjFoMy43NUwxNy44MSA5Ljk0bC0zLjc1LTMuNzVMMyAxNy4yNXpNMjAuNzEgNy4wNGMuMzktLjM5LjM5LTEuMDIgMC0xLjQxbC0yLjM0LTIuMzRjLS4zOS0uMzktMS4wMi0uMzktMS40MSAwbC0xLjgzIDEuODMgMy43NSAzLjc1IDEuODMtMS44M3oiLz4KICA8L2c+Cjwvc3ZnPgo=);
@@ -9112,6 +9398,7 @@ span.bp3-popover-target{
   --jp-icon-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDIyIDIyIj4KICA8cGF0aCBjbGFzcz0ianAtaWNvbi1icmFuZDQganAtaWNvbi1zZWxlY3RhYmxlLWludmVyc2UiIGZpbGw9IiNGRkYiIGQ9Ik0yLjIgMi4yaDE3LjV2MTcuNUgyLjJ6Ii8+CiAgPHBhdGggY2xhc3M9ImpwLWljb24tYnJhbmQwIGpwLWljb24tc2VsZWN0YWJsZSIgZmlsbD0iIzNGNTFCNSIgZD0iTTIuMiAyLjJ2MTcuNWgxNy41bC4xLTE3LjVIMi4yem0xMi4xIDIuMmMxLjIgMCAyLjIgMSAyLjIgMi4ycy0xIDIuMi0yLjIgMi4yLTIuMi0xLTIuMi0yLjIgMS0yLjIgMi4yLTIuMnpNNC40IDE3LjZsMy4zLTguOCAzLjMgNi42IDIuMi0zLjIgNC40IDUuNEg0LjR6Ii8+Cjwvc3ZnPgo=);
   --jp-icon-inspector: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBjbGFzcz0ianAtaWNvbjMganAtaWNvbi1zZWxlY3RhYmxlIiBmaWxsPSIjNjE2MTYxIiBkPSJNMjAgNEg0Yy0xLjEgMC0xLjk5LjktMS45OSAyTDIgMThjMCAxLjEuOSAyIDIgMmgxNmMxLjEgMCAyLS45IDItMlY2YzAtMS4xLS45LTItMi0yem0tNSAxNEg0di00aDExdjR6bTAtNUg0VjloMTF2NHptNSA1aC00VjloNHY5eiIvPgo8L3N2Zz4K);
   --jp-icon-json: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDIyIDIyIj4KICA8ZyBjbGFzcz0ianAtaWNvbi13YXJuMSBqcC1pY29uLXNlbGVjdGFibGUiIGZpbGw9IiNGOUE4MjUiPgogICAgPHBhdGggZD0iTTIwLjIgMTEuOGMtMS42IDAtMS43LjUtMS43IDEgMCAuNC4xLjkuMSAxLjMuMS41LjEuOS4xIDEuMyAwIDEuNy0xLjQgMi4zLTMuNSAyLjNoLS45di0xLjloLjVjMS4xIDAgMS40IDAgMS40LS44IDAtLjMgMC0uNi0uMS0xIDAtLjQtLjEtLjgtLjEtMS4yIDAtMS4zIDAtMS44IDEuMy0yLTEuMy0uMi0xLjMtLjctMS4zLTIgMC0uNC4xLS44LjEtMS4yLjEtLjQuMS0uNy4xLTEgMC0uOC0uNC0uNy0xLjQtLjhoLS41VjQuMWguOWMyLjIgMCAzLjUuNyAzLjUgMi4zIDAgLjQtLjEuOS0uMSAxLjMtLjEuNS0uMS45LS4xIDEuMyAwIC41LjIgMSAxLjcgMXYxLjh6TTEuOCAxMC4xYzEuNiAwIDEuNy0uNSAxLjctMSAwLS40LS4xLS45LS4xLTEuMy0uMS0uNS0uMS0uOS0uMS0xLjMgMC0xLjYgMS40LTIuMyAzLjUtMi4zaC45djEuOWgtLjVjLTEgMC0xLjQgMC0xLjQuOCAwIC4zIDAgLjYuMSAxIDAgLjIuMS42LjEgMSAwIDEuMyAwIDEuOC0xLjMgMkM2IDExLjIgNiAxMS43IDYgMTNjMCAuNC0uMS44LS4xIDEuMi0uMS4zLS4xLjctLjEgMSAwIC44LjMuOCAxLjQuOGguNXYxLjloLS45Yy0yLjEgMC0zLjUtLjYtMy41LTIuMyAwLS40LjEtLjkuMS0xLjMuMS0uNS4xLS45LjEtMS4zIDAtLjUtLjItMS0xLjctMXYtMS45eiIvPgogICAgPGNpcmNsZSBjeD0iMTEiIGN5PSIxMy44IiByPSIyLjEiLz4KICAgIDxjaXJjbGUgY3g9IjExIiBjeT0iOC4yIiByPSIyLjEiLz4KICA8L2c+Cjwvc3ZnPgo=);
+  --jp-icon-julia: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDMyNSAzMDAiPgogIDxnIGNsYXNzPSJqcC1icmFuZDAganAtaWNvbi1zZWxlY3RhYmxlIiBmaWxsPSIjY2IzYzMzIj4KICAgIDxwYXRoIGQ9Ik0gMTUwLjg5ODQzOCAyMjUgQyAxNTAuODk4NDM4IDI2Ni40MjE4NzUgMTE3LjMyMDMxMiAzMDAgNzUuODk4NDM4IDMwMCBDIDM0LjQ3NjU2MiAzMDAgMC44OTg0MzggMjY2LjQyMTg3NSAwLjg5ODQzOCAyMjUgQyAwLjg5ODQzOCAxODMuNTc4MTI1IDM0LjQ3NjU2MiAxNTAgNzUuODk4NDM4IDE1MCBDIDExNy4zMjAzMTIgMTUwIDE1MC44OTg0MzggMTgzLjU3ODEyNSAxNTAuODk4NDM4IDIyNSIvPgogIDwvZz4KICA8ZyBjbGFzcz0ianAtYnJhbmQwIGpwLWljb24tc2VsZWN0YWJsZSIgZmlsbD0iIzM4OTgyNiI+CiAgICA8cGF0aCBkPSJNIDIzNy41IDc1IEMgMjM3LjUgMTE2LjQyMTg3NSAyMDMuOTIxODc1IDE1MCAxNjIuNSAxNTAgQyAxMjEuMDc4MTI1IDE1MCA4Ny41IDExNi40MjE4NzUgODcuNSA3NSBDIDg3LjUgMzMuNTc4MTI1IDEyMS4wNzgxMjUgMCAxNjIuNSAwIEMgMjAzLjkyMTg3NSAwIDIzNy41IDMzLjU3ODEyNSAyMzcuNSA3NSIvPgogIDwvZz4KICA8ZyBjbGFzcz0ianAtYnJhbmQwIGpwLWljb24tc2VsZWN0YWJsZSIgZmlsbD0iIzk1NThiMiI+CiAgICA8cGF0aCBkPSJNIDMyNC4xMDE1NjIgMjI1IEMgMzI0LjEwMTU2MiAyNjYuNDIxODc1IDI5MC41MjM0MzggMzAwIDI0OS4xMDE1NjIgMzAwIEMgMjA3LjY3OTY4OCAzMDAgMTc0LjEwMTU2MiAyNjYuNDIxODc1IDE3NC4xMDE1NjIgMjI1IEMgMTc0LjEwMTU2MiAxODMuNTc4MTI1IDIwNy42Nzk2ODggMTUwIDI0OS4xMDE1NjIgMTUwIEMgMjkwLjUyMzQzOCAxNTAgMzI0LjEwMTU2MiAxODMuNTc4MTI1IDMyNC4xMDE1NjIgMjI1Ii8+CiAgPC9nPgo8L3N2Zz4K);
   --jp-icon-jupyter-favicon: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUyIiBoZWlnaHQ9IjE2NSIgdmlld0JveD0iMCAwIDE1MiAxNjUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbi13YXJuMCIgZmlsbD0iI0YzNzcyNiI+CiAgICA8cGF0aCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjA3ODk0NywgMTEwLjU4MjkyNykiIGQ9Ik03NS45NDIyODQyLDI5LjU4MDQ1NjEgQzQzLjMwMjM5NDcsMjkuNTgwNDU2MSAxNC43OTY3ODMyLDE3LjY1MzQ2MzQgMCwwIEM1LjUxMDgzMjExLDE1Ljg0MDY4MjkgMTUuNzgxNTM4OSwyOS41NjY3NzMyIDI5LjM5MDQ5NDcsMzkuMjc4NDE3MSBDNDIuOTk5Nyw0OC45ODk4NTM3IDU5LjI3MzcsNTQuMjA2NzgwNSA3NS45NjA1Nzg5LDU0LjIwNjc4MDUgQzkyLjY0NzQ1NzksNTQuMjA2NzgwNSAxMDguOTIxNDU4LDQ4Ljk4OTg1MzcgMTIyLjUzMDY2MywzOS4yNzg0MTcxIEMxMzYuMTM5NDUzLDI5LjU2Njc3MzIgMTQ2LjQxMDI4NCwxNS44NDA2ODI5IDE1MS45MjExNTgsMCBDMTM3LjA4Nzg2OCwxNy42NTM0NjM0IDEwOC41ODI1ODksMjkuNTgwNDU2MSA3NS45NDIyODQyLDI5LjU4MDQ1NjEgTDc1Ljk0MjI4NDIsMjkuNTgwNDU2MSBaIiAvPgogICAgPHBhdGggdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMzczNjgsIDAuNzA0ODc4KSIgZD0iTTc1Ljk3ODQ1NzksMjQuNjI2NDA3MyBDMTA4LjYxODc2MywyNC42MjY0MDczIDEzNy4xMjQ0NTgsMzYuNTUzNDQxNSAxNTEuOTIxMTU4LDU0LjIwNjc4MDUgQzE0Ni40MTAyODQsMzguMzY2MjIyIDEzNi4xMzk0NTMsMjQuNjQwMTMxNyAxMjIuNTMwNjYzLDE0LjkyODQ4NzggQzEwOC45MjE0NTgsNS4yMTY4NDM5IDkyLjY0NzQ1NzksMCA3NS45NjA1Nzg5LDAgQzU5LjI3MzcsMCA0Mi45OTk3LDUuMjE2ODQzOSAyOS4zOTA0OTQ3LDE0LjkyODQ4NzggQzE1Ljc4MTUzODksMjQuNjQwMTMxNyA1LjUxMDgzMjExLDM4LjM2NjIyMiAwLDU0LjIwNjc4MDUgQzE0LjgzMzA4MTYsMzYuNTg5OTI5MyA0My4zMzg1Njg0LDI0LjYyNjQwNzMgNzUuOTc4NDU3OSwyNC42MjY0MDczIEw3NS45Nzg0NTc5LDI0LjYyNjQwNzMgWiIgLz4KICA8L2c+Cjwvc3ZnPgo=);
   --jp-icon-jupyter: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzkiIGhlaWdodD0iNTEiIHZpZXdCb3g9IjAgMCAzOSA1MSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTYzOCAtMjI4MSkiPgogICAgPGcgY2xhc3M9ImpwLWljb24td2FybjAiIGZpbGw9IiNGMzc3MjYiPgogICAgICA8cGF0aCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjM5Ljc0IDIzMTEuOTgpIiBkPSJNIDE4LjI2NDYgNy4xMzQxMUMgMTAuNDE0NSA3LjEzNDExIDMuNTU4NzIgNC4yNTc2IDAgMEMgMS4zMjUzOSAzLjgyMDQgMy43OTU1NiA3LjEzMDgxIDcuMDY4NiA5LjQ3MzAzQyAxMC4zNDE3IDExLjgxNTIgMTQuMjU1NyAxMy4wNzM0IDE4LjI2OSAxMy4wNzM0QyAyMi4yODIzIDEzLjA3MzQgMjYuMTk2MyAxMS44MTUyIDI5LjQ2OTQgOS40NzMwM0MgMzIuNzQyNCA3LjEzMDgxIDM1LjIxMjYgMy44MjA0IDM2LjUzOCAwQyAzMi45NzA1IDQuMjU3NiAyNi4xMTQ4IDcuMTM0MTEgMTguMjY0NiA3LjEzNDExWiIvPgogICAgICA8cGF0aCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjM5LjczIDIyODUuNDgpIiBkPSJNIDE4LjI3MzMgNS45MzkzMUMgMjYuMTIzNSA1LjkzOTMxIDMyLjk3OTMgOC44MTU4MyAzNi41MzggMTMuMDczNEMgMzUuMjEyNiA5LjI1MzAzIDMyLjc0MjQgNS45NDI2MiAyOS40Njk0IDMuNjAwNEMgMjYuMTk2MyAxLjI1ODE4IDIyLjI4MjMgMCAxOC4yNjkgMEMgMTQuMjU1NyAwIDEwLjM0MTcgMS4yNTgxOCA3LjA2ODYgMy42MDA0QyAzLjc5NTU2IDUuOTQyNjIgMS4zMjUzOSA5LjI1MzAzIDAgMTMuMDczNEMgMy41Njc0NSA4LjgyNDYzIDEwLjQyMzIgNS45MzkzMSAxOC4yNzMzIDUuOTM5MzFaIi8+CiAgICA8L2c+CiAgICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgICA8cGF0aCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjY5LjMgMjI4MS4zMSkiIGQ9Ik0gNS44OTM1MyAyLjg0NEMgNS45MTg4OSAzLjQzMTY1IDUuNzcwODUgNC4wMTM2NyA1LjQ2ODE1IDQuNTE2NDVDIDUuMTY1NDUgNS4wMTkyMiA0LjcyMTY4IDUuNDIwMTUgNC4xOTI5OSA1LjY2ODUxQyAzLjY2NDMgNS45MTY4OCAzLjA3NDQ0IDYuMDAxNTEgMi40OTgwNSA1LjkxMTcxQyAxLjkyMTY2IDUuODIxOSAxLjM4NDYzIDUuNTYxNyAwLjk1NDg5OCA1LjE2NDAxQyAwLjUyNTE3IDQuNzY2MzMgMC4yMjIwNTYgNC4yNDkwMyAwLjA4MzkwMzcgMy42Nzc1N0MgLTAuMDU0MjQ4MyAzLjEwNjExIC0wLjAyMTIzIDIuNTA2MTcgMC4xNzg3ODEgMS45NTM2NEMgMC4zNzg3OTMgMS40MDExIDAuNzM2ODA5IDAuOTIwODE3IDEuMjA3NTQgMC41NzM1MzhDIDEuNjc4MjYgMC4yMjYyNTkgMi4yNDA1NSAwLjAyNzU5MTkgMi44MjMyNiAwLjAwMjY3MjI5QyAzLjYwMzg5IC0wLjAzMDcxMTUgNC4zNjU3MyAwLjI0OTc4OSA0Ljk0MTQyIDAuNzgyNTUxQyA1LjUxNzExIDEuMzE1MzEgNS44NTk1NiAyLjA1Njc2IDUuODkzNTMgMi44NDRaIi8+CiAgICAgIDxwYXRoIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2MzkuOCAyMzIzLjgxKSIgZD0iTSA3LjQyNzg5IDMuNTgzMzhDIDcuNDYwMDggNC4zMjQzIDcuMjczNTUgNS4wNTgxOSA2Ljg5MTkzIDUuNjkyMTNDIDYuNTEwMzEgNi4zMjYwNyA1Ljk1MDc1IDYuODMxNTYgNS4yODQxMSA3LjE0NDZDIDQuNjE3NDcgNy40NTc2MyAzLjg3MzcxIDcuNTY0MTQgMy4xNDcwMiA3LjQ1MDYzQyAyLjQyMDMyIDcuMzM3MTIgMS43NDMzNiA3LjAwODcgMS4yMDE4NCA2LjUwNjk1QyAwLjY2MDMyOCA2LjAwNTIgMC4yNzg2MSA1LjM1MjY4IDAuMTA1MDE3IDQuNjMyMDJDIC0wLjA2ODU3NTcgMy45MTEzNSAtMC4wMjYyMzYxIDMuMTU0OTQgMC4yMjY2NzUgMi40NTg1NkMgMC40Nzk1ODcgMS43NjIxNyAwLjkzMTY5NyAxLjE1NzEzIDEuNTI1NzYgMC43MjAwMzNDIDIuMTE5ODMgMC4yODI5MzUgMi44MjkxNCAwLjAzMzQzOTUgMy41NjM4OSAwLjAwMzEzMzQ0QyA0LjU0NjY3IC0wLjAzNzQwMzMgNS41MDUyOSAwLjMxNjcwNiA2LjIyOTYxIDAuOTg3ODM1QyA2Ljk1MzkzIDEuNjU4OTYgNy4zODQ4NCAyLjU5MjM1IDcuNDI3ODkgMy41ODMzOEwgNy40Mjc4OSAzLjU4MzM4WiIvPgogICAgICA8cGF0aCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjM4LjM2IDIyODYuMDYpIiBkPSJNIDIuMjc0NzEgNC4zOTYyOUMgMS44NDM2MyA0LjQxNTA4IDEuNDE2NzEgNC4zMDQ0NSAxLjA0Nzk5IDQuMDc4NDNDIDAuNjc5MjY4IDMuODUyNCAwLjM4NTMyOCAzLjUyMTE0IDAuMjAzMzcxIDMuMTI2NTZDIDAuMDIxNDEzNiAyLjczMTk4IC0wLjA0MDM3OTggMi4yOTE4MyAwLjAyNTgxMTYgMS44NjE4MUMgMC4wOTIwMDMxIDEuNDMxOCAwLjI4MzIwNCAxLjAzMTI2IDAuNTc1MjEzIDAuNzEwODgzQyAwLjg2NzIyMiAwLjM5MDUxIDEuMjQ2OTEgMC4xNjQ3MDggMS42NjYyMiAwLjA2MjA1OTJDIDIuMDg1NTMgLTAuMDQwNTg5NyAyLjUyNTYxIC0wLjAxNTQ3MTQgMi45MzA3NiAwLjEzNDIzNUMgMy4zMzU5MSAwLjI4Mzk0MSAzLjY4NzkyIDAuNTUxNTA1IDMuOTQyMjIgMC45MDMwNkMgNC4xOTY1MiAxLjI1NDYyIDQuMzQxNjkgMS42NzQzNiA0LjM1OTM1IDIuMTA5MTZDIDQuMzgyOTkgMi42OTEwNyA0LjE3Njc4IDMuMjU4NjkgMy43ODU5NyAzLjY4NzQ2QyAzLjM5NTE2IDQuMTE2MjQgMi44NTE2NiA0LjM3MTE2IDIuMjc0NzEgNC4zOTYyOUwgMi4yNzQ3MSA0LjM5NjI5WiIvPgogICAgPC9nPgogIDwvZz4+Cjwvc3ZnPgo=);
   --jp-icon-jupyterlab-wordmark: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIHZpZXdCb3g9IjAgMCAxODYwLjggNDc1Ij4KICA8ZyBjbGFzcz0ianAtaWNvbjIiIGZpbGw9IiM0RTRFNEUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4MC4xMzY0MDEsIDY0LjI3MTQ5MykiPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDU4Ljg3NTU2NikiPgogICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjA4NzYwMywgMC4xNDAyOTQpIj4KICAgICAgICA8cGF0aCBkPSJNLTQyNi45LDE2OS44YzAsNDguNy0zLjcsNjQuNy0xMy42LDc2LjRjLTEwLjgsMTAtMjUsMTUuNS0zOS43LDE1LjVsMy43LDI5IGMyMi44LDAuMyw0NC44LTcuOSw2MS45LTIzLjFjMTcuOC0xOC41LDI0LTQ0LjEsMjQtODMuM1YwSC00Mjd2MTcwLjFMLTQyNi45LDE2OS44TC00MjYuOSwxNjkuOHoiLz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTU1LjA0NTI5NiwgNTYuODM3MTA0KSI+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEuNTYyNDUzLCAxLjc5OTg0MikiPgogICAgICAgIDxwYXRoIGQ9Ik0tMzEyLDE0OGMwLDIxLDAsMzkuNSwxLjcsNTUuNGgtMzEuOGwtMi4xLTMzLjNoLTAuOGMtNi43LDExLjYtMTYuNCwyMS4zLTI4LDI3LjkgYy0xMS42LDYuNi0yNC44LDEwLTM4LjIsOS44Yy0zMS40LDAtNjktMTcuNy02OS04OVYwaDM2LjR2MTEyLjdjMCwzOC43LDExLjYsNjQuNyw0NC42LDY0LjdjMTAuMy0wLjIsMjAuNC0zLjUsMjguOS05LjQgYzguNS01LjksMTUuMS0xNC4zLDE4LjktMjMuOWMyLjItNi4xLDMuMy0xMi41LDMuMy0xOC45VjAuMmgzNi40VjE0OEgtMzEyTC0zMTIsMTQ4eiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzOTAuMDEzMzIyLCA1My40Nzk2MzgpIj4KICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS43MDY0NTgsIDAuMjMxNDI1KSI+CiAgICAgICAgPHBhdGggZD0iTS00NzguNiw3MS40YzAtMjYtMC44LTQ3LTEuNy02Ni43aDMyLjdsMS43LDM0LjhoMC44YzcuMS0xMi41LDE3LjUtMjIuOCwzMC4xLTI5LjcgYzEyLjUtNywyNi43LTEwLjMsNDEtOS44YzQ4LjMsMCw4NC43LDQxLjcsODQuNywxMDMuM2MwLDczLjEtNDMuNywxMDkuMi05MSwxMDkuMmMtMTIuMSwwLjUtMjQuMi0yLjItMzUtNy44IGMtMTAuOC01LjYtMTkuOS0xMy45LTI2LjYtMjQuMmgtMC44VjI5MWgtMzZ2LTIyMEwtNDc4LjYsNzEuNEwtNDc4LjYsNzEuNHogTS00NDIuNiwxMjUuNmMwLjEsNS4xLDAuNiwxMC4xLDEuNywxNS4xIGMzLDEyLjMsOS45LDIzLjMsMTkuOCwzMS4xYzkuOSw3LjgsMjIuMSwxMi4xLDM0LjcsMTIuMWMzOC41LDAsNjAuNy0zMS45LDYwLjctNzguNWMwLTQwLjctMjEuMS03NS42LTU5LjUtNzUuNiBjLTEyLjksMC40LTI1LjMsNS4xLTM1LjMsMTMuNGMtOS45LDguMy0xNi45LDE5LjctMTkuNiwzMi40Yy0xLjUsNC45LTIuMywxMC0yLjUsMTUuMVYxMjUuNkwtNDQyLjYsMTI1LjZMLTQ0Mi42LDEyNS42eiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2MDYuNzQwNzI2LCA1Ni44MzcxMDQpIj4KICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC43NTEyMjYsIDEuOTg5Mjk5KSI+CiAgICAgICAgPHBhdGggZD0iTS00NDAuOCwwbDQzLjcsMTIwLjFjNC41LDEzLjQsOS41LDI5LjQsMTIuOCw0MS43aDAuOGMzLjctMTIuMiw3LjktMjcuNywxMi44LTQyLjQgbDM5LjctMTE5LjJoMzguNUwtMzQ2LjksMTQ1Yy0yNiw2OS43LTQzLjcsMTA1LjQtNjguNiwxMjcuMmMtMTIuNSwxMS43LTI3LjksMjAtNDQuNiwyMy45bC05LjEtMzEuMSBjMTEuNy0zLjksMjIuNS0xMC4xLDMxLjgtMTguMWMxMy4yLTExLjEsMjMuNy0yNS4yLDMwLjYtNDEuMmMxLjUtMi44LDIuNS01LjcsMi45LTguOGMtMC4zLTMuMy0xLjItNi42LTIuNS05LjdMLTQ4MC4yLDAuMSBoMzkuN0wtNDQwLjgsMEwtNDQwLjgsMHoiLz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODIyLjc0ODEwNCwgMC4wMDAwMDApIj4KICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS40NjQwNTAsIDAuMzc4OTE0KSI+CiAgICAgICAgPHBhdGggZD0iTS00MTMuNywwdjU4LjNoNTJ2MjguMmgtNTJWMTk2YzAsMjUsNywzOS41LDI3LjMsMzkuNWM3LjEsMC4xLDE0LjItMC43LDIxLjEtMi41IGwxLjcsMjcuN2MtMTAuMywzLjctMjEuMyw1LjQtMzIuMiw1Yy03LjMsMC40LTE0LjYtMC43LTIxLjMtMy40Yy02LjgtMi43LTEyLjktNi44LTE3LjktMTIuMWMtMTAuMy0xMC45LTE0LjEtMjktMTQuMS01Mi45IFY4Ni41aC0zMVY1OC4zaDMxVjkuNkwtNDEzLjcsMEwtNDEzLjcsMHoiLz4KICAgICAgPC9nPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTc0LjQzMzI4NiwgNTMuNDc5NjM4KSI+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuOTkwMDM0LCAwLjYxMDMzOSkiPgogICAgICAgIDxwYXRoIGQ9Ik0tNDQ1LjgsMTEzYzAuOCw1MCwzMi4yLDcwLjYsNjguNiw3MC42YzE5LDAuNiwzNy45LTMsNTUuMy0xMC41bDYuMiwyNi40IGMtMjAuOSw4LjktNDMuNSwxMy4xLTY2LjIsMTIuNmMtNjEuNSwwLTk4LjMtNDEuMi05OC4zLTEwMi41Qy00ODAuMiw0OC4yLTQ0NC43LDAtMzg2LjUsMGM2NS4yLDAsODIuNyw1OC4zLDgyLjcsOTUuNyBjLTAuMSw1LjgtMC41LDExLjUtMS4yLDE3LjJoLTE0MC42SC00NDUuOEwtNDQ1LjgsMTEzeiBNLTMzOS4yLDg2LjZjMC40LTIzLjUtOS41LTYwLjEtNTAuNC02MC4xIGMtMzYuOCwwLTUyLjgsMzQuNC01NS43LDYwLjFILTMzOS4yTC0zMzkuMiw4Ni42TC0zMzkuMiw4Ni42eiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjAxLjk2MTA1OCwgNTMuNDc5NjM4KSI+CiAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEuMTc5NjQwLCAwLjcwNTA2OCkiPgogICAgICAgIDxwYXRoIGQ9Ik0tNDc4LjYsNjhjMC0yMy45LTAuNC00NC41LTEuNy02My40aDMxLjhsMS4yLDM5LjloMS43YzkuMS0yNy4zLDMxLTQ0LjUsNTUuMy00NC41IGMzLjUtMC4xLDcsMC40LDEwLjMsMS4ydjM0LjhjLTQuMS0wLjktOC4yLTEuMy0xMi40LTEuMmMtMjUuNiwwLTQzLjcsMTkuNy00OC43LDQ3LjRjLTEsNS43LTEuNiwxMS41LTEuNywxNy4ydjEwOC4zaC0zNlY2OCBMLTQ3OC42LDY4eiIvPgogICAgICA8L2c+CiAgICA8L2c+CiAgPC9nPgoKICA8ZyBjbGFzcz0ianAtaWNvbi13YXJuMCIgZmlsbD0iI0YzNzcyNiI+CiAgICA8cGF0aCBkPSJNMTM1Mi4zLDMyNi4yaDM3VjI4aC0zN1YzMjYuMnogTTE2MDQuOCwzMjYuMmMtMi41LTEzLjktMy40LTMxLjEtMy40LTQ4Ljd2LTc2IGMwLTQwLjctMTUuMS04My4xLTc3LjMtODMuMWMtMjUuNiwwLTUwLDcuMS02Ni44LDE4LjFsOC40LDI0LjRjMTQuMy05LjIsMzQtMTUuMSw1My0xNS4xYzQxLjYsMCw0Ni4yLDMwLjIsNDYuMiw0N3Y0LjIgYy03OC42LTAuNC0xMjIuMywyNi41LTEyMi4zLDc1LjZjMCwyOS40LDIxLDU4LjQsNjIuMiw1OC40YzI5LDAsNTAuOS0xNC4zLDYyLjItMzAuMmgxLjNsMi45LDI1LjZIMTYwNC44eiBNMTU2NS43LDI1Ny43IGMwLDMuOC0wLjgsOC0yLjEsMTEuOGMtNS45LDE3LjItMjIuNywzNC00OS4yLDM0Yy0xOC45LDAtMzQuOS0xMS4zLTM0LjktMzUuM2MwLTM5LjUsNDUuOC00Ni42LDg2LjItNDUuOFYyNTcuN3ogTTE2OTguNSwzMjYuMiBsMS43LTMzLjZoMS4zYzE1LjEsMjYuOSwzOC43LDM4LjIsNjguMSwzOC4yYzQ1LjQsMCw5MS4yLTM2LjEsOTEuMi0xMDguOGMwLjQtNjEuNy0zNS4zLTEwMy43LTg1LjctMTAzLjcgYy0zMi44LDAtNTYuMywxNC43LTY5LjMsMzcuNGgtMC44VjI4aC0zNi42djI0NS43YzAsMTguMS0wLjgsMzguNi0xLjcsNTIuNUgxNjk4LjV6IE0xNzA0LjgsMjA4LjJjMC01LjksMS4zLTEwLjksMi4xLTE1LjEgYzcuNi0yOC4xLDMxLjEtNDUuNCw1Ni4zLTQ1LjRjMzkuNSwwLDYwLjUsMzQuOSw2MC41LDc1LjZjMCw0Ni42LTIzLjEsNzguMS02MS44LDc4LjFjLTI2LjksMC00OC4zLTE3LjYtNTUuNS00My4zIGMtMC44LTQuMi0xLjctOC44LTEuNy0xMy40VjIwOC4yeiIvPgogIDwvZz4KPC9zdmc+Cg==);
@@ -9121,7 +9408,7 @@ span.bp3-popover-target{
   --jp-icon-line-form: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNS44OCA0LjEyTDEzLjc2IDEybC03Ljg4IDcuODhMOCAyMmwxMC0xMEw4IDJ6Ii8+Cjwvc3ZnPgo=);
   --jp-icon-link: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTMuOSAxMmMwLTEuNzEgMS4zOS0zLjEgMy4xLTMuMWg0VjdIN2MtMi43NiAwLTUgMi4yNC01IDVzMi4yNCA1IDUgNWg0di0xLjlIN2MtMS43MSAwLTMuMS0xLjM5LTMuMS0zLjF6TTggMTNoOHYtMkg4djJ6bTktNmgtNHYxLjloNGMxLjcxIDAgMy4xIDEuMzkgMy4xIDMuMXMtMS4zOSAzLjEtMy4xIDMuMWgtNFYxN2g0YzIuNzYgMCA1LTIuMjQgNS01cy0yLjI0LTUtNS01eiIvPgogIDwvZz4KPC9zdmc+Cg==);
   --jp-icon-list: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGNsYXNzPSJqcC1pY29uMiBqcC1pY29uLXNlbGVjdGFibGUiIGZpbGw9IiM2MTYxNjEiIGQ9Ik0xOSA1djE0SDVWNWgxNG0xLjEtMkgzLjljLS41IDAtLjkuNC0uOS45djE2LjJjMCAuNC40LjkuOS45aDE2LjJjLjQgMCAuOS0uNS45LS45VjMuOWMwLS41LS41LS45LS45LS45ek0xMSA3aDZ2MmgtNlY3em0wIDRoNnYyaC02di0yem0wIDRoNnYyaC02ek03IDdoMnYySDd6bTAgNGgydjJIN3ptMCA0aDJ2Mkg3eiIvPgo8L3N2Zz4=);
-  --jp-icon-listings-info: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTAuOTc4IDUwLjk3OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTAuOTc4IDUwLjk3ODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxnPg0KCQkJPHBhdGggc3R5bGU9ImZpbGw6IzAxMDAwMjsiIGQ9Ik00My41Miw3LjQ1OEMzOC43MTEsMi42NDgsMzIuMzA3LDAsMjUuNDg5LDBDMTguNjcsMCwxMi4yNjYsMi42NDgsNy40NTgsNy40NTgNCgkJCQljLTkuOTQzLDkuOTQxLTkuOTQzLDI2LjExOSwwLDM2LjA2MmM0LjgwOSw0LjgwOSwxMS4yMTIsNy40NTYsMTguMDMxLDcuNDU4YzAsMCwwLjAwMSwwLDAuMDAyLDANCgkJCQljNi44MTYsMCwxMy4yMjEtMi42NDgsMTguMDI5LTcuNDU4YzQuODA5LTQuODA5LDcuNDU3LTExLjIxMiw3LjQ1Ny0xOC4wM0M1MC45NzcsMTguNjcsNDguMzI4LDEyLjI2Niw0My41Miw3LjQ1OHoNCgkJCQkgTTQyLjEwNiw0Mi4xMDVjLTQuNDMyLDQuNDMxLTEwLjMzMiw2Ljg3Mi0xNi42MTUsNi44NzJoLTAuMDAyYy02LjI4NS0wLjAwMS0xMi4xODctMi40NDEtMTYuNjE3LTYuODcyDQoJCQkJYy05LjE2Mi05LjE2My05LjE2Mi0yNC4wNzEsMC0zMy4yMzNDMTMuMzAzLDQuNDQsMTkuMjA0LDIsMjUuNDg5LDJjNi4yODQsMCwxMi4xODYsMi40NCwxNi42MTcsNi44NzINCgkJCQljNC40MzEsNC40MzEsNi44NzEsMTAuMzMyLDYuODcxLDE2LjYxN0M0OC45NzcsMzEuNzcyLDQ2LjUzNiwzNy42NzUsNDIuMTA2LDQyLjEwNXoiLz4NCgkJPC9nPg0KCQk8Zz4NCgkJCTxwYXRoIHN0eWxlPSJmaWxsOiMwMTAwMDI7IiBkPSJNMjMuNTc4LDMyLjIxOGMtMC4wMjMtMS43MzQsMC4xNDMtMy4wNTksMC40OTYtMy45NzJjMC4zNTMtMC45MTMsMS4xMS0xLjk5NywyLjI3Mi0zLjI1Mw0KCQkJCWMwLjQ2OC0wLjUzNiwwLjkyMy0xLjA2MiwxLjM2Ny0xLjU3NWMwLjYyNi0wLjc1MywxLjEwNC0xLjQ3OCwxLjQzNi0yLjE3NWMwLjMzMS0wLjcwNywwLjQ5NS0xLjU0MSwwLjQ5NS0yLjUNCgkJCQljMC0xLjA5Ni0wLjI2LTIuMDg4LTAuNzc5LTIuOTc5Yy0wLjU2NS0wLjg3OS0xLjUwMS0xLjMzNi0yLjgwNi0xLjM2OWMtMS44MDIsMC4wNTctMi45ODUsMC42NjctMy41NSwxLjgzMg0KCQkJCWMtMC4zMDEsMC41MzUtMC41MDMsMS4xNDEtMC42MDcsMS44MTRjLTAuMTM5LDAuNzA3LTAuMjA3LDEuNDMyLTAuMjA3LDIuMTc0aC0yLjkzN2MtMC4wOTEtMi4yMDgsMC40MDctNC4xMTQsMS40OTMtNS43MTkNCgkJCQljMS4wNjItMS42NCwyLjg1NS0yLjQ4MSw1LjM3OC0yLjUyN2MyLjE2LDAuMDIzLDMuODc0LDAuNjA4LDUuMTQxLDEuNzU4YzEuMjc4LDEuMTYsMS45MjksMi43NjQsMS45NSw0LjgxMQ0KCQkJCWMwLDEuMTQyLTAuMTM3LDIuMTExLTAuNDEsMi45MTFjLTAuMzA5LDAuODQ1LTAuNzMxLDEuNTkzLTEuMjY4LDIuMjQzYy0wLjQ5MiwwLjY1LTEuMDY4LDEuMzE4LTEuNzMsMi4wMDINCgkJCQljLTAuNjUsMC42OTctMS4zMTMsMS40NzktMS45ODcsMi4zNDZjLTAuMjM5LDAuMzc3LTAuNDI5LDAuNzc3LTAuNTY1LDEuMTk5Yy0wLjE2LDAuOTU5LTAuMjE3LDEuOTUxLTAuMTcxLDIuOTc5DQoJCQkJQzI2LjU4OSwzMi4yMTgsMjMuNTc4LDMyLjIxOCwyMy41NzgsMzIuMjE4eiBNMjMuNTc4LDM4LjIydi0zLjQ4NGgzLjA3NnYzLjQ4NEgyMy41Nzh6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==);
+  --jp-icon-listings-info: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MC45NzggNTAuOTc4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MC45NzggNTAuOTc4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+Cgk8Zz4KCQk8cGF0aCBzdHlsZT0iZmlsbDojMDEwMDAyOyIgZD0iTTQzLjUyLDcuNDU4QzM4LjcxMSwyLjY0OCwzMi4zMDcsMCwyNS40ODksMEMxOC42NywwLDEyLjI2NiwyLjY0OCw3LjQ1OCw3LjQ1OAoJCQljLTkuOTQzLDkuOTQxLTkuOTQzLDI2LjExOSwwLDM2LjA2MmM0LjgwOSw0LjgwOSwxMS4yMTIsNy40NTYsMTguMDMxLDcuNDU4YzAsMCwwLjAwMSwwLDAuMDAyLDAKCQkJYzYuODE2LDAsMTMuMjIxLTIuNjQ4LDE4LjAyOS03LjQ1OGM0LjgwOS00LjgwOSw3LjQ1Ny0xMS4yMTIsNy40NTctMTguMDNDNTAuOTc3LDE4LjY3LDQ4LjMyOCwxMi4yNjYsNDMuNTIsNy40NTh6CgkJCSBNNDIuMTA2LDQyLjEwNWMtNC40MzIsNC40MzEtMTAuMzMyLDYuODcyLTE2LjYxNSw2Ljg3MmgtMC4wMDJjLTYuMjg1LTAuMDAxLTEyLjE4Ny0yLjQ0MS0xNi42MTctNi44NzIKCQkJYy05LjE2Mi05LjE2My05LjE2Mi0yNC4wNzEsMC0zMy4yMzNDMTMuMzAzLDQuNDQsMTkuMjA0LDIsMjUuNDg5LDJjNi4yODQsMCwxMi4xODYsMi40NCwxNi42MTcsNi44NzIKCQkJYzQuNDMxLDQuNDMxLDYuODcxLDEwLjMzMiw2Ljg3MSwxNi42MTdDNDguOTc3LDMxLjc3Miw0Ni41MzYsMzcuNjc1LDQyLjEwNiw0Mi4xMDV6Ii8+CgkJPHBhdGggc3R5bGU9ImZpbGw6IzAxMDAwMjsiIGQ9Ik0yMy41NzgsMzIuMjE4Yy0wLjAyMy0xLjczNCwwLjE0My0zLjA1OSwwLjQ5Ni0zLjk3MmMwLjM1My0wLjkxMywxLjExLTEuOTk3LDIuMjcyLTMuMjUzCgkJCWMwLjQ2OC0wLjUzNiwwLjkyMy0xLjA2MiwxLjM2Ny0xLjU3NWMwLjYyNi0wLjc1MywxLjEwNC0xLjQ3OCwxLjQzNi0yLjE3NWMwLjMzMS0wLjcwNywwLjQ5NS0xLjU0MSwwLjQ5NS0yLjUKCQkJYzAtMS4wOTYtMC4yNi0yLjA4OC0wLjc3OS0yLjk3OWMtMC41NjUtMC44NzktMS41MDEtMS4zMzYtMi44MDYtMS4zNjljLTEuODAyLDAuMDU3LTIuOTg1LDAuNjY3LTMuNTUsMS44MzIKCQkJYy0wLjMwMSwwLjUzNS0wLjUwMywxLjE0MS0wLjYwNywxLjgxNGMtMC4xMzksMC43MDctMC4yMDcsMS40MzItMC4yMDcsMi4xNzRoLTIuOTM3Yy0wLjA5MS0yLjIwOCwwLjQwNy00LjExNCwxLjQ5My01LjcxOQoJCQljMS4wNjItMS42NCwyLjg1NS0yLjQ4MSw1LjM3OC0yLjUyN2MyLjE2LDAuMDIzLDMuODc0LDAuNjA4LDUuMTQxLDEuNzU4YzEuMjc4LDEuMTYsMS45MjksMi43NjQsMS45NSw0LjgxMQoJCQljMCwxLjE0Mi0wLjEzNywyLjExMS0wLjQxLDIuOTExYy0wLjMwOSwwLjg0NS0wLjczMSwxLjU5My0xLjI2OCwyLjI0M2MtMC40OTIsMC42NS0xLjA2OCwxLjMxOC0xLjczLDIuMDAyCgkJCWMtMC42NSwwLjY5Ny0xLjMxMywxLjQ3OS0xLjk4NywyLjM0NmMtMC4yMzksMC4zNzctMC40MjksMC43NzctMC41NjUsMS4xOTljLTAuMTYsMC45NTktMC4yMTcsMS45NTEtMC4xNzEsMi45NzkKCQkJQzI2LjU4OSwzMi4yMTgsMjMuNTc4LDMyLjIxOCwyMy41NzgsMzIuMjE4eiBNMjMuNTc4LDM4LjIydi0zLjQ4NGgzLjA3NnYzLjQ4NEgyMy41Nzh6Ii8+Cgk8L2c+Cjwvc3ZnPgo=);
   --jp-icon-markdown: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDIyIDIyIj4KICA8cGF0aCBjbGFzcz0ianAtaWNvbi1jb250cmFzdDAganAtaWNvbi1zZWxlY3RhYmxlIiBmaWxsPSIjN0IxRkEyIiBkPSJNNSAxNC45aDEybC02LjEgNnptOS40LTYuOGMwLTEuMy0uMS0yLjktLjEtNC41LS40IDEuNC0uOSAyLjktMS4zIDQuM2wtMS4zIDQuM2gtMkw4LjUgNy45Yy0uNC0xLjMtLjctMi45LTEtNC4zLS4xIDEuNi0uMSAzLjItLjIgNC42TDcgMTIuNEg0LjhsLjctMTFoMy4zTDEwIDVjLjQgMS4yLjcgMi43IDEgMy45LjMtMS4yLjctMi42IDEtMy45bDEuMi0zLjdoMy4zbC42IDExaC0yLjRsLS4zLTQuMnoiLz4KPC9zdmc+Cg==);
   --jp-icon-new-folder: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTIwIDZoLThsLTItMkg0Yy0xLjExIDAtMS45OS44OS0xLjk5IDJMMiAxOGMwIDEuMTEuODkgMiAyIDJoMTZjMS4xMSAwIDItLjg5IDItMlY4YzAtMS4xMS0uODktMi0yLTJ6bS0xIDhoLTN2M2gtMnYtM2gtM3YtMmgzVjloMnYzaDN2MnoiLz4KICA8L2c+Cjwvc3ZnPgo=);
   --jp-icon-not-trusted: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI1IDI1Ij4KICAgIDxwYXRoIGNsYXNzPSJqcC1pY29uMiIgc3Ryb2tlPSIjMzMzMzMzIiBzdHJva2Utd2lkdGg9IjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMgMykiIGQ9Ik0xLjg2MDk0IDExLjQ0MDlDMC44MjY0NDggOC43NzAyNyAwLjg2Mzc3OSA2LjA1NzY0IDEuMjQ5MDcgNC4xOTkzMkMyLjQ4MjA2IDMuOTMzNDcgNC4wODA2OCAzLjQwMzQ3IDUuNjAxMDIgMi44NDQ5QzcuMjM1NDkgMi4yNDQ0IDguODU2NjYgMS41ODE1IDkuOTg3NiAxLjA5NTM5QzExLjA1OTcgMS41ODM0MSAxMi42MDk0IDIuMjQ0NCAxNC4yMTggMi44NDMzOUMxNS43NTAzIDMuNDEzOTQgMTcuMzk5NSAzLjk1MjU4IDE4Ljc1MzkgNC4yMTM4NUMxOS4xMzY0IDYuMDcxNzcgMTkuMTcwOSA4Ljc3NzIyIDE4LjEzOSAxMS40NDA5QzE3LjAzMDMgMTQuMzAzMiAxNC42NjY4IDE3LjE4NDQgOS45OTk5OSAxOC45MzU0QzUuMzMzMTkgMTcuMTg0NCAyLjk2OTY4IDE0LjMwMzIgMS44NjA5NCAxMS40NDA5WiIvPgogICAgPHBhdGggY2xhc3M9ImpwLWljb24yIiBzdHJva2U9IiMzMzMzMzMiIHN0cm9rZS13aWR0aD0iMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOS4zMTU5MiA5LjMyMDMxKSIgZD0iTTcuMzY4NDIgMEwwIDcuMzY0NzkiLz4KICAgIDxwYXRoIGNsYXNzPSJqcC1pY29uMiIgc3Ryb2tlPSIjMzMzMzMzIiBzdHJva2Utd2lkdGg9IjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkuMzE1OTIgMTYuNjgzNikgc2NhbGUoMSAtMSkiIGQ9Ik03LjM2ODQyIDBMMCA3LjM2NDc5Ii8+Cjwvc3ZnPgo=);
@@ -9149,7 +9436,7 @@ span.bp3-popover-target{
   --jp-icon-tag: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCA0MyAyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnIGNsYXNzPSJqcC1pY29uMyIgZmlsbD0iIzYxNjE2MSI+CgkJPHBhdGggZD0iTTI4LjgzMzIgMTIuMzM0TDMyLjk5OTggMTYuNTAwN0wzNy4xNjY1IDEyLjMzNEgyOC44MzMyWiIvPgoJCTxwYXRoIGQ9Ik0xNi4yMDk1IDIxLjYxMDRDMTUuNjg3MyAyMi4xMjk5IDE0Ljg0NDMgMjIuMTI5OSAxNC4zMjQ4IDIxLjYxMDRMNi45ODI5IDE0LjcyNDVDNi41NzI0IDE0LjMzOTQgNi4wODMxMyAxMy42MDk4IDYuMDQ3ODYgMTMuMDQ4MkM1Ljk1MzQ3IDExLjUyODggNi4wMjAwMiA4LjYxOTQ0IDYuMDY2MjEgNy4wNzY5NUM2LjA4MjgxIDYuNTE0NzcgNi41NTU0OCA2LjA0MzQ3IDcuMTE4MDQgNi4wMzA1NUM5LjA4ODYzIDUuOTg0NzMgMTMuMjYzOCA1LjkzNTc5IDEzLjY1MTggNi4zMjQyNUwyMS43MzY5IDEzLjYzOUMyMi4yNTYgMTQuMTU4NSAyMS43ODUxIDE1LjQ3MjQgMjEuMjYyIDE1Ljk5NDZMMTYuMjA5NSAyMS42MTA0Wk05Ljc3NTg1IDguMjY1QzkuMzM1NTEgNy44MjU2NiA4LjYyMzUxIDcuODI1NjYgOC4xODI4IDguMjY1QzcuNzQzNDYgOC43MDU3MSA3Ljc0MzQ2IDkuNDE3MzMgOC4xODI4IDkuODU2NjdDOC42MjM4MiAxMC4yOTY0IDkuMzM1ODIgMTAuMjk2NCA5Ljc3NTg1IDkuODU2NjdDMTAuMjE1NiA5LjQxNzMzIDEwLjIxNTYgOC43MDUzMyA5Ljc3NTg1IDguMjY1WiIvPgoJPC9nPgo8L3N2Zz4K);
   --jp-icon-terminal: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiA+CiAgICA8cmVjdCBjbGFzcz0ianAtaWNvbjIganAtaWNvbi1zZWxlY3RhYmxlIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMikiIGZpbGw9IiMzMzMzMzMiLz4KICAgIDxwYXRoIGNsYXNzPSJqcC1pY29uLWFjY2VudDIganAtaWNvbi1zZWxlY3RhYmxlLWludmVyc2UiIGQ9Ik01LjA1NjY0IDguNzYxNzJDNS4wNTY2NCA4LjU5NzY2IDUuMDMxMjUgOC40NTMxMiA0Ljk4MDQ3IDguMzI4MTJDNC45MzM1OSA4LjE5OTIyIDQuODU1NDcgOC4wODIwMyA0Ljc0NjA5IDcuOTc2NTZDNC42NDA2MiA3Ljg3MTA5IDQuNSA3Ljc3NTM5IDQuMzI0MjIgNy42ODk0NUM0LjE1MjM0IDcuNTk5NjEgMy45NDMzNiA3LjUxMTcyIDMuNjk3MjcgNy40MjU3OEMzLjMwMjczIDcuMjg1MTYgMi45NDMzNiA3LjEzNjcyIDIuNjE5MTQgNi45ODA0N0MyLjI5NDkyIDYuODI0MjIgMi4wMTc1OCA2LjY0MjU4IDEuNzg3MTEgNi40MzU1NUMxLjU2MDU1IDYuMjI4NTIgMS4zODQ3NyA1Ljk4ODI4IDEuMjU5NzcgNS43MTQ4NEMxLjEzNDc3IDUuNDM3NSAxLjA3MjI3IDUuMTA5MzggMS4wNzIyNyA0LjczMDQ3QzEuMDcyMjcgNC4zOTg0NCAxLjEyODkxIDQuMDk1NyAxLjI0MjE5IDMuODIyMjdDMS4zNTU0NyAzLjU0NDkyIDEuNTE1NjIgMy4zMDQ2OSAxLjcyMjY2IDMuMTAxNTZDMS45Mjk2OSAyLjg5ODQ0IDIuMTc5NjkgMi43MzQzNyAyLjQ3MjY2IDIuNjA5MzhDMi43NjU2MiAyLjQ4NDM4IDMuMDkxOCAyLjQwNDMgMy40NTExNyAyLjM2OTE0VjEuMTA5MzhINC4zODg2N1YyLjM4MDg2QzQuNzQwMjMgMi40Mjc3MyA1LjA1NjY0IDIuNTIzNDQgNS4zMzc4OSAyLjY2Nzk3QzUuNjE5MTQgMi44MTI1IDUuODU3NDIgMy4wMDE5NSA2LjA1MjczIDMuMjM2MzNDNi4yNTE5NSAzLjQ2NjggNi40MDQzIDMuNzQwMjMgNi41MDk3NyA0LjA1NjY0QzYuNjE5MTQgNC4zNjkxNCA2LjY3MzgzIDQuNzIwNyA2LjY3MzgzIDUuMTExMzNINS4wNDQ5MkM1LjA0NDkyIDQuNjM4NjcgNC45Mzc1IDQuMjgxMjUgNC43MjI2NiA0LjAzOTA2QzQuNTA3ODEgMy43OTI5NyA0LjIxNjggMy42Njk5MiAzLjg0OTYxIDMuNjY5OTJDMy42NTAzOSAzLjY2OTkyIDMuNDc2NTYgMy42OTcyNyAzLjMyODEyIDMuNzUxOTVDMy4xODM1OSAzLjgwMjczIDMuMDY0NDUgMy44NzY5NSAyLjk3MDcgMy45NzQ2MUMyLjg3Njk1IDQuMDY4MzYgMi44MDY2NCA0LjE3OTY5IDIuNzU5NzcgNC4zMDg1OUMyLjcxNjggNC40Mzc1IDIuNjk1MzEgNC41NzgxMiAyLjY5NTMxIDQuNzMwNDdDMi42OTUzMSA0Ljg4MjgxIDIuNzE2OCA1LjAxOTUzIDIuNzU5NzcgNS4xNDA2MkMyLjgwNjY0IDUuMjU3ODEgMi44ODI4MSA1LjM2NzE5IDIuOTg4MjggNS40Njg3NUMzLjA5NzY2IDUuNTcwMzEgMy4yNDAyMyA1LjY2Nzk3IDMuNDE2MDIgNS43NjE3MkMzLjU5MTggNS44NTE1NiAzLjgxMDU1IDUuOTQzMzYgNC4wNzIyNyA2LjAzNzExQzQuNDY2OCA2LjE4NTU1IDQuODI0MjIgNi4zMzk4NCA1LjE0NDUzIDYuNUM1LjQ2NDg0IDYuNjU2MjUgNS43MzgyOCA2LjgzOTg0IDUuOTY0ODQgNy4wNTA3OEM2LjE5NTMxIDcuMjU3ODEgNi4zNzEwOSA3LjUgNi40OTIxOSA3Ljc3NzM0QzYuNjE3MTkgOC4wNTA3OCA2LjY3OTY5IDguMzc1IDYuNjc5NjkgOC43NUM2LjY3OTY5IDkuMDkzNzUgNi42MjMwNSA5LjQwNDMgNi41MDk3NyA5LjY4MTY0QzYuMzk2NDggOS45NTUwOCA2LjIzNDM4IDEwLjE5MTQgNi4wMjM0NCAxMC4zOTA2QzUuODEyNSAxMC41ODk4IDUuNTU4NTkgMTAuNzUgNS4yNjE3MiAxMC44NzExQzQuOTY0ODQgMTAuOTg4MyA0LjYzMjgxIDExLjA2NDUgNC4yNjU2MiAxMS4wOTk2VjEyLjI0OEgzLjMzMzk4VjExLjA5OTZDMy4wMDE5NSAxMS4wNjg0IDIuNjc5NjkgMTAuOTk2MSAyLjM2NzE5IDEwLjg4MjhDMi4wNTQ2OSAxMC43NjU2IDEuNzc3MzQgMTAuNTk3NyAxLjUzNTE2IDEwLjM3ODlDMS4yOTY4OCAxMC4xNjAyIDEuMTA1NDcgOS44ODQ3NyAwLjk2MDkzOCA5LjU1MjczQzAuODE2NDA2IDkuMjE2OCAwLjc0NDE0MSA4LjgxNDQ1IDAuNzQ0MTQxIDguMzQ1N0gyLjM3ODkxQzIuMzc4OTEgOC42MjY5NSAyLjQxOTkyIDguODYzMjggMi41MDE5NSA5LjA1NDY5QzIuNTgzOTggOS4yNDIxOSAyLjY4OTQ1IDkuMzkyNTggMi44MTgzNiA5LjUwNTg2QzIuOTUxMTcgOS42MTUyMyAzLjEwMTU2IDkuNjkzMzYgMy4yNjk1MyA5Ljc0MDIzQzMuNDM3NSA5Ljc4NzExIDMuNjA5MzggOS44MTA1NSAzLjc4NTE2IDkuODEwNTVDNC4yMDMxMiA5LjgxMDU1IDQuNTE5NTMgOS43MTI4OSA0LjczNDM4IDkuNTE3NThDNC45NDkyMiA5LjMyMjI3IDUuMDU2NjQgOS4wNzAzMSA1LjA1NjY0IDguNzYxNzJaTTEzLjQxOCAxMi4yNzE1SDguMDc0MjJWMTFIMTMuNDE4VjEyLjI3MTVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzLjk1MjY0IDYpIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K);
   --jp-icon-text-editor: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBjbGFzcz0ianAtaWNvbjMganAtaWNvbi1zZWxlY3RhYmxlIiBmaWxsPSIjNjE2MTYxIiBkPSJNMTUgMTVIM3YyaDEydi0yem0wLThIM3YyaDEyVjd6TTMgMTNoMTh2LTJIM3Yyem0wIDhoMTh2LTJIM3Yyek0zIDN2MmgxOFYzSDN6Ii8+Cjwvc3ZnPgo=);
-  --jp-icon-toc: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgoJPHBhdGggZD0iTTcsNUgyMVY3SDdWNU03LDEzVjExSDIxVjEzSDdNNCw0LjVBMS41LDEuNSAwIDAsMSA1LjUsNkExLjUsMS41IDAgMCwxIDQsNy41QTEuNSwxLjUgMCAwLDEgMi41LDZBMS41LDEuNSAwIDAsMSA0LDQuNU00LDEwLjVBMS41LDEuNSAwIDAsMSA1LjUsMTJBMS41LDEuNSAwIDAsMSA0LDEzLjVBMS41LDEuNSAwIDAsMSAyLjUsMTJBMS41LDEuNSAwIDAsMSA0LDEwLjVNNywxOVYxN0gyMVYxOUg3TTQsMTYuNUExLjUsMS41IDAgMCwxIDUuNSwxOEExLjUsMS41IDAgMCwxIDQsMTkuNUExLjUsMS41IDAgMCwxIDIuNSwxOEExLjUsMS41IDAgMCwxIDQsMTYuNVoiIC8+Cjwvc3ZnPgo=);
+  --jp-icon-toc: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8ZyBjbGFzcz0ianAtaWNvbjMganAtaWNvbi1zZWxlY3RhYmxlIiBmaWxsPSIjNjE2MTYxIj4KICAgIDxwYXRoIGQ9Ik03LDVIMjFWN0g3VjVNNywxM1YxMUgyMVYxM0g3TTQsNC41QTEuNSwxLjUgMCAwLDEgNS41LDZBMS41LDEuNSAwIDAsMSA0LDcuNUExLjUsMS41IDAgMCwxIDIuNSw2QTEuNSwxLjUgMCAwLDEgNCw0LjVNNCwxMC41QTEuNSwxLjUgMCAwLDEgNS41LDEyQTEuNSwxLjUgMCAwLDEgNCwxMy41QTEuNSwxLjUgMCAwLDEgMi41LDEyQTEuNSwxLjUgMCAwLDEgNCwxMC41TTcsMTlWMTdIMjFWMTlIN000LDE2LjVBMS41LDEuNSAwIDAsMSA1LjUsMThBMS41LDEuNSAwIDAsMSA0LDE5LjVBMS41LDEuNSAwIDAsMSAyLjUsMThBMS41LDEuNSAwIDAsMSA0LDE2LjVaIiAvPgogIDwvZz4KPC9zdmc+Cg==);
   --jp-icon-tree-view: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGNsYXNzPSJqcC1pY29uMyIgZmlsbD0iIzYxNjE2MSI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPgogICAgICAgIDxwYXRoIGQ9Ik0yMiAxMVYzaC03djNIOVYzSDJ2OGg3VjhoMnYxMGg0djNoN3YtOGgtN3YzaC0yVjhoMnYzeiIvPgogICAgPC9nPgo8L3N2Zz4=);
   --jp-icon-trusted: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDI0IDI1Ij4KICAgIDxwYXRoIGNsYXNzPSJqcC1pY29uMiIgc3Ryb2tlPSIjMzMzMzMzIiBzdHJva2Utd2lkdGg9IjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgMykiIGQ9Ik0xLjg2MDk0IDExLjQ0MDlDMC44MjY0NDggOC43NzAyNyAwLjg2Mzc3OSA2LjA1NzY0IDEuMjQ5MDcgNC4xOTkzMkMyLjQ4MjA2IDMuOTMzNDcgNC4wODA2OCAzLjQwMzQ3IDUuNjAxMDIgMi44NDQ5QzcuMjM1NDkgMi4yNDQ0IDguODU2NjYgMS41ODE1IDkuOTg3NiAxLjA5NTM5QzExLjA1OTcgMS41ODM0MSAxMi42MDk0IDIuMjQ0NCAxNC4yMTggMi44NDMzOUMxNS43NTAzIDMuNDEzOTQgMTcuMzk5NSAzLjk1MjU4IDE4Ljc1MzkgNC4yMTM4NUMxOS4xMzY0IDYuMDcxNzcgMTkuMTcwOSA4Ljc3NzIyIDE4LjEzOSAxMS40NDA5QzE3LjAzMDMgMTQuMzAzMiAxNC42NjY4IDE3LjE4NDQgOS45OTk5OSAxOC45MzU0QzUuMzMzMiAxNy4xODQ0IDIuOTY5NjggMTQuMzAzMiAxLjg2MDk0IDExLjQ0MDlaIi8+CiAgICA8cGF0aCBjbGFzcz0ianAtaWNvbjIiIGZpbGw9IiMzMzMzMzMiIHN0cm9rZT0iIzMzMzMzMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOCA5Ljg2NzE5KSIgZD0iTTIuODYwMTUgNC44NjUzNUwwLjcyNjU0OSAyLjk5OTU5TDAgMy42MzA0NUwyLjg2MDE1IDYuMTMxNTdMOCAwLjYzMDg3Mkw3LjI3ODU3IDBMMi44NjAxNSA0Ljg2NTM1WiIvPgo8L3N2Zz4K);
   --jp-icon-undo: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTEyLjUgOGMtMi42NSAwLTUuMDUuOTktNi45IDIuNkwyIDd2OWg5bC0zLjYyLTMuNjJjMS4zOS0xLjE2IDMuMTYtMS44OCA1LjEyLTEuODggMy41NCAwIDYuNTUgMi4zMSA3LjYgNS41bDIuMzctLjc4QzIxLjA4IDExLjAzIDE3LjE1IDggMTIuNSA4eiIvPgogIDwvZz4KPC9zdmc+Cg==);
@@ -9216,6 +9503,9 @@ span.bp3-popover-target{
 .jp-CopyIcon {
   background-image: var(--jp-icon-copy);
 }
+.jp-CopyrightIcon {
+  background-image: var(--jp-icon-copyright);
+}
 .jp-CutIcon {
   background-image: var(--jp-icon-cut);
 }
@@ -9257,6 +9547,9 @@ span.bp3-popover-target{
 }
 .jp-JsonIcon {
   background-image: var(--jp-icon-json);
+}
+.jp-JuliaIcon {
+  background-image: var(--jp-icon-julia);
 }
 .jp-JupyterFaviconIcon {
   background-image: var(--jp-icon-jupyter-favicon);
@@ -9396,10 +9689,6 @@ span.bp3-popover-target{
 /**
  * (DEPRECATED) Support for consuming icons as CSS background images
  */
-
-:root {
-  --jp-icon-search-white: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTggMTgiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZyBjbGFzcz0ianAtaWNvbjMiIGZpbGw9IiM2MTYxNjEiPgogICAgPHBhdGggZD0iTTEyLjEsMTAuOWgtMC43bC0wLjItMC4yYzAuOC0wLjksMS4zLTIuMiwxLjMtMy41YzAtMy0yLjQtNS40LTUuNC01LjRTMS44LDQuMiwxLjgsNy4xczIuNCw1LjQsNS40LDUuNCBjMS4zLDAsMi41LTAuNSwzLjUtMS4zbDAuMiwwLjJ2MC43bDQuMSw0LjFsMS4yLTEuMkwxMi4xLDEwLjl6IE03LjEsMTAuOWMtMi4xLDAtMy43LTEuNy0zLjctMy43czEuNy0zLjcsMy43LTMuN3MzLjcsMS43LDMuNywzLjcgUzkuMiwxMC45LDcuMSwxMC45eiIvPgogIDwvZz4KPC9zdmc+Cg==);
-}
 
 .jp-Icon,
 .jp-MaterialIcon {
@@ -10262,20 +10551,22 @@ select {
     inset 0 0 0 3px var(--jp-input-active-box-shadow-color);
 }
 
-.lm-CommandPalette-wrapper::after {
-  content: ' ';
+.jp-SearchIconGroup {
   color: white;
   background-color: var(--jp-brand-color1);
   position: absolute;
   top: 4px;
   right: 4px;
-  height: 30px;
-  width: 10px;
-  padding: 0px 10px;
-  background-image: var(--jp-icon-search-white);
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
+  padding: 5px 5px 1px 5px;
+}
+
+.jp-SearchIconGroup svg {
+  height: 20px;
+  width: 20px;
+}
+
+.jp-SearchIconGroup .jp-icon3[fill] {
+  fill: var(--jp-layout-color0);
 }
 
 .lm-CommandPalette-input {
@@ -10292,7 +10583,7 @@ select {
 .lm-CommandPalette-input::-webkit-input-placeholder,
 .lm-CommandPalette-input::-moz-placeholder,
 .lm-CommandPalette-input:-ms-input-placeholder {
-  color: var(--jp-ui-font-color3);
+  color: var(--jp-ui-font-color2);
   font-size: var(--jp-ui-font-size1);
 }
 
@@ -10336,15 +10627,29 @@ select {
 }
 
 .lm-CommandPalette-item.lm-mod-disabled {
-  color: var(--jp-ui-font-color3);
+  color: var(--jp-ui-font-color2);
 }
 
 .lm-CommandPalette-item.lm-mod-active {
-  background: var(--jp-layout-color3);
+  color: var(--jp-ui-inverse-font-color1);
+  background: var(--jp-brand-color1);
+}
+
+.lm-CommandPalette-item.lm-mod-active .lm-CommandPalette-itemLabel > mark {
+  color: var(--jp-ui-inverse-font-color0);
+}
+
+.lm-CommandPalette-item.lm-mod-active .jp-icon-selectable[fill] {
+  fill: var(--jp-layout-color0);
+}
+
+.lm-CommandPalette-item.lm-mod-active .lm-CommandPalette-itemLabel > mark {
+  color: var(--jp-ui-inverse-font-color0);
 }
 
 .lm-CommandPalette-item.lm-mod-active:hover:not(.lm-mod-disabled) {
-  background: var(--jp-layout-color4);
+  color: var(--jp-ui-inverse-font-color1);
+  background: var(--jp-brand-color1);
 }
 
 .lm-CommandPalette-item:hover:not(.lm-mod-active):not(.lm-mod-disabled) {
@@ -10362,7 +10667,7 @@ select {
 }
 
 .lm-CommandPalette-item.lm-mod-disabled mark {
-  color: var(--jp-ui-font-color3);
+  color: var(--jp-ui-font-color2);
 }
 
 .lm-CommandPalette-item .lm-CommandPalette-itemIcon {
@@ -10374,7 +10679,7 @@ select {
 }
 
 .lm-CommandPalette-item.lm-mod-disabled .lm-CommandPalette-itemIcon {
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
 .lm-CommandPalette-item .lm-CommandPalette-itemShortcut {
@@ -10572,6 +10877,16 @@ body.lm-mod-override-cursor .jp-IFrame:before {
   right: 0;
   bottom: 0;
   background: transparent;
+}
+
+.jp-Input-Boolean-Dialog {
+  flex-direction: row-reverse;
+  align-items: end;
+  width: 100%;
+}
+
+.jp-Input-Boolean-Dialog > label {
+  flex: 1 1 auto;
 }
 
 /*-----------------------------------------------------------------------------
@@ -10980,9 +11295,28 @@ input.jp-mod-styled {
   -moz-appearance: none;
 }
 
+input[type='checkbox'].jp-mod-styled {
+  appearance: checkbox;
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+  height: auto;
+}
+
 input.jp-mod-styled:focus {
   border: var(--jp-border-width) solid var(--md-blue-500);
   box-shadow: inset 0 0 4px var(--md-blue-300);
+}
+
+.jp-FileDialog-Checkbox {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  width: 100%;
+}
+
+.jp-FileDialog-Checkbox > label {
+  flex: 1 1 auto;
 }
 
 .jp-select-wrapper {
@@ -11049,10 +11383,6 @@ select.jp-mod-styled {
   min-height: var(--jp-toolbar-micro-height);
   padding: 2px;
   z-index: 1;
-  overflow-x: hidden;
-}
-
-.jp-Toolbar:hover {
   overflow-x: auto;
 }
 
@@ -11408,6 +11738,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   position: absolute;
   z-index: 6;
   display: none;
+  outline: none;
 }
 .CodeMirror-vscrollbar {
   right: 0; top: 0;
@@ -11853,6 +12184,44 @@ span.CodeMirror-selectedtext { background: none; }
 .cm-s-jupyter .CodeMirror-activeline-background,
 .cm-s-jupyter .CodeMirror-gutter {
   background-color: var(--jp-layout-color2);
+}
+
+/* Styles for shared cursors (remote cursor locations and selected ranges) */
+.jp-CodeMirrorEditor .remote-caret {
+  position: relative;
+  border-left: 2px solid black;
+  margin-left: -1px;
+  margin-right: -1px;
+  box-sizing: border-box;
+}
+
+.jp-CodeMirrorEditor .remote-caret > div {
+  white-space: nowrap;
+  position: absolute;
+  top: -1.15em;
+  padding-bottom: 0.05em;
+  left: -2px;
+  font-size: 0.95em;
+  background-color: rgb(250, 129, 0);
+  font-family: var(--jp-ui-font-family);
+  font-weight: bold;
+  line-height: normal;
+  user-select: none;
+  color: white;
+  padding-left: 2px;
+  padding-right: 2px;
+  z-index: 3;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.jp-CodeMirrorEditor .remote-caret.hide-name > div {
+  transition-delay: 0.7s;
+  opacity: 0;
+}
+
+.jp-CodeMirrorEditor .remote-caret:hover > div {
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 /*-----------------------------------------------------------------------------
@@ -12542,6 +12911,12 @@ h6:hover .jp-InternalAnchorLink {
 
 .jp-FileBrowser-toolbar.jp-Toolbar
   .jp-Toolbar-item:first-child
+  .jp-ToolbarButtonComponent:focus-visible {
+  background-color: var(--jp-brand-color0);
+}
+
+.jp-FileBrowser-toolbar.jp-Toolbar
+  .jp-Toolbar-item:first-child
   .jp-ToolbarButtonComponent
   .jp-icon3 {
   fill: white;
@@ -12552,7 +12927,7 @@ h6:hover .jp-InternalAnchorLink {
 |----------------------------------------------------------------------------*/
 
 .jp-FileDialog.jp-mod-conflict input {
-  color: red;
+  color: var(--jp-error-color1);
 }
 
 .jp-FileDialog .jp-new-name-title {
@@ -12578,6 +12953,10 @@ h6:hover .jp-InternalAnchorLink {
   display: flex;
   flex-direction: column;
   outline: 0;
+}
+
+.jp-DirListing:focus-visible {
+  border: 1px solid var(--jp-brand-color1);
 }
 
 .jp-DirListing-header {
@@ -12648,6 +13027,10 @@ h6:hover .jp-InternalAnchorLink {
   font-weight: bold;
 }
 
+.jp-DirListing-content .jp-DirListing-item.jp-mod-selected mark {
+  color: var(--jp-ui-inverse-font-color0);
+}
+
 /* Style the directory listing content when a user drops a file to upload */
 .jp-DirListing.jp-mod-native-drop .jp-DirListing-content {
   outline: 5px dashed rgba(128, 128, 128, 0.5);
@@ -12670,7 +13053,7 @@ h6:hover .jp-InternalAnchorLink {
 }
 
 .jp-DirListing-item.jp-mod-selected {
-  color: white;
+  color: var(--jp-ui-inverse-font-color1);
   background: var(--jp-brand-color1);
 }
 
@@ -12707,11 +13090,16 @@ h6:hover .jp-InternalAnchorLink {
 }
 
 .jp-DirListing-item.jp-mod-running .jp-DirListing-itemIcon:before {
-  color: limegreen;
+  color: var(--jp-success-color1);
   content: '\25CF';
   font-size: 8px;
   position: absolute;
   left: -8px;
+}
+
+.jp-DirListing-item.jp-mod-running.jp-mod-selected
+  .jp-DirListing-itemIcon:before {
+  color: var(--jp-ui-inverse-font-color1);
 }
 
 .jp-DirListing-item.lm-mod-drag-image,
@@ -12768,6 +13156,10 @@ h6:hover .jp-InternalAnchorLink {
   flex-direction: row;
 }
 
+body[data-format='mobile'] .jp-OutputArea-child {
+  flex-direction: column;
+}
+
 .jp-OutputPrompt {
   flex: 0 0 var(--jp-cell-prompt-width);
   color: var(--jp-cell-outprompt-font-color);
@@ -12790,6 +13182,11 @@ h6:hover .jp-InternalAnchorLink {
   user-select: none;
 }
 
+body[data-format='mobile'] .jp-OutputPrompt {
+  flex: 0 0 auto;
+  text-align: left;
+}
+
 .jp-OutputArea-output {
   height: auto;
   overflow: auto;
@@ -12802,6 +13199,10 @@ h6:hover .jp-InternalAnchorLink {
 .jp-OutputArea-child .jp-OutputArea-output {
   flex-grow: 1;
   flex-shrink: 1;
+}
+
+body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
+  margin-left: var(--jp-notebook-padding);
 }
 
 /**
@@ -13020,6 +13421,10 @@ body.lm-mod-override-cursor .jp-OutputArea-output.jp-mod-isolated:before {
   overflow: hidden;
 }
 
+body[data-format='mobile'] .jp-InputArea {
+  flex-direction: column;
+}
+
 .jp-InputArea-editor {
   flex: 1 1 auto;
   overflow: hidden;
@@ -13030,6 +13435,10 @@ body.lm-mod-override-cursor .jp-OutputArea-output.jp-mod-isolated:before {
   border: var(--jp-border-width) solid var(--jp-cell-editor-border-color);
   border-radius: 0px;
   background: var(--jp-cell-editor-background);
+}
+
+body[data-format='mobile'] .jp-InputArea-editor {
+  margin-left: var(--jp-notebook-padding);
 }
 
 .jp-InputPrompt {
@@ -13053,6 +13462,11 @@ body.lm-mod-override-cursor .jp-OutputArea-output.jp-mod-isolated:before {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+body[data-format='mobile'] .jp-InputPrompt {
+  flex: 0 0 auto;
+  text-align: left;
 }
 
 /*-----------------------------------------------------------------------------
@@ -13199,6 +13613,31 @@ body.lm-mod-override-cursor .jp-OutputArea-output.jp-mod-isolated:before {
   overflow: auto;
 }
 
+.jp-showHiddenCellsButton {
+  margin-left: calc(var(--jp-cell-prompt-width) + 2 * var(--jp-code-padding));
+  margin-top: var(--jp-code-padding);
+  border: 1px solid var(--jp-border-color2);
+  background-color: var(--jp-border-color3) !important;
+  color: var(--jp-content-font-color0) !important;
+}
+
+.jp-showHiddenCellsButton:hover {
+  background-color: var(--jp-border-color2) !important;
+}
+
+.jp-collapseHeadingButton {
+  display: none;
+}
+
+.jp-MarkdownCell:hover .jp-collapseHeadingButton {
+  display: flex;
+  min-height: var(--jp-cell-collapser-min-height);
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
 /*-----------------------------------------------------------------------------
 | Copyright (c) Jupyter Development Team.
 | Distributed under the terms of the Modified BSD License.
@@ -13287,12 +13726,21 @@ body.lm-mod-override-cursor .jp-OutputArea-output.jp-mod-isolated:before {
   min-height: var(--jp-notebook-scroll-padding);
 }
 
+.jp-MainAreaWidget-ContainStrict .jp-Notebook * {
+  contain: strict;
+}
+
+.jp-Notebook-render * {
+  contain: none !important;
+}
+
 .jp-Notebook .jp-Cell {
   overflow: visible;
 }
 
 .jp-Notebook .jp-Cell .jp-InputPrompt {
   cursor: move;
+  float: left;
 }
 
 /*-----------------------------------------------------------------------------
@@ -13326,6 +13774,19 @@ body.lm-mod-override-cursor .jp-OutputArea-output.jp-mod-isolated:before {
 /* cell is active */
 .jp-Notebook .jp-Cell.jp-mod-active .jp-Collapser {
   background: var(--jp-brand-color1);
+}
+
+/* cell is dirty */
+.jp-Notebook .jp-Cell.jp-mod-dirty .jp-InputPrompt {
+  color: var(--jp-warn-color1);
+}
+.jp-Notebook .jp-Cell.jp-mod-dirty .jp-InputPrompt:before {
+  color: var(--jp-warn-color1);
+  content: '•';
+}
+
+.jp-Notebook .jp-Cell.jp-mod-active.jp-mod-dirty .jp-Collapser {
+  background: var(--jp-warn-color1);
 }
 
 /* collapser is hovered */
@@ -13377,7 +13838,7 @@ body.lm-mod-override-cursor .jp-OutputArea-output.jp-mod-isolated:before {
 }
 
 .jp-dragImage {
-  display: flex;
+  display: block;
   flex-direction: row;
   width: var(--jp-private-notebook-dragImage-width);
   height: var(--jp-private-notebook-dragImage-height);
@@ -13510,6 +13971,89 @@ body.lm-mod-override-cursor .jp-OutputArea-output.jp-mod-isolated:before {
 .jp-mod-presentationMode .jp-Notebook .jp-Cell .jp-InputPrompt,
 .jp-mod-presentationMode .jp-Notebook .jp-Cell .jp-OutputPrompt {
   flex: 0 0 110px;
+}
+
+/*-----------------------------------------------------------------------------
+| Placeholder
+|----------------------------------------------------------------------------*/
+
+.jp-Cell-Placeholder {
+  padding-left: 55px;
+}
+
+.jp-Cell-Placeholder-wrapper {
+  background: #fff;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  margin: 10px 15px;
+}
+
+.jp-Cell-Placeholder-wrapper-inner {
+  padding: 15px;
+  position: relative;
+}
+
+.jp-Cell-Placeholder-wrapper-body {
+  background-repeat: repeat;
+  background-size: 50% auto;
+}
+
+.jp-Cell-Placeholder-wrapper-body div {
+  background: #f6f7f8;
+  background-image: -webkit-linear-gradient(
+    left,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  height: 104px;
+  position: relative;
+}
+
+.jp-Cell-Placeholder-wrapper-body div {
+  position: absolute;
+  right: 15px;
+  left: 15px;
+  top: 15px;
+}
+
+div.jp-Cell-Placeholder-h1 {
+  top: 20px;
+  height: 20px;
+  left: 15px;
+  width: 150px;
+}
+
+div.jp-Cell-Placeholder-h2 {
+  left: 15px;
+  top: 50px;
+  height: 10px;
+  width: 100px;
+}
+
+div.jp-Cell-Placeholder-content-1,
+div.jp-Cell-Placeholder-content-2,
+div.jp-Cell-Placeholder-content-3 {
+  left: 15px;
+  right: 15px;
+  height: 10px;
+}
+
+div.jp-Cell-Placeholder-content-1 {
+  top: 100px;
+}
+
+div.jp-Cell-Placeholder-content-2 {
+  top: 120px;
+}
+
+div.jp-Cell-Placeholder-content-3 {
+  top: 140px;
 }
 
 </style>
@@ -13734,36 +14278,36 @@ all of MD as it is not optimized for dense, information rich UIs.
 
   /* Brand/accent */
 
-  --jp-brand-color0: var(--md-blue-700);
-  --jp-brand-color1: var(--md-blue-500);
+  --jp-brand-color0: var(--md-blue-900);
+  --jp-brand-color1: var(--md-blue-700);
   --jp-brand-color2: var(--md-blue-300);
   --jp-brand-color3: var(--md-blue-100);
   --jp-brand-color4: var(--md-blue-50);
 
-  --jp-accent-color0: var(--md-green-700);
-  --jp-accent-color1: var(--md-green-500);
+  --jp-accent-color0: var(--md-green-900);
+  --jp-accent-color1: var(--md-green-700);
   --jp-accent-color2: var(--md-green-300);
   --jp-accent-color3: var(--md-green-100);
 
   /* State colors (warn, error, success, info) */
 
-  --jp-warn-color0: var(--md-orange-700);
-  --jp-warn-color1: var(--md-orange-500);
+  --jp-warn-color0: var(--md-orange-900);
+  --jp-warn-color1: var(--md-orange-700);
   --jp-warn-color2: var(--md-orange-300);
   --jp-warn-color3: var(--md-orange-100);
 
-  --jp-error-color0: var(--md-red-700);
-  --jp-error-color1: var(--md-red-500);
+  --jp-error-color0: var(--md-red-900);
+  --jp-error-color1: var(--md-red-700);
   --jp-error-color2: var(--md-red-300);
   --jp-error-color3: var(--md-red-100);
 
-  --jp-success-color0: var(--md-green-700);
-  --jp-success-color1: var(--md-green-500);
+  --jp-success-color0: var(--md-green-900);
+  --jp-success-color1: var(--md-green-700);
   --jp-success-color2: var(--md-green-300);
   --jp-success-color3: var(--md-green-100);
 
-  --jp-info-color0: var(--md-cyan-700);
-  --jp-info-color1: var(--md-cyan-500);
+  --jp-info-color0: var(--md-cyan-900);
+  --jp-info-color1: var(--md-cyan-700);
   --jp-info-color2: var(--md-cyan-300);
   --jp-info-color3: var(--md-cyan-100);
 
@@ -13833,6 +14377,10 @@ all of MD as it is not optimized for dense, information rich UIs.
   --jp-toolbar-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.24);
   --jp-toolbar-header-margin: 4px 4px 0px 4px;
   --jp-toolbar-active-background: var(--md-grey-300);
+
+  /* Statusbar specific styles */
+
+  --jp-statusbar-height: 24px;
 
   /* Input field styles */
 
@@ -13906,31 +14454,80 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
+/* Misc */
 a.anchor-link {
-   display: none;
+  display: none;
 }
+
 .highlight  {
-    margin: 0.4em;
+  margin: 0.4em;
 }
 
 /* Input area styling */
 .jp-InputArea {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .jp-InputArea-editor {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+/* Using table instead of flexbox so that we can use break-inside property */
+/* CSS rules under this comment should not be required anymore after we move to the JupyterLab 4.0 CSS */
+
+
+.jp-CodeCell.jp-mod-outputsScrolled .jp-OutputArea-prompt {
+  min-width: calc(
+    var(--jp-cell-prompt-width) - var(--jp-private-cell-scrolling-output-offset)
+  );
+}
+
+.jp-OutputArea-child {
+  display: table;
+  width: 100%;
+}
+
+.jp-OutputPrompt {
+  display: table-cell;
+  vertical-align: top;
+  min-width: var(--jp-cell-prompt-width);
+}
+
+body[data-format='mobile'] .jp-OutputPrompt {
+  display: table-row;
+}
+
+.jp-OutputArea-output {
+  display: table-cell;
+  width: 100%;
+}
+
+body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
+  display: table-row;
+}
+
+.jp-OutputArea-output.jp-OutputArea-executeResult {
+  width: 100%;
 }
 
 @media print {
-  body {
-    margin: 0;
+  .jp-Collapser {
+    display: none;
+  }
+
+  .jp-Cell-inputWrapper,
+  .jp-Cell-outputWrapper {
+    display: block;
+  }
+
+  .jp-OutputArea-child {
+    break-inside: avoid-page;
   }
 }
 </style>
 
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"> </script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     init_mathjax = function() {
@@ -13954,11 +14551,6 @@ a.anchor-link {
                     linebreaks: { 
                     automatic: true 
                     }
-                },
-                "HTML-CSS": {
-                    linebreaks: { 
-                    automatic: true 
-                    }
                 }
             });
         
@@ -13970,34 +14562,70 @@ a.anchor-link {
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="United-Nations-Voting-Patterns">United Nations Voting Patterns<a class="anchor-link" href="#United-Nations-Voting-Patterns">&#182;</a></h1><h4 id="%5BCMSC320-Final-Tutorial%5D">[CMSC320 Final Tutorial]<a class="anchor-link" href="#%5BCMSC320-Final-Tutorial%5D">&#182;</a></h4><p>Authors: Lauren Brown, Angel Lin</p>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>TODO</strong></p>
 <ul>
-<li>get rid of requests we don't use</li>
-<li>annotate the code to explain what we're doing and why [tutorial!]</li>
-<li>have to explain what broad categories we wanted to analyze and why<ul>
-<li>clean up our doc about what categories we want to use and add it to the github, explain why we are only using certain [un] categories for now (most bang for our buck)</li>
-</ul>
-</li>
+<li>get rid of requests we don't use and add requests from the k means clustering and other analysis stuff</li>
+<li>add NaN for all countries not present </li>
 </ul>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h4>
+<h2 id="Introduction"><strong>Introduction</strong><a class="anchor-link" href="#Introduction">&#182;</a></h2><h3 id="United-Nations-Overview"><strong>United Nations Overview</strong><a class="anchor-link" href="#United-Nations-Overview">&#182;</a></h3><p>The United Nations (UN) is an international organization founded after World War II. The purpose of the UN is to maintain international peace and security, provide humanitarian assistance to those in need, protect human rights, and uphold international laws. It pursues these goals through several bodies, including:</p>
+<ul>
+<li>the General Assembly, the main policy-making body which includes one seat for each recognized member-state. Many committees and subcommittees help to form and inform policies, within their specific jurisdictions, that may be considered by the GA; </li>
+<li>several councils (Security Council, Economic and Social Council, and Trusteeship Council) which are responsible for international peace and security, economic, social, and environmental challenges, and trust territories, respectively. These bodies each have their own membership processes but membership or decisions are often biased towards the preferences of the P5: China, France, Russia, France,  the United Kingdom, and the United States;</li>
+<li>the International Court of Justice (ICJ) which settles international legal disputes between countries and gives advice to the UN when requested; and </li>
+<li>the Secretariat, which consists of staff from all over the world and carries out the day to day operations of the UN.</li>
+</ul>
+<h4 id="Background-Readings"><strong>Background Readings</strong><a class="anchor-link" href="#Background-Readings">&#182;</a></h4><p>For more information regarding:</p>
+<ul>
+<li>the founding and history of the United Nations: <a href="https://www.history.com/topics/world-war-ii/united-nations">click here</a>.</li>
+<li>the structure of the United Nations, <a href="https://guides.lib.fsu.edu/c.php?g=946756&amp;p=6852483">click here</a>.</li>
+</ul>
+<h3 id="Motivation"><strong>Motivation</strong><a class="anchor-link" href="#Motivation">&#182;</a></h3><p>This tutorial looks at how countries in the United Nations vote with respect to other countries. We ask the question, as countries rise and fall, how do UN voting patterns shift, if at all? How do voting blocks form and dissipate over time? If we can discover which countries are at the center of voting blocks, we can determine which countries will be most able to influence the outcomes of UN resolutions.</p>
+<p>In this project, we use an unsupervised machine learning algorithm, k-means clustering, to determine how similarly countries vote compared to each other and to visualize how voting blocks have formed and changed over time. We hypothesize that as countries rise and fall from power, clusters will form and dissolve around these countries. The null hypothesis, then, is that there is no relationship between any voting blocks that may form and the rise and fall of countries.</p>
+<p>Specifically, the countries we are interested in for this dataset are the United States, the Soviet Union, and China. These three countries have been major world players since the founding of the United Nations, and while we will be looking for the center of voting blocks regardless of who it may be, these three countries will be highlighted throughout our data exploration and analysis.</p>
+
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Required-Libraries-and-Tools"><strong>Required Libraries and Tools</strong><a class="anchor-link" href="#Required-Libraries-and-Tools">&#182;</a></h3><p>This project utilizes the Python3 languages and packages to collect, explore, visualize, and analyze the data. To reproduce the code, please ensure you have the following packages installed; you can install any of these by using the command <code>$ pip3 install [package] </code> in your terminal or command prompt.</p>
+<ul>
+<li><code>reqests</code>: allows us to retrieve website data using Python <a href="https://docs.python-requests.org/en/latest/">(docs)</a></li>
+<li><code>BeautifulSoup</code>: allows us to parse and scrape HTML after retrieving website data <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">(docs)</a></li>
+<li><code>numpy</code>: supports a wide range of operations. Required for Pandas installation <a href="https://numpy.org/">(docs)</a></li>
+<li><code>pandas</code>: used for data manipulation and analysis <a href="https://pandas.pydata.org/">(docs)</a></li>
+<li><code>time</code>: allows us to create delays in code operations <a href="https://docs.python.org/3/library/time.html">(docs)</a></li>
+<li><code>datetime</code>: used for parsing date strings into objects <a href="https://docs.python.org/3/library/datetime.html">(docs)</a></li>
+<li><code>matplotlib</code>: includes an extraordinary amount of data visualization functions <a href="https://matplotlib.org/">(docs)</a></li>
+</ul>
+
+</div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -14005,10 +14633,8 @@ a.anchor-link {
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">time</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 
      </div>
@@ -14016,17 +14642,54 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Data-Collection-and-Processing"><strong>Data Collection and Processing</strong><a class="anchor-link" href="#Data-Collection-and-Processing">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="UN-Subjects"><strong>UN Subjects</strong><a class="anchor-link" href="#UN-Subjects">&#182;</a></h3><p>The United Nations keeps all its resolution data on their <a href="https://digitallibrary.un.org/">digital library website</a>, in which anyone can search through any resolution, speech, or any other document from the UN. After filtering to just <a href="https://digitallibrary.un.org/search?ln=en&amp;cc=Voting%20Data&amp;p=&amp;f=&amp;rm=&amp;ln=en&amp;sf=&amp;so=d&amp;rg=50&amp;c=Voting%20Data&amp;c=&amp;of=hb&amp;fti=0&amp;fct__2=General%20Assembly&amp;fti=0&amp;fct__2=General%20Assembly&amp;fct__9=Vote">General Assembly voting data</a>, there are almost 7000 resolutions from 1946 to 20222.</p>
+<p>Since there is no API provided by the UN to easily access or filter all of the resolution data, we had to resort to scraping necessary data off of each resolution's webpage. Scraping is the process of using a bot to extract content and data from a website, so that we don't have to do it manually for each resolution. To determine which resolutions we wanted to use for our dataset, we decided to utilize the UN's ability to filter by different subjects to access certain resolutions. There are hundreds of subjects to filter by, some of which are contained within broader subjects.</p>
+<p>We saw no way to get around manually filtering through the subjects, and we placed each subject into the following broader categories of our own design:</p>
+<ul>
+<li>International Peacekeeping/Security, and Weapons Agreements: Includes any resolutions about wars and conflicts (civil, between countries, etc), weapons agreements (nuclear, chemical, IAEA notes), security agreements, cybersecurity, post-war international judicial courts (ICJ/ICTY/ICTR), terrorism, Hostage-taking during wars, and more.</li>
+<li>Internal UN functioning: Includes budgets and resolutions discussing the functioning of the UN as a whole</li>
+<li>Economic: Includes any international economic treaties, economic rights of countries, and global trade</li>
+<li>Development: Includes human issues that the development status of a country might affect (like health), resolutions directly related to a country's development (infrastructure, development towards a specific country, etc.), and decolonization </li>
+<li>Sustainability/environment: Includes any resolutions that may be related to climate change or how the environment has affected humans</li>
+<li>Human Rights/Humanitarian: Includes humanitarian assistance, disaster relief, human rights questions, etc. </li>
+</ul>
+<p>When determining which categories to use, we decided not to use international peacekeeping/security and weapons agreements, or internal functioning resolutions, because at the time we believed that there would not be enough disparity between countries in these resolutions, and that the inclusion of these resolutions may neutralize the other data we collected.<a href="#fn1"><sup>*</sup></a> We also were interested in development and human rights resolutions, and chose to include the other categories since they all either were directly related to this or were so influential to these topics that they could not be separated from them.</p>
+<p>After deciding on which categories to use, we still had over a hundred subjects to include in our dataset. As a final way of filtering, we chose subjects from each category that included the most number of resolutions and represented somewhat of a spread over our categories; this way, we could get the maximum "bang for our buck".</p>
+<p><span id="fn1"><sup>*</sup></span>We have since found this to be somewhat of an error, since not only does our data visualization program account for these types of similarities but also many countries may disagree on country-specific resolutions related to international security. We discuss a bit more about this in our final notes at the very end of the project.</p>
+
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Resolution-Links"><strong>Resolution Links</strong><a class="anchor-link" href="#Resolution-Links">&#182;</a></h3><p>Code-wise, the first thing we needed to do was get a link to each resolution. We had already created csv files beforehand to store the links, so we simply read in each csv. While performing all our scraping, it was important to save all the data as we did it in case our program crashed or cut off, especially since our scraping permissions were unconfirmed by the UN. By always saving the resolution urls we scraped and ensuring that we also kept track of which subjects we visited, we ensured that we would never have to visit a website more than once and no data would be lost.</p>
+
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">category_links_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;category-links.csv&#39;</span><span class="p">)</span>
 
 <span class="n">visited_categories</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;visited_cats.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;visited categories&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">resolution_urls</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;res_urls.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;res_urls&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">total_resolutions</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="n">category_links_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
@@ -14037,6 +14700,8 @@ a.anchor-link {
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14044,7 +14709,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
 
 
@@ -14114,10 +14779,20 @@ a.anchor-link {
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The following code is a function that we repeat for each subject; it retrieves the website data for each subject link and adds the link to each resolution in the subject to a list. That list is then returned at the end of the function. If there are more than 50 resolutions in the subject, the subject may have more than one page to go through, and the function accounts for that as well.</p>
+
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_res_links_from_page</span><span class="p">(</span><span class="n">page_link</span><span class="p">):</span>
@@ -14170,19 +14845,29 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This function is used later to ensure all the resolution links in our final list are unique, i.e. there are no overlaps of resolutions between subjects.</p>
+
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Make resolution_urls unique</span>
-<span class="k">def</span> <span class="nf">unique</span><span class="p">(</span><span class="n">list1</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">unique</span><span class="p">(</span><span class="n">res_list</span><span class="p">):</span>
     <span class="c1"># initialize a null list</span>
     <span class="n">unique_list</span> <span class="o">=</span> <span class="p">[]</span>
      
     <span class="c1"># traverse for all elements</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">res_list</span><span class="p">:</span>
         <span class="c1"># check if exists in unique_list or not</span>
         <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_list</span><span class="p">:</span>
             <span class="n">unique_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -14194,8 +14879,18 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Here, we take every subject and subject link and run it through the <code>get_res_links_from_page</code> function defined above if the subject has not already been processed. To reiterate, what we get back is a list of individual resolution links, and this is appended to a longer list of resolution links from all subjects. Due to the unconfirmed permissions issue, we used a rate limiter (i.e. added time between each run of the function) to prevent the UN website from detecting our bot. Finally, the <code>unique</code> function defined above is called to ensure no two resolutions are repeated, and both the list of resolution URLs and the list of visited categories are stored into csv's for permanent storage.</p>
+
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14224,13 +14919,38 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Data-Storage"><strong>Data Storage</strong><a class="anchor-link" href="#Data-Storage">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We decided to use two dataframes to hold the data we needed. The first dataframe stored voting data for each country and resolution, with each row on the table representing each country that existed from the founding of the UN to modern day, and each column representing a resolution (stored as a resolution ID - a unique ID that the UN gives to each resolution). Each individual entry in this table is a country's vote for a specific resolution. The second dataframe stored extra information about each resolution that would be helpful to us when visualizing and analyzing our data; each row in this dataframe was a resolution ID, and the other two columns were the name and year of the resolution.</p>
+
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Again, we had already created csv files beforehand to store the data, so we simply read in each csv. We sometimes ran this code separately from the resolution link code, so we included a line that read in the csv of the resolution urls that we had already gathered, and also read in a list of visited resolution urls that worked the same way as the visited subjects list in the previous code section.</p>
+
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># for all voting data df, index column is the country and each following column is the resolution id. </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># for all voting data df, index column / each row is a country and each following column is each resolution id. </span>
 <span class="c1"># cell is each country&#39;s vote (Y if yes, N if no, A if abstain, NP if not present, or NaN if the country didn&#39;t exist to vote at the time</span>
 <span class="n">all_voting_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;all_voting_data.csv&#39;</span><span class="p">)</span>
 
@@ -14246,10 +14966,30 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In the General Assembly, different resolutions may be voting or non-voting resolutions. For any given voting resolution, a country may vote Yay, Nay, Abstain, or not be present and thus not vote. While the meaning Yay and Nay are fairly straightforward, the reasons behind abstentions or absences are less so. Countries usually abstain for political reasons; for example, one may abstain from a resolution rebuking a nation because while they recognize the wrongdoing, that nation is an ally. They may also abstain from a resolution that may otherwise force them to choose between an ally and strong trading partner. A country may not be present for a vote for a variety of reasons, from the representative being unwell to intentionally protesting against the vote. There is no real way to generalize the reasons for these two responses, which will come into play later during our data analysis.</p>
+<p>On each resolution page: Yay is coded as Y; Nay is coded as N; Abstain is coded as A; and not present is indicated with a lack of a vote next to the country's name. To indicate that a country was not present in our dataframe, we code the lack of vote as NP for "not present."</p>
+<p>Finally, over time countries rise and fall, and appropriately join or leave the United Nations. In our larger dataset that we compile later, if the country did not exist at the time of the vote, we code this as NaN.</p>
+
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>For each resolution, after accessing the website data, we needed to figure out if each vote was recorded or not; we did not include non-recorded votes in our project since they can not tell us how countries voted with respect to each other for that given resolution. If a vote was non-recorded, then the function does not collect any data and produces a result that indicates the resolution was not recorded. Otherwise, the code collects the resolution id, title, year, and vote data, and puts them into two dataframes that are essentially smaller versions of the larger resolution and voting information dataframes. The result of the code for a recorded vote is a tuple, or a list of two things, that includes the two mini resolution data and voting dataframes.</p>
+
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">process_resolution</span><span class="p">(</span><span class="n">res_url</span><span class="p">):</span>
@@ -14344,41 +15084,49 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>For each resolution, if it is not already listed in the visited resolution urls list (and thus already been processed), we run the <code>process_resolution</code> function defined above and save the output as mini resolution and voting dataframes. We then check to see if the output indicates that the resolution was non-recorded; if it wasn't we concatenate the mini dataframes to the end of the longer dataframes using merge for the resolution data, which has the same columns, and an outer join for voting data, which allow us to append countries that didn't exist prior to the pre-existing list and not exclude voting data for countries that did not exist at the time of the vote. It also uses a rate limiter to prevent bot detection on the UN website. Finally, it saves all data that is collected in any given scraping session back into a csv so we don't lose any of the data.</p>
+
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Get vote data from each resolution</span>
-
-<span class="c1">#resolution df (x= resolution index, y = name, year)</span>
-<span class="c1">#country_votes df (row = country, col= resolution index) row,col = vote</span>
-<span class="k">try</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">res_url</span> <span class="ow">in</span> <span class="n">resolution_urls</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">res_url</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">res_url</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited_res_urls</span><span class="p">:</span>
                 <span class="n">res_data</span><span class="p">,</span> <span class="n">res_voting_data</span> <span class="o">=</span> <span class="n">process_resolution</span><span class="p">(</span><span class="n">res_url</span><span class="p">)</span>
-                <span class="c1">#print(res_data)</span>
-                <span class="c1">#print(res_voting_data)</span>
 
-                <span class="c1">#once you have the data for the resolution, add it to the larger dfs of all the data (voting and otherwise) for all resolutions</span>
+                <span class="c1">#once you have the data for the resolution, add it to the larger dfs of all the data </span>
+                <span class="c1">#(voting and otherwise) for all resolutions</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">res_data</span><span class="p">,</span> <span class="n">res_voting_data</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
-                    <span class="n">all_res_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">all_res_data</span><span class="p">,</span> <span class="n">res_data</span><span class="p">],</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">#add as a row to the end of the df</span>
-                    <span class="n">all_voting_data</span> <span class="o">=</span> <span class="n">all_voting_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">res_voting_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">)</span> <span class="c1">#add as a column -&gt; outer merge to make sure countries join correctly</span>
+                    
+                    <span class="c1">#add as a row to the end of the df</span>
+                    <span class="n">all_res_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">all_res_data</span><span class="p">,</span> <span class="n">res_data</span><span class="p">],</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+                    
+                    <span class="c1">#add as a column -&gt; outer merge to make sure countries join correctly</span>
+                    <span class="n">all_voting_data</span> <span class="o">=</span> <span class="n">all_voting_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">res_voting_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">)</span> 
 
                 <span class="n">visited_res_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res_url</span><span class="p">)</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#can change later</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> 
         <span class="k">except</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error somewhere&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
             <span class="k">break</span>
 
 <span class="k">finally</span><span class="p">:</span>
     <span class="c1"># save everything</span>
     <span class="n">all_res_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;all_res_data.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">all_voting_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;all_voting_data.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
+    
     <span class="n">visited_res_url_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">visited_res_urls</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;visited_res_urls&#39;</span><span class="p">])</span>
     <span class="n">visited_res_url_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;visited_res_urls.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -14389,6 +15137,8 @@ a.anchor-link {
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14400,10 +15150,260 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>&lt;&gt;:15: SyntaxWarning: &#34;is not&#34; with a literal. Did you mean &#34;!=&#34;?
-&lt;&gt;:15: SyntaxWarning: &#34;is not&#34; with a literal. Did you mean &#34;!=&#34;?
-/tmp/ipykernel_156/2925039381.py:15: SyntaxWarning: &#34;is not&#34; with a literal. Did you mean &#34;!=&#34;?
+<pre>&lt;&gt;:9: SyntaxWarning: &#34;is not&#34; with a literal. Did you mean &#34;!=&#34;?
+&lt;&gt;:9: SyntaxWarning: &#34;is not&#34; with a literal. Did you mean &#34;!=&#34;?
+/tmp/ipykernel_51/3515635216.py:9: SyntaxWarning: &#34;is not&#34; with a literal. Did you mean &#34;!=&#34;?
   if (res_data, res_voting_data) is not (None, None):
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Data-Visualization/Representation"><strong>Data Visualization/Representation</strong><a class="anchor-link" href="#Data-Visualization/Representation">&#182;</a></h3>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+
+<span class="n">res_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;all_res_data.csv&#39;</span><span class="p">)</span>
+<span class="n">votes_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;all_voting_data.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sort Res ID in order of year</span>
+<span class="n">year_unique</span> <span class="o">=</span> <span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">year_unique</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="n">sorted_res_df</span> <span class="o">=</span> <span class="n">res_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+<span class="n">sorted_res_df</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># print(sorted_res_df.head(10))</span>
+
+<span class="n">sorted_res_ID</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="p">[</span><span class="s1">&#39;Resolution ID&#39;</span><span class="p">]</span>
+<span class="n">sorted_res_ID</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># chunk&lt;start year&gt;</span>
+<span class="c1"># chunk2018 has 2018-2021 only 4 years</span>
+<span class="n">chunk1983</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_res_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1983</span><span class="p">,</span> <span class="mi">1988</span><span class="p">))]</span>
+<span class="n">chunk1988</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_res_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1988</span><span class="p">,</span> <span class="mi">1993</span><span class="p">))]</span>
+<span class="n">chunk1993</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_res_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1993</span><span class="p">,</span> <span class="mi">1998</span><span class="p">))]</span>
+<span class="n">chunk1998</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_res_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1998</span><span class="p">,</span> <span class="mi">2003</span><span class="p">))]</span>
+<span class="n">chunk2003</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_res_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2003</span><span class="p">,</span> <span class="mi">2008</span><span class="p">))]</span>
+<span class="n">chunk2008</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_res_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">2013</span><span class="p">))]</span>
+<span class="n">chunk2013</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_res_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">2018</span><span class="p">))]</span>
+<span class="n">chunk2018</span> <span class="o">=</span> <span class="n">sorted_res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_res_df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">2023</span><span class="p">))]</span>
+
+<span class="n">chunk2018</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Resolution ID</th>
+      <th>Resolution Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>885</th>
+      <td>A/RES/73/152</td>
+      <td>Report of the Human Rights Council : resolutio...</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>A/RES/73/225</td>
+      <td>Entrepreneurship for sustainable development :...</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>887</th>
+      <td>A/RES/73/240</td>
+      <td>Towards a new international economic order : r...</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>A/RES/73/224</td>
+      <td>Oil slick on Lebanese shores : resolution / ad...</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>889</th>
+      <td>A/RES/73/220</td>
+      <td>International financial system and development...</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>993</th>
+      <td>A/RES/76/200</td>
+      <td>Agricultural technology for sustainable develo...</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>994</th>
+      <td>A/RES/76/191</td>
+      <td>Unilateral economic measures as a means of pol...</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>A/RES/76/72</td>
+      <td>Oceans and the law of the sea : resolution / a...</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>A/RES/76/192</td>
+      <td>International financial system and development...</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>A/RES/76/161</td>
+      <td>Human rights and unilateral coercive measures ...</td>
+      <td>2021</td>
+    </tr>
+  </tbody>
+</table>
+<p>113 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">chunkTodf</span><span class="p">(</span><span class="n">chunk</span><span class="p">):</span>
+    <span class="n">chosen_res</span> <span class="o">=</span> <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;Resolution ID&#39;</span><span class="p">]</span>
+    <span class="n">df_</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+    <span class="n">df_</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">votes_df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">])</span>
+    <span class="n">col_count</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">chosen_res</span><span class="p">:</span>
+        <span class="n">each_res_vote</span> <span class="o">=</span> <span class="n">votes_df</span><span class="p">[</span><span class="n">res</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">df_</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">col_count</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span> <span class="n">res</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">each_res_vote</span><span class="p">)</span>
+        <span class="n">col_count</span> <span class="o">=</span> <span class="n">col_count</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1">#   TODO: DECIDE HOW TO HANDLE NP ***** dropped NaN </span>
+    <span class="n">df_</span> <span class="o">=</span> <span class="n">df_</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;NP&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># df1983 = df1983.fillna(0)</span>
+    <span class="n">df_</span> <span class="o">=</span> <span class="n">df1983</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">df_</span>
+
+<span class="c1">#create dataframe for each 5 year chunk</span>
+<span class="n">df1983</span> <span class="o">=</span> <span class="n">chunkTodf</span><span class="p">(</span><span class="n">chunk1983</span><span class="p">)</span>
+<span class="n">df1988</span> <span class="o">=</span> <span class="n">chunkTodf</span><span class="p">(</span><span class="n">chunk1988</span><span class="p">)</span>
+<span class="n">df1993</span> <span class="o">=</span> <span class="n">chunkTodf</span><span class="p">(</span><span class="n">chunk1993</span><span class="p">)</span>
+<span class="n">df1998</span> <span class="o">=</span> <span class="n">chunkTodf</span><span class="p">(</span><span class="n">chunk1998</span><span class="p">)</span>
+<span class="n">df2003</span> <span class="o">=</span> <span class="n">chunkTodf</span><span class="p">(</span><span class="n">chunk2003</span><span class="p">)</span>
+<span class="n">df2008</span> <span class="o">=</span> <span class="n">chunkTodf</span><span class="p">(</span><span class="n">chunk2008</span><span class="p">)</span>
+<span class="n">df2013</span> <span class="o">=</span> <span class="n">chunkTodf</span><span class="p">(</span><span class="n">chunk2013</span><span class="p">)</span>
+<span class="n">df2018</span> <span class="o">=</span> <span class="n">chunkTodf</span><span class="p">(</span><span class="n">chunk2018</span><span class="p">)</span>
+<span class="n">df2018</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/tmp/ipykernel_51/2015261252.py:9: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df_.insert(loc=col_count, column= res, value = each_res_vote)
+/tmp/ipykernel_51/2015261252.py:9: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df_.insert(loc=col_count, column= res, value = each_res_vote)
 </pre>
 </div>
 </div>
@@ -14414,1011 +15414,191 @@ a.anchor-link {
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>https://digitallibrary.un.org/record/3951465?ln=en
-https://digitallibrary.un.org/record/3951464?ln=en
-https://digitallibrary.un.org/record/3951463?ln=en
-https://digitallibrary.un.org/record/3951462?ln=en
-https://digitallibrary.un.org/record/3951461?ln=en
-https://digitallibrary.un.org/record/3951460?ln=en
-https://digitallibrary.un.org/record/3951459?ln=en
-https://digitallibrary.un.org/record/3951456?ln=en
-https://digitallibrary.un.org/record/3894869?ln=en
-https://digitallibrary.un.org/record/3894868?ln=en
-https://digitallibrary.un.org/record/3894866?ln=en
-https://digitallibrary.un.org/record/3894848?ln=en
-https://digitallibrary.un.org/record/3894847?ln=en
-https://digitallibrary.un.org/record/3894846?ln=en
-https://digitallibrary.un.org/record/3894843?ln=en
-https://digitallibrary.un.org/record/3840132?ln=en
-https://digitallibrary.un.org/record/3840127?ln=en
-https://digitallibrary.un.org/record/3840124?ln=en
-https://digitallibrary.un.org/record/3840123?ln=en
-https://digitallibrary.un.org/record/3840122?ln=en
-https://digitallibrary.un.org/record/3840121?ln=en
-https://digitallibrary.un.org/record/3840120?ln=en
-https://digitallibrary.un.org/record/1656171?ln=en
-https://digitallibrary.un.org/record/1656170?ln=en
-https://digitallibrary.un.org/record/1656169?ln=en
-https://digitallibrary.un.org/record/1656168?ln=en
-https://digitallibrary.un.org/record/1656162?ln=en
-https://digitallibrary.un.org/record/1656161?ln=en
-https://digitallibrary.un.org/record/1656160?ln=en
-https://digitallibrary.un.org/record/1656158?ln=en
-https://digitallibrary.un.org/record/1656157?ln=en
-https://digitallibrary.un.org/record/1479518?ln=en
-https://digitallibrary.un.org/record/1327569?ln=en
-https://digitallibrary.un.org/record/1327568?ln=en
-https://digitallibrary.un.org/record/1327567?ln=en
-https://digitallibrary.un.org/record/1327566?ln=en
-https://digitallibrary.un.org/record/1327557?ln=en
-https://digitallibrary.un.org/record/1327554?ln=en
-https://digitallibrary.un.org/record/1327551?ln=en
-https://digitallibrary.un.org/record/1327549?ln=en
-https://digitallibrary.un.org/record/1327545?ln=en
-https://digitallibrary.un.org/record/1327544?ln=en
-https://digitallibrary.un.org/record/855231?ln=en
-https://digitallibrary.un.org/record/855228?ln=en
-https://digitallibrary.un.org/record/855216?ln=en
-https://digitallibrary.un.org/record/855197?ln=en
-https://digitallibrary.un.org/record/855187?ln=en
-https://digitallibrary.un.org/record/855184?ln=en
-https://digitallibrary.un.org/record/855172?ln=en
-https://digitallibrary.un.org/record/827221?ln=en
-https://digitallibrary.un.org/record/827220?ln=en
-https://digitallibrary.un.org/record/827208?ln=en
-https://digitallibrary.un.org/record/827202?ln=en
-https://digitallibrary.un.org/record/827194?ln=en
-https://digitallibrary.un.org/record/827192?ln=en
-https://digitallibrary.un.org/record/827190?ln=en
-https://digitallibrary.un.org/record/827187?ln=en
-https://digitallibrary.un.org/record/827176?ln=en
-https://digitallibrary.un.org/record/820128?ln=en
-https://digitallibrary.un.org/record/820126?ln=en
-https://digitallibrary.un.org/record/820119?ln=en
-https://digitallibrary.un.org/record/820117?ln=en
-https://digitallibrary.un.org/record/820105?ln=en
-https://digitallibrary.un.org/record/820099?ln=en
-https://digitallibrary.un.org/record/820084?ln=en
-https://digitallibrary.un.org/record/820061?ln=en
-https://digitallibrary.un.org/record/820058?ln=en
-https://digitallibrary.un.org/record/765083?ln=en
-https://digitallibrary.un.org/record/765076?ln=en
-https://digitallibrary.un.org/record/765075?ln=en
-https://digitallibrary.un.org/record/765071?ln=en
-https://digitallibrary.un.org/record/765068?ln=en
-https://digitallibrary.un.org/record/765063?ln=en
-https://digitallibrary.un.org/record/765059?ln=en
-https://digitallibrary.un.org/record/740182?ln=en
-https://digitallibrary.un.org/record/740181?ln=en
-https://digitallibrary.un.org/record/740180?ln=en
-https://digitallibrary.un.org/record/740179?ln=en
-https://digitallibrary.un.org/record/740178?ln=en
-https://digitallibrary.un.org/record/740177?ln=en
-https://digitallibrary.un.org/record/740176?ln=en
-https://digitallibrary.un.org/record/740175?ln=en
-https://digitallibrary.un.org/record/724411?ln=en
-https://digitallibrary.un.org/record/724279?ln=en
-https://digitallibrary.un.org/record/724245?ln=en
-https://digitallibrary.un.org/record/724004?ln=en
-https://digitallibrary.un.org/record/723996?ln=en
-https://digitallibrary.un.org/record/723993?ln=en
-https://digitallibrary.un.org/record/700637?ln=en
-https://digitallibrary.un.org/record/700551?ln=en
-https://digitallibrary.un.org/record/700542?ln=en
-https://digitallibrary.un.org/record/700534?ln=en
-https://digitallibrary.un.org/record/700524?ln=en
-https://digitallibrary.un.org/record/700508?ln=en
-https://digitallibrary.un.org/record/700507?ln=en
-https://digitallibrary.un.org/record/700454?ln=en
-https://digitallibrary.un.org/record/674406?ln=en
-https://digitallibrary.un.org/record/674405?ln=en
-https://digitallibrary.un.org/record/674250?ln=en
-https://digitallibrary.un.org/record/674226?ln=en
-https://digitallibrary.un.org/record/674201?ln=en
-https://digitallibrary.un.org/record/674136?ln=en
-https://digitallibrary.un.org/record/674135?ln=en
-https://digitallibrary.un.org/record/644569?ln=en
-https://digitallibrary.un.org/record/644568?ln=en
-https://digitallibrary.un.org/record/644567?ln=en
-https://digitallibrary.un.org/record/644560?ln=en
-https://digitallibrary.un.org/record/644557?ln=en
-https://digitallibrary.un.org/record/644555?ln=en
-https://digitallibrary.un.org/record/644553?ln=en
-https://digitallibrary.un.org/record/644538?ln=en
-https://digitallibrary.un.org/record/644537?ln=en
-https://digitallibrary.un.org/record/644536?ln=en
-https://digitallibrary.un.org/record/615015?ln=en
-https://digitallibrary.un.org/record/615009?ln=en
-https://digitallibrary.un.org/record/614918?ln=en
-https://digitallibrary.un.org/record/614909?ln=en
-https://digitallibrary.un.org/record/614906?ln=en
-https://digitallibrary.un.org/record/614903?ln=en
-https://digitallibrary.un.org/record/614680?ln=en
-https://digitallibrary.un.org/record/614679?ln=en
-https://digitallibrary.un.org/record/614676?ln=en
-https://digitallibrary.un.org/record/590297?ln=en
-https://digitallibrary.un.org/record/590294?ln=en
-https://digitallibrary.un.org/record/590279?ln=en
-https://digitallibrary.un.org/record/590229?ln=en
-https://digitallibrary.un.org/record/590216?ln=en
-https://digitallibrary.un.org/record/590215?ln=en
-https://digitallibrary.un.org/record/590200?ln=en
-https://digitallibrary.un.org/record/590199?ln=en
-https://digitallibrary.un.org/record/590198?ln=en
-https://digitallibrary.un.org/record/590195?ln=en
-https://digitallibrary.un.org/record/590183?ln=en
-https://digitallibrary.un.org/record/563460?ln=en
-https://digitallibrary.un.org/record/563459?ln=en
-https://digitallibrary.un.org/record/563457?ln=en
-https://digitallibrary.un.org/record/563440?ln=en
-https://digitallibrary.un.org/record/563438?ln=en
-https://digitallibrary.un.org/record/563437?ln=en
-https://digitallibrary.un.org/record/563436?ln=en
-https://digitallibrary.un.org/record/563434?ln=en
-https://digitallibrary.un.org/record/537726?ln=en
-https://digitallibrary.un.org/record/537725?ln=en
-https://digitallibrary.un.org/record/537724?ln=en
-https://digitallibrary.un.org/record/537722?ln=en
-https://digitallibrary.un.org/record/537720?ln=en
-https://digitallibrary.un.org/record/537719?ln=en
-https://digitallibrary.un.org/record/537717?ln=en
-https://digitallibrary.un.org/record/537711?ln=en
-https://digitallibrary.un.org/record/537703?ln=en
-https://digitallibrary.un.org/record/537679?ln=en
-https://digitallibrary.un.org/record/537677?ln=en
-https://digitallibrary.un.org/record/509184?ln=en
-https://digitallibrary.un.org/record/509183?ln=en
-https://digitallibrary.un.org/record/509182?ln=en
-https://digitallibrary.un.org/record/509181?ln=en
-https://digitallibrary.un.org/record/509180?ln=en
-https://digitallibrary.un.org/record/509179?ln=en
-https://digitallibrary.un.org/record/509177?ln=en
-https://digitallibrary.un.org/record/509176?ln=en
-https://digitallibrary.un.org/record/509174?ln=en
-https://digitallibrary.un.org/record/509173?ln=en
-https://digitallibrary.un.org/record/509171?ln=en
-https://digitallibrary.un.org/record/509158?ln=en
-https://digitallibrary.un.org/record/509156?ln=en
-https://digitallibrary.un.org/record/482535?ln=en
-https://digitallibrary.un.org/record/482534?ln=en
-https://digitallibrary.un.org/record/482533?ln=en
-https://digitallibrary.un.org/record/482522?ln=en
-https://digitallibrary.un.org/record/482521?ln=en
-https://digitallibrary.un.org/record/482520?ln=en
-https://digitallibrary.un.org/record/482518?ln=en
-https://digitallibrary.un.org/record/482411?ln=en
-https://digitallibrary.un.org/record/482410?ln=en
-https://digitallibrary.un.org/record/482409?ln=en
-https://digitallibrary.un.org/record/454825?ln=en
-https://digitallibrary.un.org/record/454822?ln=en
-https://digitallibrary.un.org/record/454821?ln=en
-https://digitallibrary.un.org/record/454814?ln=en
-https://digitallibrary.un.org/record/454789?ln=en
-https://digitallibrary.un.org/record/454783?ln=en
-https://digitallibrary.un.org/record/454779?ln=en
-https://digitallibrary.un.org/record/454778?ln=en
-https://digitallibrary.un.org/record/454777?ln=en
-https://digitallibrary.un.org/record/428803?ln=en
-https://digitallibrary.un.org/record/428802?ln=en
-https://digitallibrary.un.org/record/428801?ln=en
-https://digitallibrary.un.org/record/428800?ln=en
-https://digitallibrary.un.org/record/428799?ln=en
-https://digitallibrary.un.org/record/428798?ln=en
-https://digitallibrary.un.org/record/428797?ln=en
-https://digitallibrary.un.org/record/404581?ln=en
-https://digitallibrary.un.org/record/404580?ln=en
-https://digitallibrary.un.org/record/404571?ln=en
-https://digitallibrary.un.org/record/404570?ln=en
-https://digitallibrary.un.org/record/404569?ln=en
-https://digitallibrary.un.org/record/404568?ln=en
-https://digitallibrary.un.org/record/404567?ln=en
-https://digitallibrary.un.org/record/285322?ln=en
-https://digitallibrary.un.org/record/285321?ln=en
-https://digitallibrary.un.org/record/285320?ln=en
-https://digitallibrary.un.org/record/284945?ln=en
-https://digitallibrary.un.org/record/284944?ln=en
-https://digitallibrary.un.org/record/284943?ln=en
-https://digitallibrary.un.org/record/284942?ln=en
-https://digitallibrary.un.org/record/284941?ln=en
-https://digitallibrary.un.org/record/284940?ln=en
-https://digitallibrary.un.org/record/284939?ln=en
-https://digitallibrary.un.org/record/284553?ln=en
-https://digitallibrary.un.org/record/284552?ln=en
-https://digitallibrary.un.org/record/284550?ln=en
-https://digitallibrary.un.org/record/284159?ln=en
-https://digitallibrary.un.org/record/284158?ln=en
-https://digitallibrary.un.org/record/284157?ln=en
-https://digitallibrary.un.org/record/283677?ln=en
-https://digitallibrary.un.org/record/283676?ln=en
-https://digitallibrary.un.org/record/283675?ln=en
-https://digitallibrary.un.org/record/283674?ln=en
-https://digitallibrary.un.org/record/283322?ln=en
-https://digitallibrary.un.org/record/283321?ln=en
-https://digitallibrary.un.org/record/283320?ln=en
-https://digitallibrary.un.org/record/281095?ln=en
-https://digitallibrary.un.org/record/281094?ln=en
-https://digitallibrary.un.org/record/3950870?ln=en
-https://digitallibrary.un.org/record/3950868?ln=en
-https://digitallibrary.un.org/record/3950802?ln=en
-https://digitallibrary.un.org/record/3894279?ln=en
-https://digitallibrary.un.org/record/3894274?ln=en
-https://digitallibrary.un.org/record/3894273?ln=en
-https://digitallibrary.un.org/record/3839965?ln=en
-https://digitallibrary.un.org/record/3839964?ln=en
-https://digitallibrary.un.org/record/3839963?ln=en
-https://digitallibrary.un.org/record/3839812?ln=en
-https://digitallibrary.un.org/record/1654887?ln=en
-https://digitallibrary.un.org/record/1654885?ln=en
-https://digitallibrary.un.org/record/1654883?ln=en
-https://digitallibrary.un.org/record/1654876?ln=en
-https://digitallibrary.un.org/record/1325864?ln=en
-https://digitallibrary.un.org/record/1325856?ln=en
-https://digitallibrary.un.org/record/1325853?ln=en
-https://digitallibrary.un.org/record/1325852?ln=en
-https://digitallibrary.un.org/record/855210?ln=en
-https://digitallibrary.un.org/record/855209?ln=en
-https://digitallibrary.un.org/record/855179?ln=en
-https://digitallibrary.un.org/record/855173?ln=en
-https://digitallibrary.un.org/record/827243?ln=en
-https://digitallibrary.un.org/record/827219?ln=en
-https://digitallibrary.un.org/record/827198?ln=en
-https://digitallibrary.un.org/record/827171?ln=en
-https://digitallibrary.un.org/record/820127?ln=en
-https://digitallibrary.un.org/record/820101?ln=en
-https://digitallibrary.un.org/record/820091?ln=en
-https://digitallibrary.un.org/record/820085?ln=en
-https://digitallibrary.un.org/record/765017?ln=en
-https://digitallibrary.un.org/record/765015?ln=en
-https://digitallibrary.un.org/record/765014?ln=en
-https://digitallibrary.un.org/record/765013?ln=en
-https://digitallibrary.un.org/record/739990?ln=en
-https://digitallibrary.un.org/record/739989?ln=en
-https://digitallibrary.un.org/record/739988?ln=en
-https://digitallibrary.un.org/record/739987?ln=en
-https://digitallibrary.un.org/record/720062?ln=en
-https://digitallibrary.un.org/record/720060?ln=en
-https://digitallibrary.un.org/record/720043?ln=en
-https://digitallibrary.un.org/record/720036?ln=en
-https://digitallibrary.un.org/record/704960?ln=en
-https://digitallibrary.un.org/record/698983?ln=en
-https://digitallibrary.un.org/record/697306?ln=en
-https://digitallibrary.un.org/record/697301?ln=en
-https://digitallibrary.un.org/record/697294?ln=en
-https://digitallibrary.un.org/record/673810?ln=en
-https://digitallibrary.un.org/record/673807?ln=en
-https://digitallibrary.un.org/record/673806?ln=en
-https://digitallibrary.un.org/record/673804?ln=en
-https://digitallibrary.un.org/record/644277?ln=en
-https://digitallibrary.un.org/record/644223?ln=en
-https://digitallibrary.un.org/record/644218?ln=en
-https://digitallibrary.un.org/record/644217?ln=en
-https://digitallibrary.un.org/record/614526?ln=en
-https://digitallibrary.un.org/record/614525?ln=en
-https://digitallibrary.un.org/record/614524?ln=en
-https://digitallibrary.un.org/record/614214?ln=en
-https://digitallibrary.un.org/record/588889?ln=en
-https://digitallibrary.un.org/record/588875?ln=en
-https://digitallibrary.un.org/record/588859?ln=en
-https://digitallibrary.un.org/record/588854?ln=en
-https://digitallibrary.un.org/record/563614?ln=en
-https://digitallibrary.un.org/record/562864?ln=en
-https://digitallibrary.un.org/record/562602?ln=en
-https://digitallibrary.un.org/record/562599?ln=en
-https://digitallibrary.un.org/record/537020?ln=en
-https://digitallibrary.un.org/record/537019?ln=en
-https://digitallibrary.un.org/record/537018?ln=en
-https://digitallibrary.un.org/record/537015?ln=en
-https://digitallibrary.un.org/record/508100?ln=en
-https://digitallibrary.un.org/record/508087?ln=en
-https://digitallibrary.un.org/record/508085?ln=en
-https://digitallibrary.un.org/record/508084?ln=en
-https://digitallibrary.un.org/record/508079?ln=en
-https://digitallibrary.un.org/record/482377?ln=en
-https://digitallibrary.un.org/record/482376?ln=en
-https://digitallibrary.un.org/record/482375?ln=en
-https://digitallibrary.un.org/record/482349?ln=en
-https://digitallibrary.un.org/record/482348?ln=en
-https://digitallibrary.un.org/record/482346?ln=en
-https://digitallibrary.un.org/record/454263?ln=en
-https://digitallibrary.un.org/record/454257?ln=en
-https://digitallibrary.un.org/record/454256?ln=en
-https://digitallibrary.un.org/record/454255?ln=en
-https://digitallibrary.un.org/record/454254?ln=en
-https://digitallibrary.un.org/record/454253?ln=en
-https://digitallibrary.un.org/record/429144?ln=en
-https://digitallibrary.un.org/record/429143?ln=en
-https://digitallibrary.un.org/record/429142?ln=en
-https://digitallibrary.un.org/record/429141?ln=en
-https://digitallibrary.un.org/record/429140?ln=en
-https://digitallibrary.un.org/record/429139?ln=en
-https://digitallibrary.un.org/record/404059?ln=en
-https://digitallibrary.un.org/record/404058?ln=en
-https://digitallibrary.un.org/record/404057?ln=en
-https://digitallibrary.un.org/record/404056?ln=en
-https://digitallibrary.un.org/record/404055?ln=en
-https://digitallibrary.un.org/record/404054?ln=en
-https://digitallibrary.un.org/record/285274?ln=en
-https://digitallibrary.un.org/record/285273?ln=en
-https://digitallibrary.un.org/record/285272?ln=en
-https://digitallibrary.un.org/record/285271?ln=en
-https://digitallibrary.un.org/record/285270?ln=en
-https://digitallibrary.un.org/record/285269?ln=en
-https://digitallibrary.un.org/record/284925?ln=en
-https://digitallibrary.un.org/record/284924?ln=en
-https://digitallibrary.un.org/record/284923?ln=en
-https://digitallibrary.un.org/record/284922?ln=en
-https://digitallibrary.un.org/record/284921?ln=en
-https://digitallibrary.un.org/record/284920?ln=en
-https://digitallibrary.un.org/record/284569?ln=en
-https://digitallibrary.un.org/record/284568?ln=en
-https://digitallibrary.un.org/record/284567?ln=en
-https://digitallibrary.un.org/record/284566?ln=en
-https://digitallibrary.un.org/record/284565?ln=en
-https://digitallibrary.un.org/record/284564?ln=en
-https://digitallibrary.un.org/record/284102?ln=en
-https://digitallibrary.un.org/record/284101?ln=en
-https://digitallibrary.un.org/record/284100?ln=en
-https://digitallibrary.un.org/record/284099?ln=en
-https://digitallibrary.un.org/record/284098?ln=en
-https://digitallibrary.un.org/record/284097?ln=en
-https://digitallibrary.un.org/record/283610?ln=en
-https://digitallibrary.un.org/record/283609?ln=en
-https://digitallibrary.un.org/record/283608?ln=en
-https://digitallibrary.un.org/record/283607?ln=en
-https://digitallibrary.un.org/record/283606?ln=en
-https://digitallibrary.un.org/record/283605?ln=en
-https://digitallibrary.un.org/record/283280?ln=en
-https://digitallibrary.un.org/record/283279?ln=en
-https://digitallibrary.un.org/record/283278?ln=en
-https://digitallibrary.un.org/record/283277?ln=en
-https://digitallibrary.un.org/record/283276?ln=en
-https://digitallibrary.un.org/record/283275?ln=en
-https://digitallibrary.un.org/record/283274?ln=en
-https://digitallibrary.un.org/record/283273?ln=en
-https://digitallibrary.un.org/record/282879?ln=en
-https://digitallibrary.un.org/record/282878?ln=en
-https://digitallibrary.un.org/record/282877?ln=en
-https://digitallibrary.un.org/record/282876?ln=en
-https://digitallibrary.un.org/record/282875?ln=en
-https://digitallibrary.un.org/record/282874?ln=en
-https://digitallibrary.un.org/record/282873?ln=en
-https://digitallibrary.un.org/record/282872?ln=en
-https://digitallibrary.un.org/record/282871?ln=en
-https://digitallibrary.un.org/record/282510?ln=en
-https://digitallibrary.un.org/record/282509?ln=en
-https://digitallibrary.un.org/record/282508?ln=en
-https://digitallibrary.un.org/record/282506?ln=en
-https://digitallibrary.un.org/record/282505?ln=en
-https://digitallibrary.un.org/record/282504?ln=en
-https://digitallibrary.un.org/record/282503?ln=en
-https://digitallibrary.un.org/record/282502?ln=en
-https://digitallibrary.un.org/record/282501?ln=en
-https://digitallibrary.un.org/record/282143?ln=en
-https://digitallibrary.un.org/record/282142?ln=en
-https://digitallibrary.un.org/record/282141?ln=en
-https://digitallibrary.un.org/record/282140?ln=en
-https://digitallibrary.un.org/record/282139?ln=en
-https://digitallibrary.un.org/record/282138?ln=en
-https://digitallibrary.un.org/record/282137?ln=en
-https://digitallibrary.un.org/record/282136?ln=en
-https://digitallibrary.un.org/record/282135?ln=en
-https://digitallibrary.un.org/record/281740?ln=en
-https://digitallibrary.un.org/record/281739?ln=en
-https://digitallibrary.un.org/record/281738?ln=en
-https://digitallibrary.un.org/record/281737?ln=en
-https://digitallibrary.un.org/record/281736?ln=en
-https://digitallibrary.un.org/record/281735?ln=en
-https://digitallibrary.un.org/record/281734?ln=en
-https://digitallibrary.un.org/record/281733?ln=en
-https://digitallibrary.un.org/record/281732?ln=en
-https://digitallibrary.un.org/record/281395?ln=en
-https://digitallibrary.un.org/record/281394?ln=en
-https://digitallibrary.un.org/record/281393?ln=en
-https://digitallibrary.un.org/record/281392?ln=en
-https://digitallibrary.un.org/record/281391?ln=en
-https://digitallibrary.un.org/record/281390?ln=en
-https://digitallibrary.un.org/record/281389?ln=en
-https://digitallibrary.un.org/record/281388?ln=en
-https://digitallibrary.un.org/record/279887?ln=en
-https://digitallibrary.un.org/record/279886?ln=en
-https://digitallibrary.un.org/record/279885?ln=en
-https://digitallibrary.un.org/record/279884?ln=en
-https://digitallibrary.un.org/record/279883?ln=en
-https://digitallibrary.un.org/record/279882?ln=en
-https://digitallibrary.un.org/record/279881?ln=en
-https://digitallibrary.un.org/record/279880?ln=en
-https://digitallibrary.un.org/record/279879?ln=en
-https://digitallibrary.un.org/record/3950872?ln=en
-https://digitallibrary.un.org/record/3950871?ln=en
-https://digitallibrary.un.org/record/3894323?ln=en
-https://digitallibrary.un.org/record/3894284?ln=en
-https://digitallibrary.un.org/record/3894258?ln=en
-https://digitallibrary.un.org/record/3839866?ln=en
-https://digitallibrary.un.org/record/3839865?ln=en
-https://digitallibrary.un.org/record/1654884?ln=en
-https://digitallibrary.un.org/record/1654880?ln=en
-https://digitallibrary.un.org/record/1325863?ln=en
-https://digitallibrary.un.org/record/1325862?ln=en
-https://digitallibrary.un.org/record/1325859?ln=en
-https://digitallibrary.un.org/record/855225?ln=en
-https://digitallibrary.un.org/record/855215?ln=en
-https://digitallibrary.un.org/record/827226?ln=en
-https://digitallibrary.un.org/record/827191?ln=en
-https://digitallibrary.un.org/record/820097?ln=en
-https://digitallibrary.un.org/record/820075?ln=en
-https://digitallibrary.un.org/record/765030?ln=en
-https://digitallibrary.un.org/record/765029?ln=en
-https://digitallibrary.un.org/record/739998?ln=en
-https://digitallibrary.un.org/record/739997?ln=en
-https://digitallibrary.un.org/record/720380?ln=en
-https://digitallibrary.un.org/record/720379?ln=en
-https://digitallibrary.un.org/record/697327?ln=en
-https://digitallibrary.un.org/record/697326?ln=en
-https://digitallibrary.un.org/record/697325?ln=en
-https://digitallibrary.un.org/record/697324?ln=en
-https://digitallibrary.un.org/record/673960?ln=en
-https://digitallibrary.un.org/record/673950?ln=en
-https://digitallibrary.un.org/record/646059?ln=en
-https://digitallibrary.un.org/record/646058?ln=en
-https://digitallibrary.un.org/record/646055?ln=en
-https://digitallibrary.un.org/record/646054?ln=en
-https://digitallibrary.un.org/record/646053?ln=en
-https://digitallibrary.un.org/record/646052?ln=en
-https://digitallibrary.un.org/record/646051?ln=en
-https://digitallibrary.un.org/record/646050?ln=en
-https://digitallibrary.un.org/record/646049?ln=en
-https://digitallibrary.un.org/record/646047?ln=en
-https://digitallibrary.un.org/record/646023?ln=en
-https://digitallibrary.un.org/record/644311?ln=en
-https://digitallibrary.un.org/record/644310?ln=en
-https://digitallibrary.un.org/record/639347?ln=en
-https://digitallibrary.un.org/record/639346?ln=en
-https://digitallibrary.un.org/record/614536?ln=en
-https://digitallibrary.un.org/record/614535?ln=en
-https://digitallibrary.un.org/record/588954?ln=en
-https://digitallibrary.un.org/record/588953?ln=en
-https://digitallibrary.un.org/record/588952?ln=en
-https://digitallibrary.un.org/record/588948?ln=en
-https://digitallibrary.un.org/record/562938?ln=en
-https://digitallibrary.un.org/record/562935?ln=en
-https://digitallibrary.un.org/record/562933?ln=en
-https://digitallibrary.un.org/record/537038?ln=en
-https://digitallibrary.un.org/record/537033?ln=en
-https://digitallibrary.un.org/record/537031?ln=en
-https://digitallibrary.un.org/record/508174?ln=en
-https://digitallibrary.un.org/record/508173?ln=en
-https://digitallibrary.un.org/record/482392?ln=en
-https://digitallibrary.un.org/record/482391?ln=en
-https://digitallibrary.un.org/record/482389?ln=en
-https://digitallibrary.un.org/record/454297?ln=en
-https://digitallibrary.un.org/record/454296?ln=en
-https://digitallibrary.un.org/record/454291?ln=en
-https://digitallibrary.un.org/record/429155?ln=en
-https://digitallibrary.un.org/record/429154?ln=en
-https://digitallibrary.un.org/record/429153?ln=en
-https://digitallibrary.un.org/record/429151?ln=en
-https://digitallibrary.un.org/record/404069?ln=en
-https://digitallibrary.un.org/record/404068?ln=en
-https://digitallibrary.un.org/record/404066?ln=en
-https://digitallibrary.un.org/record/285284?ln=en
-https://digitallibrary.un.org/record/285283?ln=en
-https://digitallibrary.un.org/record/285281?ln=en
-https://digitallibrary.un.org/record/284935?ln=en
-https://digitallibrary.un.org/record/284934?ln=en
-https://digitallibrary.un.org/record/284932?ln=en
-https://digitallibrary.un.org/record/284581?ln=en
-https://digitallibrary.un.org/record/284580?ln=en
-https://digitallibrary.un.org/record/284578?ln=en
-https://digitallibrary.un.org/record/284112?ln=en
-https://digitallibrary.un.org/record/284111?ln=en
-https://digitallibrary.un.org/record/284110?ln=en
-https://digitallibrary.un.org/record/284108?ln=en
-https://digitallibrary.un.org/record/283651?ln=en
-https://digitallibrary.un.org/record/283650?ln=en
-https://digitallibrary.un.org/record/283616?ln=en
-https://digitallibrary.un.org/record/283588?ln=en
-https://digitallibrary.un.org/record/283289?ln=en
-https://digitallibrary.un.org/record/283288?ln=en
-https://digitallibrary.un.org/record/283286?ln=en
-https://digitallibrary.un.org/record/282837?ln=en
-https://digitallibrary.un.org/record/282836?ln=en
-https://digitallibrary.un.org/record/282527?ln=en
-https://digitallibrary.un.org/record/282525?ln=en
-https://digitallibrary.un.org/record/282097?ln=en
-https://digitallibrary.un.org/record/282091?ln=en
-https://digitallibrary.un.org/record/282090?ln=en
-https://digitallibrary.un.org/record/282089?ln=en
-https://digitallibrary.un.org/record/281760?ln=en
-https://digitallibrary.un.org/record/281759?ln=en
-https://digitallibrary.un.org/record/281758?ln=en
-https://digitallibrary.un.org/record/281371?ln=en
-https://digitallibrary.un.org/record/281370?ln=en
-https://digitallibrary.un.org/record/281369?ln=en
-https://digitallibrary.un.org/record/281368?ln=en
-https://digitallibrary.un.org/record/281084?ln=en
-https://digitallibrary.un.org/record/281083?ln=en
-https://digitallibrary.un.org/record/281079?ln=en
-https://digitallibrary.un.org/record/281078?ln=en
-https://digitallibrary.un.org/record/280691?ln=en
-https://digitallibrary.un.org/record/280690?ln=en
-https://digitallibrary.un.org/record/280689?ln=en
-https://digitallibrary.un.org/record/280670?ln=en
-https://digitallibrary.un.org/record/279752?ln=en
-https://digitallibrary.un.org/record/279751?ln=en
-https://digitallibrary.un.org/record/279750?ln=en
-https://digitallibrary.un.org/record/279746?ln=en
-https://digitallibrary.un.org/record/278668?ln=en
-https://digitallibrary.un.org/record/278667?ln=en
-https://digitallibrary.un.org/record/3952169?ln=en
-https://digitallibrary.un.org/record/3951458?ln=en
-https://digitallibrary.un.org/record/3951457?ln=en
-https://digitallibrary.un.org/record/3896181?ln=en
-https://digitallibrary.un.org/record/3894865?ln=en
-https://digitallibrary.un.org/record/3894863?ln=en
-https://digitallibrary.un.org/record/3894858?ln=en
-https://digitallibrary.un.org/record/3841021?ln=en
-https://digitallibrary.un.org/record/3840118?ln=en
-https://digitallibrary.un.org/record/3840117?ln=en
-https://digitallibrary.un.org/record/3840116?ln=en
-https://digitallibrary.un.org/record/1657120?ln=en
-https://digitallibrary.un.org/record/1657118?ln=en
-https://digitallibrary.un.org/record/1656198?ln=en
-https://digitallibrary.un.org/record/1656197?ln=en
-https://digitallibrary.un.org/record/1470211?ln=en
-https://digitallibrary.un.org/record/1327572?ln=en
-https://digitallibrary.un.org/record/1327570?ln=en
-https://digitallibrary.un.org/record/1327565?ln=en
-https://digitallibrary.un.org/record/855227?ln=en
-https://digitallibrary.un.org/record/855198?ln=en
-https://digitallibrary.un.org/record/855181?ln=en
-https://digitallibrary.un.org/record/827242?ln=en
-https://digitallibrary.un.org/record/827213?ln=en
-https://digitallibrary.un.org/record/827186?ln=en
-https://digitallibrary.un.org/record/820106?ln=en
-https://digitallibrary.un.org/record/820088?ln=en
-https://digitallibrary.un.org/record/820070?ln=en
-https://digitallibrary.un.org/record/765078?ln=en
-https://digitallibrary.un.org/record/765077?ln=en
-https://digitallibrary.un.org/record/740184?ln=en
-https://digitallibrary.un.org/record/740183?ln=en
-https://digitallibrary.un.org/record/724807?ln=en
-https://digitallibrary.un.org/record/724459?ln=en
-https://digitallibrary.un.org/record/721456?ln=en
-https://digitallibrary.un.org/record/721356?ln=en
-https://digitallibrary.un.org/record/700753?ln=en
-https://digitallibrary.un.org/record/700654?ln=en
-https://digitallibrary.un.org/record/700650?ln=en
-https://digitallibrary.un.org/record/675477?ln=en
-https://digitallibrary.un.org/record/674408?ln=en
-https://digitallibrary.un.org/record/674407?ln=en
-https://digitallibrary.un.org/record/644767?ln=en
-https://digitallibrary.un.org/record/644572?ln=en
-https://digitallibrary.un.org/record/644571?ln=en
-https://digitallibrary.un.org/record/615165?ln=en
-https://digitallibrary.un.org/record/615032?ln=en
-https://digitallibrary.un.org/record/615027?ln=en
-https://digitallibrary.un.org/record/615020?ln=en
-https://digitallibrary.un.org/record/590466?ln=en
-https://digitallibrary.un.org/record/590300?ln=en
-https://digitallibrary.un.org/record/590299?ln=en
-https://digitallibrary.un.org/record/590298?ln=en
-https://digitallibrary.un.org/record/563466?ln=en
-https://digitallibrary.un.org/record/563465?ln=en
-https://digitallibrary.un.org/record/563464?ln=en
-https://digitallibrary.un.org/record/563463?ln=en
-https://digitallibrary.un.org/record/563461?ln=en
-https://digitallibrary.un.org/record/537731?ln=en
-https://digitallibrary.un.org/record/537730?ln=en
-https://digitallibrary.un.org/record/537728?ln=en
-https://digitallibrary.un.org/record/509188?ln=en
-https://digitallibrary.un.org/record/509186?ln=en
-https://digitallibrary.un.org/record/509185?ln=en
-https://digitallibrary.un.org/record/482541?ln=en
-https://digitallibrary.un.org/record/482537?ln=en
-https://digitallibrary.un.org/record/482536?ln=en
-https://digitallibrary.un.org/record/454848?ln=en
-https://digitallibrary.un.org/record/454845?ln=en
-https://digitallibrary.un.org/record/454829?ln=en
-https://digitallibrary.un.org/record/454826?ln=en
-https://digitallibrary.un.org/record/428807?ln=en
-https://digitallibrary.un.org/record/428806?ln=en
-https://digitallibrary.un.org/record/428805?ln=en
-https://digitallibrary.un.org/record/428804?ln=en
-https://digitallibrary.un.org/record/404587?ln=en
-https://digitallibrary.un.org/record/404586?ln=en
-https://digitallibrary.un.org/record/404585?ln=en
-https://digitallibrary.un.org/record/404584?ln=en
-https://digitallibrary.un.org/record/404583?ln=en
-https://digitallibrary.un.org/record/404582?ln=en
-https://digitallibrary.un.org/record/285326?ln=en
-https://digitallibrary.un.org/record/285325?ln=en
-https://digitallibrary.un.org/record/285324?ln=en
-https://digitallibrary.un.org/record/285323?ln=en
-https://digitallibrary.un.org/record/284952?ln=en
-https://digitallibrary.un.org/record/284951?ln=en
-https://digitallibrary.un.org/record/284950?ln=en
-https://digitallibrary.un.org/record/284949?ln=en
-https://digitallibrary.un.org/record/284948?ln=en
-https://digitallibrary.un.org/record/284947?ln=en
-https://digitallibrary.un.org/record/284946?ln=en
-https://digitallibrary.un.org/record/284563?ln=en
-https://digitallibrary.un.org/record/284561?ln=en
-https://digitallibrary.un.org/record/284560?ln=en
-https://digitallibrary.un.org/record/284558?ln=en
-https://digitallibrary.un.org/record/284557?ln=en
-https://digitallibrary.un.org/record/284556?ln=en
-https://digitallibrary.un.org/record/284554?ln=en
-https://digitallibrary.un.org/record/282897?ln=en
-https://digitallibrary.un.org/record/282896?ln=en
-https://digitallibrary.un.org/record/282895?ln=en
-https://digitallibrary.un.org/record/282894?ln=en
-https://digitallibrary.un.org/record/282537?ln=en
-https://digitallibrary.un.org/record/282536?ln=en
-https://digitallibrary.un.org/record/282535?ln=en
-https://digitallibrary.un.org/record/282534?ln=en
-https://digitallibrary.un.org/record/282176?ln=en
-https://digitallibrary.un.org/record/282175?ln=en
-https://digitallibrary.un.org/record/282174?ln=en
-https://digitallibrary.un.org/record/282173?ln=en
-https://digitallibrary.un.org/record/282172?ln=en
-https://digitallibrary.un.org/record/282171?ln=en
-https://digitallibrary.un.org/record/281719?ln=en
-https://digitallibrary.un.org/record/281718?ln=en
-https://digitallibrary.un.org/record/281717?ln=en
-https://digitallibrary.un.org/record/281716?ln=en
-https://digitallibrary.un.org/record/281715?ln=en
-https://digitallibrary.un.org/record/281714?ln=en
-https://digitallibrary.un.org/record/281713?ln=en
-https://digitallibrary.un.org/record/281712?ln=en
-https://digitallibrary.un.org/record/281711?ln=en
-https://digitallibrary.un.org/record/281710?ln=en
-https://digitallibrary.un.org/record/281697?ln=en
-https://digitallibrary.un.org/record/281383?ln=en
-https://digitallibrary.un.org/record/281382?ln=en
-https://digitallibrary.un.org/record/281381?ln=en
-https://digitallibrary.un.org/record/281380?ln=en
-https://digitallibrary.un.org/record/281379?ln=en
-https://digitallibrary.un.org/record/281378?ln=en
-https://digitallibrary.un.org/record/281377?ln=en
-https://digitallibrary.un.org/record/281376?ln=en
-https://digitallibrary.un.org/record/281375?ln=en
-https://digitallibrary.un.org/record/281351?ln=en
-https://digitallibrary.un.org/record/281022?ln=en
-https://digitallibrary.un.org/record/281021?ln=en
-https://digitallibrary.un.org/record/281020?ln=en
-https://digitallibrary.un.org/record/281019?ln=en
-https://digitallibrary.un.org/record/281018?ln=en
-https://digitallibrary.un.org/record/281017?ln=en
-https://digitallibrary.un.org/record/281016?ln=en
-https://digitallibrary.un.org/record/280681?ln=en
-https://digitallibrary.un.org/record/280680?ln=en
-https://digitallibrary.un.org/record/280679?ln=en
-https://digitallibrary.un.org/record/280678?ln=en
-https://digitallibrary.un.org/record/280677?ln=en
-https://digitallibrary.un.org/record/280676?ln=en
-https://digitallibrary.un.org/record/280675?ln=en
-https://digitallibrary.un.org/record/279794?ln=en
-https://digitallibrary.un.org/record/279793?ln=en
-https://digitallibrary.un.org/record/279792?ln=en
-https://digitallibrary.un.org/record/279791?ln=en
-https://digitallibrary.un.org/record/279790?ln=en
-https://digitallibrary.un.org/record/279789?ln=en
-https://digitallibrary.un.org/record/279788?ln=en
-https://digitallibrary.un.org/record/279787?ln=en
-https://digitallibrary.un.org/record/278897?ln=en
-https://digitallibrary.un.org/record/278896?ln=en
-https://digitallibrary.un.org/record/278895?ln=en
-https://digitallibrary.un.org/record/278894?ln=en
-https://digitallibrary.un.org/record/278893?ln=en
-https://digitallibrary.un.org/record/278892?ln=en
-https://digitallibrary.un.org/record/278816?ln=en
-https://digitallibrary.un.org/record/278663?ln=en
-https://digitallibrary.un.org/record/278662?ln=en
-https://digitallibrary.un.org/record/278661?ln=en
-https://digitallibrary.un.org/record/278660?ln=en
-https://digitallibrary.un.org/record/278659?ln=en
-https://digitallibrary.un.org/record/278658?ln=en
-https://digitallibrary.un.org/record/278657?ln=en
-https://digitallibrary.un.org/record/278656?ln=en
-https://digitallibrary.un.org/record/278655?ln=en
-https://digitallibrary.un.org/record/278654?ln=en
-https://digitallibrary.un.org/record/278343?ln=en
-https://digitallibrary.un.org/record/3951468?ln=en
-https://digitallibrary.un.org/record/3951467?ln=en
-https://digitallibrary.un.org/record/3894845?ln=en
-https://digitallibrary.un.org/record/3894844?ln=en
-https://digitallibrary.un.org/record/3840128?ln=en
-https://digitallibrary.un.org/record/3840115?ln=en
-https://digitallibrary.un.org/record/1656164?ln=en
-https://digitallibrary.un.org/record/1656159?ln=en
-https://digitallibrary.un.org/record/1327558?ln=en
-https://digitallibrary.un.org/record/1327552?ln=en
-https://digitallibrary.un.org/record/855170?ln=en
-https://digitallibrary.un.org/record/855168?ln=en
-https://digitallibrary.un.org/record/827204?ln=en
-https://digitallibrary.un.org/record/827200?ln=en
-https://digitallibrary.un.org/record/820107?ln=en
-https://digitallibrary.un.org/record/820098?ln=en
-https://digitallibrary.un.org/record/765056?ln=en
-https://digitallibrary.un.org/record/765052?ln=en
-https://digitallibrary.un.org/record/740174?ln=en
-https://digitallibrary.un.org/record/740173?ln=en
-https://digitallibrary.un.org/record/724615?ln=en
-https://digitallibrary.un.org/record/724410?ln=en
-https://digitallibrary.un.org/record/700384?ln=en
-https://digitallibrary.un.org/record/700379?ln=en
-https://digitallibrary.un.org/record/674093?ln=en
-https://digitallibrary.un.org/record/674042?ln=en
-https://digitallibrary.un.org/record/644535?ln=en
-https://digitallibrary.un.org/record/644534?ln=en
-https://digitallibrary.un.org/record/614675?ln=en
-https://digitallibrary.un.org/record/614674?ln=en
-https://digitallibrary.un.org/record/590174?ln=en
-https://digitallibrary.un.org/record/590170?ln=en
-https://digitallibrary.un.org/record/563432?ln=en
-https://digitallibrary.un.org/record/537675?ln=en
-https://digitallibrary.un.org/record/537673?ln=en
-https://digitallibrary.un.org/record/509375?ln=en
-https://digitallibrary.un.org/record/509155?ln=en
-https://digitallibrary.un.org/record/509154?ln=en
-https://digitallibrary.un.org/record/482407?ln=en
-https://digitallibrary.un.org/record/482406?ln=en
-https://digitallibrary.un.org/record/455680?ln=en
-https://digitallibrary.un.org/record/454775?ln=en
-https://digitallibrary.un.org/record/428795?ln=en
-https://digitallibrary.un.org/record/428794?ln=en
-https://digitallibrary.un.org/record/404566?ln=en
-https://digitallibrary.un.org/record/404565?ln=en
-https://digitallibrary.un.org/record/284938?ln=en
-https://digitallibrary.un.org/record/284937?ln=en
-https://digitallibrary.un.org/record/284549?ln=en
-https://digitallibrary.un.org/record/284548?ln=en
-https://digitallibrary.un.org/record/284156?ln=en
-https://digitallibrary.un.org/record/284155?ln=en
-https://digitallibrary.un.org/record/283673?ln=en
-https://digitallibrary.un.org/record/283672?ln=en
-https://digitallibrary.un.org/record/283671?ln=en
-https://digitallibrary.un.org/record/283318?ln=en
-https://digitallibrary.un.org/record/283317?ln=en
-https://digitallibrary.un.org/record/282892?ln=en
-https://digitallibrary.un.org/record/282891?ln=en
-https://digitallibrary.un.org/record/282545?ln=en
-https://digitallibrary.un.org/record/282544?ln=en
-https://digitallibrary.un.org/record/282164?ln=en
-https://digitallibrary.un.org/record/282163?ln=en
-https://digitallibrary.un.org/record/281754?ln=en
-https://digitallibrary.un.org/record/281753?ln=en
-https://digitallibrary.un.org/record/281454?ln=en
-https://digitallibrary.un.org/record/281453?ln=en
-https://digitallibrary.un.org/record/281089?ln=en
-https://digitallibrary.un.org/record/281088?ln=en
-https://digitallibrary.un.org/record/280775?ln=en
-https://digitallibrary.un.org/record/280774?ln=en
-https://digitallibrary.un.org/record/279743?ln=en
-https://digitallibrary.un.org/record/278843?ln=en
-https://digitallibrary.un.org/record/278640?ln=en
-https://digitallibrary.un.org/record/3951513?ln=en
-https://digitallibrary.un.org/record/3951510?ln=en
-https://digitallibrary.un.org/record/3895367?ln=en
-https://digitallibrary.un.org/record/3840217?ln=en
-https://digitallibrary.un.org/record/3840216?ln=en
-https://digitallibrary.un.org/record/1656638?ln=en
-https://digitallibrary.un.org/record/1327559?ln=en
-https://digitallibrary.un.org/record/1327547?ln=en
-https://digitallibrary.un.org/record/827195?ln=en
-https://digitallibrary.un.org/record/765079?ln=en
-https://digitallibrary.un.org/record/721485?ln=en
-https://digitallibrary.un.org/record/697863?ln=en
-https://digitallibrary.un.org/record/674424?ln=en
-https://digitallibrary.un.org/record/674422?ln=en
-https://digitallibrary.un.org/record/615099?ln=en
-https://digitallibrary.un.org/record/615093?ln=en
-https://digitallibrary.un.org/record/590311?ln=en
-https://digitallibrary.un.org/record/563800?ln=en
-https://digitallibrary.un.org/record/563799?ln=en
-https://digitallibrary.un.org/record/538026?ln=en
-https://digitallibrary.un.org/record/509418?ln=en
-https://digitallibrary.un.org/record/455673?ln=en
-https://digitallibrary.un.org/record/404978?ln=en
-https://digitallibrary.un.org/record/284954?ln=en
-https://digitallibrary.un.org/record/284151?ln=en
-https://digitallibrary.un.org/record/283331?ln=en
-https://digitallibrary.un.org/record/282556?ln=en
-https://digitallibrary.un.org/record/281814?ln=en
-https://digitallibrary.un.org/record/281813?ln=en
-https://digitallibrary.un.org/record/281812?ln=en
-https://digitallibrary.un.org/record/281811?ln=en
-https://digitallibrary.un.org/record/281475?ln=en
-https://digitallibrary.un.org/record/281474?ln=en
-https://digitallibrary.un.org/record/281123?ln=en
-https://digitallibrary.un.org/record/281122?ln=en
-https://digitallibrary.un.org/record/281121?ln=en
-https://digitallibrary.un.org/record/280800?ln=en
-https://digitallibrary.un.org/record/280799?ln=en
-https://digitallibrary.un.org/record/279899?ln=en
-https://digitallibrary.un.org/record/279898?ln=en
-https://digitallibrary.un.org/record/279897?ln=en
-https://digitallibrary.un.org/record/279896?ln=en
-https://digitallibrary.un.org/record/278976?ln=en
-https://digitallibrary.un.org/record/278975?ln=en
-https://digitallibrary.un.org/record/3954788?ln=en
-https://digitallibrary.un.org/record/3896182?ln=en
-https://digitallibrary.un.org/record/3838653?ln=en
-https://digitallibrary.un.org/record/1655458?ln=en
-https://digitallibrary.un.org/record/1325850?ln=en
-https://digitallibrary.un.org/record/855180?ln=en
-https://digitallibrary.un.org/record/827172?ln=en
-https://digitallibrary.un.org/record/820080?ln=en
-https://digitallibrary.un.org/record/765084?ln=en
-https://digitallibrary.un.org/record/739430?ln=en
-https://digitallibrary.un.org/record/724755?ln=en
-https://digitallibrary.un.org/record/700704?ln=en
-https://digitallibrary.un.org/record/673642?ln=en
-https://digitallibrary.un.org/record/644312?ln=en
-https://digitallibrary.un.org/record/615158?ln=en
-https://digitallibrary.un.org/record/590428?ln=en
-https://digitallibrary.un.org/record/561604?ln=en
-https://digitallibrary.un.org/record/535326?ln=en
-https://digitallibrary.un.org/record/509420?ln=en
-https://digitallibrary.un.org/record/482393?ln=en
-https://digitallibrary.un.org/record/453671?ln=en
-https://digitallibrary.un.org/record/426989?ln=en
-https://digitallibrary.un.org/record/404018?ln=en
-https://digitallibrary.un.org/record/285527?ln=en
-https://digitallibrary.un.org/record/284874?ln=en
-https://digitallibrary.un.org/record/284510?ln=en
-https://digitallibrary.un.org/record/284096?ln=en
-https://digitallibrary.un.org/record/283602?ln=en
-https://digitallibrary.un.org/record/283566?ln=en
-https://digitallibrary.un.org/record/283272?ln=en
-https://digitallibrary.un.org/record/282870?ln=en
-https://digitallibrary.un.org/record/282533?ln=en
-https://digitallibrary.un.org/record/282165?ln=en
-https://digitallibrary.un.org/record/281709?ln=en
-https://digitallibrary.un.org/record/281353?ln=en
-https://digitallibrary.un.org/record/281015?ln=en
-https://digitallibrary.un.org/record/280674?ln=en
-https://digitallibrary.un.org/record/279786?ln=en
-https://digitallibrary.un.org/record/278898?ln=en
-https://digitallibrary.un.org/record/3950796?ln=en
-https://digitallibrary.un.org/record/3894287?ln=en
-https://digitallibrary.un.org/record/3839971?ln=en
-https://digitallibrary.un.org/record/1654873?ln=en
-https://digitallibrary.un.org/record/1325851?ln=en
-https://digitallibrary.un.org/record/855200?ln=en
-https://digitallibrary.un.org/record/827232?ln=en
-https://digitallibrary.un.org/record/820130?ln=en
-https://digitallibrary.un.org/record/765028?ln=en
-https://digitallibrary.un.org/record/739848?ln=en
-https://digitallibrary.un.org/record/720119?ln=en
-https://digitallibrary.un.org/record/697318?ln=en
-https://digitallibrary.un.org/record/673931?ln=en
-https://digitallibrary.un.org/record/644301?ln=en
-https://digitallibrary.un.org/record/614534?ln=en
-https://digitallibrary.un.org/record/590464?ln=en
-https://digitallibrary.un.org/record/562929?ln=en
-https://digitallibrary.un.org/record/537030?ln=en
-https://digitallibrary.un.org/record/508172?ln=en
-https://digitallibrary.un.org/record/482390?ln=en
-https://digitallibrary.un.org/record/454294?ln=en
-https://digitallibrary.un.org/record/429152?ln=en
-https://digitallibrary.un.org/record/404067?ln=en
-https://digitallibrary.un.org/record/285282?ln=en
-https://digitallibrary.un.org/record/284933?ln=en
-https://digitallibrary.un.org/record/284579?ln=en
-https://digitallibrary.un.org/record/284109?ln=en
-https://digitallibrary.un.org/record/283617?ln=en
-https://digitallibrary.un.org/record/283287?ln=en
-https://digitallibrary.un.org/record/282832?ln=en
-https://digitallibrary.un.org/record/282524?ln=en
-https://digitallibrary.un.org/record/282088?ln=en
-https://digitallibrary.un.org/record/281757?ln=en
-https://digitallibrary.un.org/record/281367?ln=en
-https://digitallibrary.un.org/record/281082?ln=en
-https://digitallibrary.un.org/record/280669?ln=en
-https://digitallibrary.un.org/record/279749?ln=en
-https://digitallibrary.un.org/record/3951523?ln=en
-https://digitallibrary.un.org/record/3951515?ln=en
-https://digitallibrary.un.org/record/3895366?ln=en
-https://digitallibrary.un.org/record/3895364?ln=en
-https://digitallibrary.un.org/record/3840212?ln=en
-https://digitallibrary.un.org/record/3840211?ln=en
-https://digitallibrary.un.org/record/1656649?ln=en
-https://digitallibrary.un.org/record/1656647?ln=en
-https://digitallibrary.un.org/record/1327571?ln=en
-https://digitallibrary.un.org/record/1327548?ln=en
-https://digitallibrary.un.org/record/855222?ln=en
-https://digitallibrary.un.org/record/855166?ln=en
-https://digitallibrary.un.org/record/827240?ln=en
-https://digitallibrary.un.org/record/827235?ln=en
-https://digitallibrary.un.org/record/820096?ln=en
-https://digitallibrary.un.org/record/820094?ln=en
-https://digitallibrary.un.org/record/765081?ln=en
-https://digitallibrary.un.org/record/765080?ln=en
-https://digitallibrary.un.org/record/740243?ln=en
-https://digitallibrary.un.org/record/740242?ln=en
-https://digitallibrary.un.org/record/722029?ln=en
-https://digitallibrary.un.org/record/721707?ln=en
-https://digitallibrary.un.org/record/698713?ln=en
-https://digitallibrary.un.org/record/674741?ln=en
-https://digitallibrary.un.org/record/644732?ln=en
-https://digitallibrary.un.org/record/615103?ln=en
-https://digitallibrary.un.org/record/284166?ln=en
-https://digitallibrary.un.org/record/284165?ln=en
-https://digitallibrary.un.org/record/284164?ln=en
-https://digitallibrary.un.org/record/284163?ln=en
-https://digitallibrary.un.org/record/284162?ln=en
-https://digitallibrary.un.org/record/284161?ln=en
-https://digitallibrary.un.org/record/284160?ln=en
-https://digitallibrary.un.org/record/283683?ln=en
-https://digitallibrary.un.org/record/283682?ln=en
-https://digitallibrary.un.org/record/283681?ln=en
-https://digitallibrary.un.org/record/283680?ln=en
-https://digitallibrary.un.org/record/283679?ln=en
-https://digitallibrary.un.org/record/283678?ln=en
-https://digitallibrary.un.org/record/283326?ln=en
-https://digitallibrary.un.org/record/283325?ln=en
-https://digitallibrary.un.org/record/283324?ln=en
-https://digitallibrary.un.org/record/283323?ln=en
-https://digitallibrary.un.org/record/3951470?ln=en
-https://digitallibrary.un.org/record/3894840?ln=en
-https://digitallibrary.un.org/record/3840131?ln=en
-https://digitallibrary.un.org/record/1656167?ln=en
-https://digitallibrary.un.org/record/1327541?ln=en
-https://digitallibrary.un.org/record/855169?ln=en
-https://digitallibrary.un.org/record/827222?ln=en
-https://digitallibrary.un.org/record/820071?ln=en
-https://digitallibrary.un.org/record/765034?ln=en
-https://digitallibrary.un.org/record/722846?ln=en
-https://digitallibrary.un.org/record/700327?ln=en
-https://digitallibrary.un.org/record/680440?ln=en
-https://digitallibrary.un.org/record/672037?ln=en
-https://digitallibrary.un.org/record/644480?ln=en
-https://digitallibrary.un.org/record/615162?ln=en
-https://digitallibrary.un.org/record/609197?ln=en
-https://digitallibrary.un.org/record/590303?ln=en
-https://digitallibrary.un.org/record/508875?ln=en
-https://digitallibrary.un.org/record/284953?ln=en
-https://digitallibrary.un.org/record/284609?ln=en
-https://digitallibrary.un.org/record/281133?ln=en
-https://digitallibrary.un.org/record/281132?ln=en
-https://digitallibrary.un.org/record/281131?ln=en
-https://digitallibrary.un.org/record/281130?ln=en
-https://digitallibrary.un.org/record/281129?ln=en
-https://digitallibrary.un.org/record/281128?ln=en
-https://digitallibrary.un.org/record/281127?ln=en
-https://digitallibrary.un.org/record/3895470?ln=en
-https://digitallibrary.un.org/record/1656642?ln=en
-https://digitallibrary.un.org/record/855192?ln=en
-https://digitallibrary.un.org/record/820133?ln=en
-https://digitallibrary.un.org/record/740244?ln=en
-https://digitallibrary.un.org/record/700739?ln=en
-https://digitallibrary.un.org/record/3951511?ln=en
-https://digitallibrary.un.org/record/3895365?ln=en
-https://digitallibrary.un.org/record/3840215?ln=en
-https://digitallibrary.un.org/record/1656644?ln=en
-https://digitallibrary.un.org/record/1327555?ln=en
-https://digitallibrary.un.org/record/404946?ln=en
-https://digitallibrary.un.org/record/282557?ln=en
-https://digitallibrary.un.org/record/281124?ln=en
-https://digitallibrary.un.org/record/279901?ln=en
-https://digitallibrary.un.org/record/279900?ln=en
-https://digitallibrary.un.org/record/278972?ln=en
-https://digitallibrary.un.org/record/476195?ln=en
-https://digitallibrary.un.org/record/426984?ln=en
-https://digitallibrary.un.org/record/285526?ln=en
-https://digitallibrary.un.org/record/284496?ln=en
-https://digitallibrary.un.org/record/3928346?ln=en
-https://digitallibrary.un.org/record/3902234?ln=en
-https://digitallibrary.un.org/record/3894511?ln=en
-https://digitallibrary.un.org/record/1655569?ln=en
-</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [51]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">     16</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> df_
+<span class="ansi-green-intense-fg ansi-bold">     18</span> <span style="color: rgb(95,135,135)">#create dataframe for each 5 year chunk</span>
+<span class="ansi-green-fg">---&gt; 19</span> df1983 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">chunkTodf</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">chunk1983</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     20</span> df1988 <span style="color: rgb(98,98,98)">=</span> chunkTodf(chunk1988)
+<span class="ansi-green-intense-fg ansi-bold">     21</span> df1993 <span style="color: rgb(98,98,98)">=</span> chunkTodf(chunk1993)
+
+Input <span class="ansi-green-fg">In [51]</span>, in <span class="ansi-cyan-fg">chunkTodf</span><span class="ansi-blue-fg">(chunk)</span>
+<span class="ansi-green-intense-fg ansi-bold">     13</span> df_ <span style="color: rgb(98,98,98)">=</span> df_<span style="color: rgb(98,98,98)">.</span>replace(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Y</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(98,98,98)">1</span>)<span style="color: rgb(98,98,98)">.</span>replace(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">N</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(98,98,98)">0</span>)<span style="color: rgb(98,98,98)">.</span>replace(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">A</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(98,98,98)">0</span>)<span style="color: rgb(98,98,98)">.</span>replace(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">NP</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(98,98,98)">0</span>)
+<span class="ansi-green-intense-fg ansi-bold">     14</span> <span style="color: rgb(95,135,135)"># df1983 = df1983.fillna(0)</span>
+<span class="ansi-green-fg">---&gt; 15</span> df_ <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">df1983</span><span style="color: rgb(98,98,98)">.</span>dropna()
+<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> df_
+
+<span class="ansi-red-fg">NameError</span>: name &#39;df1983&#39; is not defined</pre>
 </div>
 </div>
 
 </div>
 
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#1893 </span>
+<span class="n">tp1983_df</span> <span class="o">=</span> <span class="n">df1983</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="c1">#transposed df</span>
+<span class="n">tp1983_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">countries</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tp1983_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># mtrx1983 = [list(tp1983_df.columns), list(tp1983_df.columns)]</span>
+
+<span class="c1"># total n countries</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tp1983_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">i_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i_votes</span> <span class="o">=</span> <span class="n">tp1983_df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">tp1983_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">k_votes</span> <span class="o">=</span> <span class="n">tp1983_df</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1">#         if (i == k):</span>
+<span class="c1">#             i_list.append(0)</span>
+<span class="c1">#         else:</span>
+      
+<span class="c1">#     compare i to all other n-1 countries</span>
+<span class="c1">#     counter for same votes</span>
+
+<span class="c1">#     store in list, add to matrix column for country i</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [52]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)">#1893 </span>
+<span class="ansi-green-fg">----&gt; 2</span> tp1983_df <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">df1983</span><span style="color: rgb(98,98,98)">.</span>transpose() <span style="color: rgb(95,135,135)">#transposed df</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> tp1983_df<span style="color: rgb(98,98,98)">.</span>head()
+<span class="ansi-green-intense-fg ansi-bold">      5</span> countries <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">list</span>(tp1983_df<span style="color: rgb(98,98,98)">.</span>columns)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;df1983&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Exploratory-Data-Analysis"><strong>Exploratory Data Analysis</strong><a class="anchor-link" href="#Exploratory-Data-Analysis">&#182;</a></h3>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Hypothesis-Testing"><strong>Hypothesis Testing</strong><a class="anchor-link" href="#Hypothesis-Testing">&#182;</a></h3>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Communication-of-insights-attained"><strong>Communication of insights attained</strong><a class="anchor-link" href="#Communication-of-insights-attained">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Final-Notes:-Future-Refinements">Final Notes: Future Refinements<a class="anchor-link" href="#Final-Notes:-Future-Refinements">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>If we were to continue to refine the project, there are several things we'd like to do to either meet goals had initially and did not complete, or refine the project to fix an error we realized later in the project would pose an issue. Some of these may be listed above, but are restated here to provide a concise and compact list for future use.</p>
+<h3 id="Incomplete-Goals">Incomplete Goals<a class="anchor-link" href="#Incomplete-Goals">&#182;</a></h3><ul>
+<li>include abstentions and absenses in the error calculation for each plot to more accurately represent the accuracy of each plot</li>
+<li>do a frequency analysis on abstentions and absenses over time, so that we can determine which countries abstain or are absent the most, and later analyze any patterns we find</li>
+</ul>
+<h3 id="Errors">Errors<a class="anchor-link" href="#Errors">&#182;</a></h3><ul>
+<li>When determining which categories to use, we excluded all resolutions involving international peacekeeping, security, and weapons as most countries are likely to vote the same way and including this data may neutralize other data in some sense. However, some of the data we included in this category, and excluded from our dataset, are resolutions supporting or antagolizing certain countries in terms of war or international peackeeping situations, which may be relevant to our dataset and to our analysis. Although the resolution to this error is relatively simple, it would take several hours and the issue was found relatively late in the project cycle; we did not have enough time to execute the solution.</li>
+<li>instead of manually determining the categories we wanted to use, it would be nice to somehow figure out which committees each resolution originated from and use those as deterministic factors. This method would be more consistent than relying on our own knowledge and research of each resolution. </li>
+<li>in our code when reading in data, we assume that the file has already been created. To generalize this and make it accessible to anyone who wants to run this code from scratch, we would to make checks for this to see if the file has been created yet before reading it in. </li>
+</ul>
+
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div>
