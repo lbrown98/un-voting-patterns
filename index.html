@@ -14022,7 +14022,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -14032,6 +14032,8 @@ a.anchor-link {
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span> <span class="c1">#added should take out</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> <span class="c1">#added should take out</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
@@ -14239,7 +14241,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Make resolution_urls unique</span>
@@ -14315,7 +14317,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># index column / each row is a country and each following column is each resolution id. </span>
@@ -14501,13 +14503,13 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In order to analyze the data collected, we sorted the resolution by year and split them into 5 year sections. This way we can compare the changes in votes over the different 5 year chunks. In order to complete this part of the data science pipline, we needed to return to the data processing step and reorganize some of our data. This was done by first reading the csv files containing the two dataframes obtained earlier in scraping and datastorage section.</p>
+<p>In order to analyze the data collected, we sorted the resolution by year and split them into 5 year sections. This way we can compare the changes in votes over the different 5 year chunks. In order to complete this part of the data science pipline, we needed to return to the data processing step and reorganize some of our data. This was done by first reading the csv files containing the two dataframes obtained earlier in scraping and data storage portion.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;all_res_data.csv&#39;</span><span class="p">)</span>
@@ -14519,10 +14521,16 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The resolutions were sorted and seprated into 8 dataframes containing all the resolutions for a given 5 year period.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sort Res ID in order of year</span>
@@ -14555,7 +14563,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
@@ -14625,10 +14633,17 @@ a.anchor-link {
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Using these dataframes, an additional 8 dataframes for the votes each resolution was created for a given 5 year period. The function below selects the columns from the <code>votes_df</code> which is the dataframe of <code>all_voting_data.csv</code>. Columns (votes of a resolution) that correspond with a resolution in the 5 year period will be added to the dataframe for that period.</p>
+<p>In order to analyze the votes, we reprented Y (Yays) as 1, N (Nays) as 0, A (Abstain) as 0, and dropped the NaN countries in each 5 year period. Abstains were also represented as 0 because they don't show support for the resolution.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">chunkTodf</span><span class="p">(</span><span class="n">chunk</span><span class="p">):</span>
@@ -14642,7 +14657,6 @@ a.anchor-link {
         <span class="n">df_</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">col_count</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span> <span class="n">res</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">each_res_vote</span><span class="p">)</span>
         <span class="n">col_count</span> <span class="o">=</span> <span class="n">col_count</span> <span class="o">+</span> <span class="mi">1</span>
 
-<span class="c1">#   TODO: DECIDE HOW TO HANDLE NP ***** dropped NaN </span>
     <span class="n">df_</span> <span class="o">=</span> <span class="n">df_</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;NP&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="c1"># df1983 = df1983.fillna(0)</span>
     <span class="n">df_</span> <span class="o">=</span> <span class="n">df_</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -14665,10 +14679,203 @@ a.anchor-link {
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>A/RES/73/152</th>
+      <th>A/RES/73/225</th>
+      <th>A/RES/73/240</th>
+      <th>A/RES/73/224</th>
+      <th>A/RES/73/220</th>
+      <th>A/RES/73/132</th>
+      <th>A/RES/73/94</th>
+      <th>A/RES/73/92</th>
+      <th>A/RES/73/105</th>
+      <th>...</th>
+      <th>A/RES/76/77</th>
+      <th>A/RES/76/78</th>
+      <th>A/RES/76/190</th>
+      <th>A/RES/76/178</th>
+      <th>A/RES/76/199</th>
+      <th>A/RES/76/200</th>
+      <th>A/RES/76/191</th>
+      <th>A/RES/76/72</th>
+      <th>A/RES/76/192</th>
+      <th>A/RES/76/161</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>ALBANIA</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ALGERIA</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ANDORRA</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ANGOLA</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ANTIGUA AND BARBUDA</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 114 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>To better analyze our data, we created matrices that compared the similarity of votes between each country. The matrix has dimensions n x n for the n countries that existed in the 5 year period. The matrix is represented as a lower trangular matrix so there are no repeat values for a country pairing. Each cell contains the number of similar votes of the two countries. This was done by comparing each country to the other n - 1 countries. Everytime the pair had the same vote for a resolution, their score would be incremented.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create matrices for each chunk</span>
@@ -14681,16 +14888,19 @@ a.anchor-link {
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">i_list</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">ivotes</span> <span class="o">=</span> <span class="n">tp_df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">top_count</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">tp_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
             <span class="n">kvotes</span> <span class="o">=</span> <span class="n">tp_df</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">k</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span> <span class="ow">or</span><span class="p">(</span><span class="n">top_count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)):</span>
                 <span class="n">i_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">top_count</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">kvotes</span><span class="p">)):</span>
                     <span class="k">if</span> <span class="n">ivotes</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">kvotes</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
                         <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span><span class="o">+</span><span class="mi">1</span>
                 <span class="n">i_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+                
         <span class="n">mtrx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_list</span><span class="p">)</span>
     <span class="n">mtrxdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mtrx</span><span class="p">)</span>
     <span class="n">mtrxdf</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">countries</span> <span class="c1"># rename rows &amp; columns to countries</span>
@@ -14706,12 +14916,679 @@ a.anchor-link {
 <span class="n">mtrx2008</span> <span class="o">=</span> <span class="n">tomatrix</span><span class="p">(</span><span class="n">df2008</span><span class="p">)</span>
 <span class="n">mtrx2013</span> <span class="o">=</span> <span class="n">tomatrix</span><span class="p">(</span><span class="n">df2013</span><span class="p">)</span>
 <span class="n">mtrx2018</span> <span class="o">=</span> <span class="n">tomatrix</span><span class="p">(</span><span class="n">df2018</span><span class="p">)</span>
-<span class="n">mtrx2018</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">mtrx2018</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ALBANIA</th>
+      <th>ALGERIA</th>
+      <th>ANDORRA</th>
+      <th>ANGOLA</th>
+      <th>ANTIGUA AND BARBUDA</th>
+      <th>ARGENTINA</th>
+      <th>ARMENIA</th>
+      <th>AUSTRALIA</th>
+      <th>AUSTRIA</th>
+      <th>AZERBAIJAN</th>
+      <th>...</th>
+      <th>UNITED REPUBLIC OF TANZANIA</th>
+      <th>UNITED STATES</th>
+      <th>URUGUAY</th>
+      <th>UZBEKISTAN</th>
+      <th>VANUATU</th>
+      <th>VENEZUELA (BOLIVARIAN REPUBLIC OF)</th>
+      <th>VIET NAM</th>
+      <th>YEMEN</th>
+      <th>ZAMBIA</th>
+      <th>ZIMBABWE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ALBANIA</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ALGERIA</th>
+      <td>54</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ANDORRA</th>
+      <td>112</td>
+      <td>53</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ANGOLA</th>
+      <td>53</td>
+      <td>98</td>
+      <td>54</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ANTIGUA AND BARBUDA</th>
+      <td>59</td>
+      <td>92</td>
+      <td>60</td>
+      <td>97</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ARGENTINA</th>
+      <td>75</td>
+      <td>92</td>
+      <td>74</td>
+      <td>87</td>
+      <td>91</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ARMENIA</th>
+      <td>78</td>
+      <td>85</td>
+      <td>77</td>
+      <td>82</td>
+      <td>80</td>
+      <td>90</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AUSTRALIA</th>
+      <td>90</td>
+      <td>39</td>
+      <td>89</td>
+      <td>40</td>
+      <td>44</td>
+      <td>52</td>
+      <td>57</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AUSTRIA</th>
+      <td>113</td>
+      <td>54</td>
+      <td>112</td>
+      <td>53</td>
+      <td>59</td>
+      <td>75</td>
+      <td>78</td>
+      <td>90</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>AZERBAIJAN</th>
+      <td>59</td>
+      <td>106</td>
+      <td>58</td>
+      <td>99</td>
+      <td>97</td>
+      <td>97</td>
+      <td>90</td>
+      <td>44</td>
+      <td>59</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BAHAMAS</th>
+      <td>66</td>
+      <td>93</td>
+      <td>65</td>
+      <td>88</td>
+      <td>100</td>
+      <td>100</td>
+      <td>81</td>
+      <td>53</td>
+      <td>66</td>
+      <td>98</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BAHRAIN</th>
+      <td>62</td>
+      <td>101</td>
+      <td>61</td>
+      <td>88</td>
+      <td>92</td>
+      <td>100</td>
+      <td>77</td>
+      <td>47</td>
+      <td>62</td>
+      <td>98</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BANGLADESH</th>
+      <td>55</td>
+      <td>108</td>
+      <td>54</td>
+      <td>97</td>
+      <td>95</td>
+      <td>93</td>
+      <td>86</td>
+      <td>40</td>
+      <td>55</td>
+      <td>107</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BARBADOS</th>
+      <td>69</td>
+      <td>92</td>
+      <td>68</td>
+      <td>85</td>
+      <td>97</td>
+      <td>99</td>
+      <td>78</td>
+      <td>54</td>
+      <td>69</td>
+      <td>97</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BELARUS</th>
+      <td>55</td>
+      <td>96</td>
+      <td>56</td>
+      <td>97</td>
+      <td>95</td>
+      <td>85</td>
+      <td>86</td>
+      <td>40</td>
+      <td>55</td>
+      <td>99</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BELGIUM</th>
+      <td>112</td>
+      <td>53</td>
+      <td>111</td>
+      <td>52</td>
+      <td>58</td>
+      <td>74</td>
+      <td>77</td>
+      <td>89</td>
+      <td>112</td>
+      <td>58</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BELIZE</th>
+      <td>62</td>
+      <td>95</td>
+      <td>63</td>
+      <td>92</td>
+      <td>104</td>
+      <td>92</td>
+      <td>81</td>
+      <td>47</td>
+      <td>62</td>
+      <td>100</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BENIN</th>
+      <td>53</td>
+      <td>82</td>
+      <td>54</td>
+      <td>89</td>
+      <td>89</td>
+      <td>85</td>
+      <td>72</td>
+      <td>44</td>
+      <td>53</td>
+      <td>85</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BHUTAN</th>
+      <td>61</td>
+      <td>96</td>
+      <td>62</td>
+      <td>99</td>
+      <td>99</td>
+      <td>91</td>
+      <td>84</td>
+      <td>46</td>
+      <td>61</td>
+      <td>103</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BOLIVIA (PLURINATIONAL STATE OF)</th>
+      <td>58</td>
+      <td>103</td>
+      <td>59</td>
+      <td>102</td>
+      <td>100</td>
+      <td>96</td>
+      <td>89</td>
+      <td>43</td>
+      <td>58</td>
+      <td>106</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BOSNIA AND HERZEGOVINA</th>
+      <td>98</td>
+      <td>69</td>
+      <td>97</td>
+      <td>66</td>
+      <td>66</td>
+      <td>82</td>
+      <td>91</td>
+      <td>75</td>
+      <td>98</td>
+      <td>74</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BOTSWANA</th>
+      <td>64</td>
+      <td>85</td>
+      <td>65</td>
+      <td>82</td>
+      <td>88</td>
+      <td>94</td>
+      <td>71</td>
+      <td>51</td>
+      <td>64</td>
+      <td>90</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BRAZIL</th>
+      <td>84</td>
+      <td>77</td>
+      <td>83</td>
+      <td>74</td>
+      <td>76</td>
+      <td>82</td>
+      <td>79</td>
+      <td>75</td>
+      <td>84</td>
+      <td>82</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BRUNEI DARUSSALAM</th>
+      <td>53</td>
+      <td>110</td>
+      <td>52</td>
+      <td>95</td>
+      <td>93</td>
+      <td>91</td>
+      <td>84</td>
+      <td>38</td>
+      <td>53</td>
+      <td>105</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>BULGARIA</th>
+      <td>112</td>
+      <td>53</td>
+      <td>111</td>
+      <td>52</td>
+      <td>58</td>
+      <td>74</td>
+      <td>77</td>
+      <td>89</td>
+      <td>112</td>
+      <td>58</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>25 rows × 191 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -14719,20 +15596,12 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Exploratory-Data-Analysis"><strong>Exploratory Data Analysis</strong><a class="anchor-link" href="#Exploratory-Data-Analysis">&#182;</a></h3>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Initilly, the form of analysis we wanted to perform was K-means clustering. The data wrangling in order to do this was unsuccessful, the SKLearn library did not produce satisfactory clustering. So we wanted to visualize the data in the form of matrices where the number of similar votes would be seen. The higher the cell value, the higher the similarity of voting for the two countries.</p>
 
-     </div>
 </div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
